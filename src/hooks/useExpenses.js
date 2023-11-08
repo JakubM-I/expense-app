@@ -17,6 +17,7 @@ export const useExpenses = () => {
         setExpList(expList => [
             ...expList,
             {
+                id: expList.length ? expList[expList.length - 1].id + 1 : 1,
                 name: name,
                 date: date,
                 value: value,
@@ -24,5 +25,9 @@ export const useExpenses = () => {
         ]);
     };
 
-    return [addNewExpense];
+    const deleteExpense = (id) => {
+        setExpList(expList => expList.filter(exp => exp.id !== id));
+    };
+
+    return [expList, addNewExpense, deleteExpense];
 };
