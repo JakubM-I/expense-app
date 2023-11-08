@@ -1,24 +1,11 @@
 import { useState } from "react";
 import Form from "../Form";
 import { StyledMain } from "./styled";
+import { useExpenses } from "../hooks/useExpenses";
 
 const Main = () => {
 
-    const [expList, setExpList] = useState([]);
-
-    console.log(expList);
-
-    const addNewExpense = (name, date, value) => {
-        setExpList(expList => [
-            ...expList,
-            {
-                name: name,
-                date: date,
-                value: value,
-            }
-        ]);
-    };
-
+    const [addNewExpense] = useExpenses();
 
     return (
         <StyledMain>
