@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { StyledForm, StyledFieldset, StyledFormItem, StyledButton } from "./styled";
 
 const Form = ({addNewExpense}) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
+
+    const inputRef = useRef();
 
     const FormSubmit = (e) => {
         e.preventDefault();
@@ -14,6 +16,11 @@ const Form = ({addNewExpense}) => {
         }
 
         addNewExpense(name.trim(), date, value);
+        inputRef.current.focus();
+        setName("");
+        setDate("");
+        setValue("");
+
     }
 
     return (
@@ -26,6 +33,7 @@ const Form = ({addNewExpense}) => {
                     <input
                         type="text"
                         id="name"
+                        ref={inputRef}
                         value={name}
                         onChange={({target}) => setName(target.value)}
                     />
