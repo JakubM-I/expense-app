@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { nanoid } from "nanoid";
 
 export const useExpenses = () => {
 
@@ -17,7 +18,7 @@ export const useExpenses = () => {
         setExpList(expList => [
             ...expList,
             {
-                id: expList.length ? expList[expList.length - 1].id + 1 : 1,
+                id: nanoid(),
                 name: name,
                 date: date,
                 value: value,
