@@ -1,10 +1,12 @@
 import { useState, useRef } from "react";
 import { StyledForm, StyledFieldset, StyledFormItem, StyledButton } from "./styled";
+import { categories } from "../utilities/categories";
 
 const Form = ({addNewExpense}) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
+    const [category, setCategory] = useState("")
 
     const inputRef = useRef();
 
@@ -15,7 +17,7 @@ const Form = ({addNewExpense}) => {
             return
         }
 
-        addNewExpense(name.trim(), date, value);
+        addNewExpense(name.trim(), date, value, category);
         inputRef.current.focus();
         setName("");
         setDate("");
@@ -56,6 +58,18 @@ const Form = ({addNewExpense}) => {
                         value={value}
                         onChange={({target}) => setValue(target.value)}
                     />
+                </StyledFormItem>
+                <StyledFormItem>
+                    <label htmlFor="category">Kategoria</label>
+                    <select
+                        id="category"
+                        value={category}
+                        onChange={({target}) => setCategory(target.value)}
+                    >
+                        {categories.map(cat => (
+                            <option key={cat.id} value={cat.name.toLowerCase()}>{cat.name}</option>
+                        ))}
+                    </select>
                 </StyledFormItem>
             </StyledFieldset>
             <StyledButton>Zapisz</StyledButton>
