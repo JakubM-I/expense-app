@@ -22,7 +22,7 @@ const Form = ({addNewExpense}) => {
         setName("");
         setDate("");
         setValue("");
-
+        setCategory("");
     }
 
     return (

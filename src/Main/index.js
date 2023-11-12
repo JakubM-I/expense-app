@@ -1,26 +1,40 @@
 import { useState } from "react";
 import Form from "../Form";
 import Expenses from "../Expenses";
-import { StyledMain } from "./styled";
+import EditForm from "../EditForm";
+import { StyledMain, StyledListWrapper } from "./styled";
 import { useExpenses } from "../hooks/useExpenses";
+import { useEditItem } from "../hooks/useEditItem";
 
 const Main = () => {
 
-    const [expList, addNewExpense, deleteExpense] = useExpenses();
+    const [expList, addNewExpense, deleteExpense, saveEditExpense] = useExpenses();
+    const [editItem, editExpense, isEdit, setIsEdit] = useEditItem();
 
     return (
         <StyledMain>
-            <Form 
+            <Form
                 addNewExpense={addNewExpense}
             />
-            <Expenses 
-                expList={expList}
-                deleteExpense={deleteExpense}
-            />
+            <StyledListWrapper>
+                <Expenses
+                    expList={expList}
+                    deleteExpense={deleteExpense}
+                    editExpense={editExpense}
+                />
+                <EditForm
+                    editItem={editItem}
+                    saveEditExpense={saveEditExpense}
+                    isEdit={isEdit}
+                    setIsEdit={setIsEdit}
+                // expList={expList}
+                />
+            </StyledListWrapper>
+
+
         </StyledMain>
 
     );
 };
-
 
 export default Main;

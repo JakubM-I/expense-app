@@ -1,11 +1,14 @@
 import { nanoid } from "nanoid";
+import EditForm from "../EditForm";
+import { useState } from "react";
 
-const Expenses = ({ expList, deleteExpense }) => {
+const Expenses = ({ expList, deleteExpense, editExpense}) => {
+
     const allDatesList = expList.map(exp => ({ id: nanoid(), date: exp.date }))
 
     const datesList = [...new Map(allDatesList.map((m) => [m.date, m])).values()];
 
-    console.log(datesList);
+    // console.log(datesList);
 
     return (
         <div>
@@ -22,7 +25,9 @@ const Expenses = ({ expList, deleteExpense }) => {
                                         {exp.name}{" "}
                                         {exp.date}{" "}
                                         {exp.value} zł{" "}
+                                        {exp.category}{" "}
                                         <button onClick={() => deleteExpense(exp.id)} >Usuń</button>
+                                        <button onClick={() => editExpense(exp.id)}>Edit</button>
                                     </li>
                                 ))}
                             </ul>
