@@ -1,9 +1,9 @@
 import { nanoid } from "nanoid";
+import { IconContext } from "react-icons";
 import { FaRegTrashCan } from "react-icons/fa6"
 import { FaRegEdit } from "react-icons/fa"
-import { StyledDateList, StyledDayList, StyledDayListItem, StyledWrapper } from "./styled";
-import EditForm from "../EditForm";
-import { useState } from "react";
+import { StyledDateList, StyledDayList, StyledDayListItem, StyledWrapper, StyledCategoryItem, StyledItemDesc, StyledValueItem, StyledDeleteButton, StyledEditButton, StyledCommentsItem } from "./styled";
+
 
 const Expenses = ({ expList, deleteExpense, editExpense }) => {
 
@@ -26,21 +26,36 @@ const Expenses = ({ expList, deleteExpense, editExpense }) => {
                                 {expList.filter(exp => exp.date === date.date).map(exp => (
                                     <StyledDayListItem key={exp.id}>
                                         <StyledWrapper >
-                                            {exp.category}{" "}
-                                            Uwagi:{" "}
-                                            {exp.name}{" "}
+                                            <StyledItemDesc>
+                                                <StyledCategoryItem>
+                                                    {exp.category}
+                                                </StyledCategoryItem>
+                                                <StyledCommentsItem>
+                                                    Uwagi:{" "}
+                                                    {exp.name}{" "}
+                                                </StyledCommentsItem>
+                                            </StyledItemDesc>
+
+
                                             {/* {exp.date}{" "} */}
-                                            {exp.value} zł{" "}
+                                            <StyledValueItem>
+                                                {exp.value} zł
+                                            </StyledValueItem>
+
                                         </StyledWrapper>
 
 
                                         <div>
-                                            <button onClick={() => editExpense(exp.id)}>
-                                                <FaRegEdit />
-                                            </button>
-                                            <button onClick={() => deleteExpense(exp.id)}>
-                                                <FaRegTrashCan />
-                                            </button>
+                                            <IconContext.Provider value={{ style: { color: "#fff" } }}>
+                                                <StyledEditButton 
+                                                    onClick={() => editExpense(exp.id)}>
+                                                    <FaRegEdit />
+                                                </StyledEditButton>
+                                                <StyledDeleteButton 
+                                                    onClick={() => deleteExpense(exp.id)}>
+                                                    <FaRegTrashCan />
+                                                </StyledDeleteButton>
+                                            </IconContext.Provider>
                                         </div>
                                     </StyledDayListItem>
                                 ))}
