@@ -3,6 +3,12 @@ import styled from 'styled-components';
 export const StyledForm = styled.form`
     width: calc(100% - 4em);
     margin-inline: auto;
+    margin-block-start: 15px;
+    margin-block-end: 35px;
+    padding-block-end: 15px;
+    border-bottom: 1px solid #000;
+    display: grid;
+    grid-template-columns: 1fr 100px;
 `
 export const StyledFieldset = styled.fieldset`
     display: flex;
@@ -20,10 +26,14 @@ export const StyledFormItem = styled.div`
 
 export const StyledButton = styled.button`
     padding: 8px 20px;
-    border-radius: 15px;
-    position: relative;
+    border-radius: 8px;
+    border: none;
+    background: #36db45;
+    align-self: center;
+    justify-self: center;
+    /* position: relative;
     left: 50%;
-    transform: translateX(-50%) ;
+    transform: translateX(-50%); */
     cursor: pointer;
 
     &:hover{

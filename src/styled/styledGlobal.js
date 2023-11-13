@@ -10,6 +10,10 @@ const GlobalStyled = createGlobalStyle`
     *, ::after, ::before{
         box-sizing: inherit;
     }
+
+    ul{
+        padding: 0;
+    }
 `;
 
 export default GlobalStyled;

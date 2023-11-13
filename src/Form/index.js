@@ -1,8 +1,8 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { StyledForm, StyledFieldset, StyledFormItem, StyledButton } from "./styled";
 import { categories } from "../utilities/categories";
 
-const Form = ({addNewExpense}) => {
+const Form = ({ addNewExpense }) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
@@ -10,10 +10,20 @@ const Form = ({addNewExpense}) => {
 
     const inputRef = useRef();
 
+    useEffect(() => {
+        const date = new Date()
+        const currentDate = [
+            date.getFullYear(),
+            date.getMonth() + 1,
+            date.getDate(),
+        ].join("-")
+        setDate(currentDate)
+    }, [])
+
     const FormSubmit = (e) => {
         e.preventDefault();
 
-        if(!name.trim()){
+        if (!name.trim()) {
             return
         }
 
@@ -26,37 +36,36 @@ const Form = ({addNewExpense}) => {
     }
 
     return (
-        <StyledForm 
+        <StyledForm
             onSubmit={FormSubmit}
         >
             <StyledFieldset>
-                <StyledFormItem>
-                    <label htmlFor="name" >Nazwa</label>
-                    <input
-                        type="text"
-                        id="name"
-                        ref={inputRef}
-                        value={name}
-                        onChange={({target}) => setName(target.value)}
-                    />
-                </StyledFormItem>
-
-                <StyledFormItem>
-                    <label htmlFor="date">Data</label>
-                    <input
-                        type="date"
-                        id="date"
-                        value={date}
-                        onChange={({target}) => setDate(target.value)}
-                    />
-                </StyledFormItem>
                 <StyledFormItem>
                     <label htmlFor="value">Kwota</label>
                     <input
                         type="number"
                         id="value"
                         value={value}
-                        onChange={({target}) => setValue(target.value)}
+                        onChange={({ target }) => setValue(target.value)}
+                    />
+                </StyledFormItem>
+                <StyledFormItem>
+                    <label htmlFor="date">Data</label>
+                    <input
+                        type="date"
+                        id="date"
+                        value={date}
+                        onChange={({ target }) => setDate(target.value)}
+                    />
+                </StyledFormItem>
+                <StyledFormItem>
+                    <label htmlFor="name" >Uwagi</label>
+                    <input
+                        type="text"
+                        id="name"
+                        ref={inputRef}
+                        value={name}
+                        onChange={({ target }) => setName(target.value)}
                     />
                 </StyledFormItem>
                 <StyledFormItem>
@@ -64,7 +73,7 @@ const Form = ({addNewExpense}) => {
                     <select
                         id="category"
                         value={category}
-                        onChange={({target}) => setCategory(target.value)}
+                        onChange={({ target }) => setCategory(target.value)}
                     >
                         {categories.map(cat => (
                             <option key={cat.id} value={cat.name.toLowerCase()}>{cat.name}</option>

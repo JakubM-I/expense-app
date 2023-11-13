@@ -1,8 +1,11 @@
 import { nanoid } from "nanoid";
+import { FaRegTrashCan } from "react-icons/fa6"
+import { FaRegEdit } from "react-icons/fa"
+import { StyledDateList, StyledDayList, StyledDayListItem, StyledWrapper } from "./styled";
 import EditForm from "../EditForm";
 import { useState } from "react";
 
-const Expenses = ({ expList, deleteExpense, editExpense}) => {
+const Expenses = ({ expList, deleteExpense, editExpense }) => {
 
     const allDatesList = expList.map(exp => ({ id: nanoid(), date: exp.date }))
 
@@ -13,30 +16,43 @@ const Expenses = ({ expList, deleteExpense, editExpense}) => {
     return (
         <div>
             <h2>Lista wydatków</h2>
-            <ul>
+            <StyledDateList>
                 {[...datesList]
                     .sort((a, b) => new Date(b.date) - new Date(a.date))
                     .map(date => (
                         <li key={date.id}>
                             <h3 >{date.date}</h3>
-                            <ul>
+                            <StyledDayList>
                                 {expList.filter(exp => exp.date === date.date).map(exp => (
-                                    <li key={exp.id}>
-                                        {exp.name}{" "}
-                                        {exp.date}{" "}
-                                        {exp.value} zł{" "}
-                                        {exp.category}{" "}
-                                        <button onClick={() => deleteExpense(exp.id)} >Usuń</button>
-                                        <button onClick={() => editExpense(exp.id)}>Edit</button>
-                                    </li>
+                                    <StyledDayListItem key={exp.id}>
+                                        <StyledWrapper >
+                                            {exp.category}{" "}
+                                            Uwagi:{" "}
+                                            {exp.name}{" "}
+                                            {/* {exp.date}{" "} */}
+                                            {exp.value} zł{" "}
+                                        </StyledWrapper>
+
+
+                                        <div>
+                                            <button onClick={() => editExpense(exp.id)}>
+                                                <FaRegEdit />
+                                            </button>
+                                            <button onClick={() => deleteExpense(exp.id)}>
+                                                <FaRegTrashCan />
+                                            </button>
+                                        </div>
+                                    </StyledDayListItem>
                                 ))}
-                            </ul>
+                            </StyledDayList>
                         </li>
                     ))
                 }
-            </ul>
+            </StyledDateList>
         </div>
     );
 };
 
 export default Expenses;
+
+
