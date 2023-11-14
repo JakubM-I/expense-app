@@ -2,7 +2,7 @@ import { nanoid } from "nanoid";
 import { IconContext } from "react-icons";
 import { FaRegTrashCan } from "react-icons/fa6"
 import { FaRegEdit } from "react-icons/fa"
-import { StyledDateList, StyledDayList, StyledDayListItem, StyledWrapper, StyledCategoryItem, StyledItemDesc, StyledValueItem, StyledDeleteButton, StyledEditButton, StyledCommentsItem } from "./styled";
+import { StyledExpenses, StyledDateList, StyledDayList, StyledDayListItem, StyledWrapper, StyledCategoryItem, StyledItemDesc, StyledValueItem, StyledDeleteButton, StyledEditButton, StyledCommentsItem } from "./styled";
 
 
 const Expenses = ({ expList, deleteExpense, editExpense }) => {
@@ -14,7 +14,7 @@ const Expenses = ({ expList, deleteExpense, editExpense }) => {
     // console.log(datesList);
 
     return (
-        <div>
+        <StyledExpenses>
             <h2>Lista wydatków</h2>
             <StyledDateList>
                 {[...datesList]
@@ -64,7 +64,7 @@ const Expenses = ({ expList, deleteExpense, editExpense }) => {
                     ))
                 }
             </StyledDateList>
-        </div>
+        </StyledExpenses>
     );
 };
 

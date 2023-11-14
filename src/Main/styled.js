@@ -7,6 +7,7 @@ export const StyledMain = styled.div`
 `
 
 export const StyledListWrapper = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    /* display: grid; */
+    /* grid-template-columns: repeat(2, 1fr); */
+    position: relative;
 `

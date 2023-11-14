@@ -28,7 +28,7 @@ export const StyledButton = styled.button`
     padding: 8px 20px;
     border-radius: 8px;
     border: none;
-    background: #36db45;
+    background: #24f34a;
     align-self: center;
     justify-self: center;
     /* position: relative;

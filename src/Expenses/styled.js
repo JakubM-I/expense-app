@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
+export const StyledExpenses = styled.div`
+    width: calc(100% - 4em);
+    margin-inline: auto;
+`
+
 export const StyledDateList = styled.ul`
     list-style: none;
-    padding-inline: 10px;
+    padding-inline: 10px;    
 `
 
 export const StyledDayList = styled.ul`

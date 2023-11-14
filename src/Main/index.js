@@ -22,7 +22,7 @@ const Main = () => {
                     deleteExpense={deleteExpense}
                     editExpense={editExpense}
                 />
-                <EditForm
+                <EditForm 
                     editItem={editItem}
                     saveEditExpense={saveEditExpense}
                     isEdit={isEdit}
