@@ -6,7 +6,7 @@ export const StyledEditModal = styled.div`
     left: 50%;
     transform: translateX(-50%);
     transition: left 0.8s ease-in;
-    background: #fff;
+    background: #ebedf7;
     padding: 20px;
     border-radius: 8px;
 
@@ -41,6 +41,7 @@ export const StyledValueWrapper = styled.div`
 export const StyledValueInput = styled.input`
     text-align: center;
     border: none;
+    background: #ebedf7;
     font-size: 23px;
     /* margin-block-end: 10px; */
     width: 130px;
@@ -72,6 +73,16 @@ export const StyledWrapper = styled.div`
 
     input{
         padding: 2px;
+        background: #ebedf7;
+        border: none;
+        border-bottom: 1px solid #4A3A7A;
+    }
+
+    select{
+        padding: 2px;
+        background: #ebedf7;
+        border: none;
+        border-bottom: 1px solid #4A3A7A;
     }
 `
 
