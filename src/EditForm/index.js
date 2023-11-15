@@ -6,7 +6,12 @@ import {
     StyledValueWrapper, 
     StyledValueInput, 
     StyledValueLabel,
-    StyledButtonWrapper 
+    StyledDetailsWrapper,
+    StyledWrapper,
+    StyledNotesWrapper,
+    StyledButtonWrapper,
+    StyledButton,
+    StyledCancelButton 
     } from "./styled";
 
 const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
@@ -47,16 +52,16 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
                             />
                             <StyledValueLabel>PLN</StyledValueLabel>
                         </StyledValueWrapper>
-                        <div>
-                            <span>
+                        <StyledDetailsWrapper>
+                            <StyledWrapper>
                                 <label htmlFor="date">Data</label>
                                 <input id="date"
                                     type="date"
                                     value={date}
                                     onChange={({ target }) => setDate(target.value)}
                                 />
-                            </span>
-                            <span>
+                            </StyledWrapper>
+                            <StyledWrapper>
                                 <label htmlFor="category">Kategoria</label>
                                 <select
                                     id="category"
@@ -67,19 +72,19 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
                                         <option key={cat.id} value={cat.name.toLowerCase()}>{cat.name}</option>
                                     ))}
                                 </select>
-                            </span>
-                        </div>
-                        <span>
-                            <label htmlFor="name">Nazwa</label>
+                            </StyledWrapper>
+                        </StyledDetailsWrapper>
+                        <StyledNotesWrapper>
+                            <label htmlFor="name">Uwagi</label>
                             <input id="name"
                                 value={name}
                                 onChange={({ target }) => setName(target.value)}
                             />
-                        </span>
+                        </StyledNotesWrapper>
                     </StyledInputsWrapper>
                     <StyledButtonWrapper>
-                    <button>Zapisz</button>
-                    <button onClick={() => cancelEdit()}>Anuluj</button>
+                    <StyledButton>Zapisz</StyledButton>
+                    <StyledCancelButton onClick={() => cancelEdit()}>Anuluj</StyledCancelButton>
                     </StyledButtonWrapper>
                 </form>
             </StyledEditModal>
