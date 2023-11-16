@@ -2,6 +2,7 @@ import { useState } from "react";
 import Form from "../Form";
 import Expenses from "../Expenses";
 import EditForm from "../EditForm";
+import Modal from "../Modal";
 import { StyledMain, StyledListWrapper } from "./styled";
 import { useExpenses } from "../hooks/useExpenses";
 import { useEditItem } from "../hooks/useEditItem";
@@ -22,18 +23,17 @@ const Main = () => {
                     deleteExpense={deleteExpense}
                     editExpense={editExpense}
                 />
-                <EditForm 
-                    editItem={editItem}
-                    saveEditExpense={saveEditExpense}
-                    isEdit={isEdit}
-                    setIsEdit={setIsEdit}
-                // expList={expList}
-                />
+                <Modal isEdit={isEdit} onCLose={() => setIsEdit(false)}>
+                    <EditForm
+                        editItem={editItem}
+                        saveEditExpense={saveEditExpense}
+                        isEdit={isEdit}
+                        setIsEdit={setIsEdit}
+                    // expList={expList}
+                    />
+                </Modal>
             </StyledListWrapper>
-
-
         </StyledMain>
-
     );
 };
 

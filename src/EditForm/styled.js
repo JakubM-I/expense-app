@@ -1,27 +1,26 @@
 import styled, { css } from 'styled-components';
 
 export const StyledEditModal = styled.div`
-    position: absolute;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: left 0.8s ease-in;
+    /* position: absolute; */
+    /* top: 25%; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    transition: all  0.5s linear;
     background: ${({theme}) => theme.colors.formBackround};
     padding: 20px;
     border-radius: 8px;
     -webkit-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
--moz-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
+    opacity: 0;
+    scale: 125%;
 
-    /* ${({ isEdit }) => isEdit && css`
-        left: 50%;
-        transform: translateX(-50%);
-    `} */
+    ${({isEdit}) => isEdit && css`
+        opacity: 1;
+        scale: 100%;
+    `}
 
-    /* ${({ isEdit }) => !isEdit && css`
-        left: -100px;
-        transform: translateX(0);
-    `} */
+
 `
 
 export const StyledInputsWrapper = styled.div`

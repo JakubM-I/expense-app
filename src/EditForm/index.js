@@ -40,8 +40,8 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
     };
 
     return (
-        isEdit && (
-            <StyledEditModal>
+        // isEdit && (
+            <StyledEditModal isEdit={isEdit}>
                 <form onSubmit={submit} >
                     <StyledInputsWrapper>
                         <StyledValueWrapper>
@@ -88,7 +88,7 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
                     </StyledButtonWrapper>
                 </form>
             </StyledEditModal>
-        )
+        // )
     )
 };
 
