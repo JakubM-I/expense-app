@@ -59,16 +59,6 @@ const Form = ({ addNewExpense }) => {
                     />
                 </StyledFormItem>
                 <StyledFormItem>
-                    <label htmlFor="name" >Uwagi</label>
-                    <input
-                        type="text"
-                        id="name"
-                        ref={inputRef}
-                        value={name}
-                        onChange={({ target }) => setName(target.value)}
-                    />
-                </StyledFormItem>
-                <StyledFormItem>
                     <label htmlFor="category">Kategoria</label>
                     <select
                         id="category"
@@ -80,6 +70,17 @@ const Form = ({ addNewExpense }) => {
                         ))}
                     </select>
                 </StyledFormItem>
+                <StyledFormItem>
+                    <label htmlFor="name" >Uwagi</label>
+                    <input
+                        type="text"
+                        id="name"
+                        ref={inputRef}
+                        value={name}
+                        onChange={({ target }) => setName(target.value)}
+                    />
+                </StyledFormItem>
+
             </StyledFieldset>
             <StyledButton>Zapisz</StyledButton>
         </StyledForm>

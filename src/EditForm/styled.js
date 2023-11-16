@@ -6,9 +6,12 @@ export const StyledEditModal = styled.div`
     left: 50%;
     transform: translateX(-50%);
     transition: left 0.8s ease-in;
-    background: #ebedf7;
+    background: ${({theme}) => theme.colors.formBackround};
     padding: 20px;
     border-radius: 8px;
+    -webkit-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
+-moz-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
+box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
 
     /* ${({ isEdit }) => isEdit && css`
         left: 50%;
@@ -34,14 +37,14 @@ export const StyledValueWrapper = styled.div`
     justify-content: center;
     gap: 5px;
     align-items: center;
-    border-bottom: 2px solid #4A3A7A;
+    border-bottom: 2px solid ${({theme}) => theme.colors.mainDarkColor};
     width: fit-content;
     margin-block-end: 15px;
 `
 export const StyledValueInput = styled.input`
     text-align: center;
     border: none;
-    background: #ebedf7;
+    background: ${({theme}) => theme.colors.formBackround};
     font-size: 23px;
     /* margin-block-end: 10px; */
     width: 130px;
@@ -73,16 +76,16 @@ export const StyledWrapper = styled.div`
 
     input{
         padding: 2px;
-        background: #ebedf7;
+        background: ${({theme}) => theme.colors.formBackround};
         border: none;
-        border-bottom: 1px solid #4A3A7A;
+        border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
     }
 
     select{
         padding: 2px;
-        background: #ebedf7;
+        background: ${({theme}) => theme.colors.formBackround};
         border: none;
-        border-bottom: 1px solid #4A3A7A;
+        border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
     }
 `
 
@@ -93,7 +96,7 @@ export const StyledNotesWrapper = styled(StyledWrapper)`
         width: 100%;
         padding: 3px;
         border: none;
-        border-bottom: 1px solid #4A3A7A;
+        border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
     }
 `
 
@@ -105,12 +108,12 @@ export const StyledButtonWrapper = styled.div`
 `
 
 export const StyledButton = styled.button`
-    background: #4A3A7A;
-    border: 1px solid #4A3A7A;
+    background: ${({theme}) => theme.colors.mainDarkColor};
+    border: 1px solid ${({theme}) => theme.colors.mainDarkColor};
     border-radius: 5px;
     padding: 5px 15px;
     color: #fff;
-    transition: all 0.3s ease-in;
+    transition: all 0.4s ease-in;
     cursor: pointer;
 
     &:hover{
@@ -121,5 +124,5 @@ export const StyledButton = styled.button`
 
 export const StyledCancelButton = styled(StyledButton)`
     background: #fff;
-    color: #4A3A7A;
+    color: ${({theme}) => theme.colors.mainDarkColor};
 `

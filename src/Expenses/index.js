@@ -11,8 +11,6 @@ const Expenses = ({ expList, deleteExpense, editExpense }) => {
 
     const datesList = [...new Map(allDatesList.map((m) => [m.date, m])).values()];
 
-    // console.log(datesList);
-
     return (
         <StyledExpenses>
             <h2>Lista wydatków</h2>
@@ -23,7 +21,9 @@ const Expenses = ({ expList, deleteExpense, editExpense }) => {
                         <li key={date.id}>
                             <h3 >{date.date}</h3>
                             <StyledDayList>
-                                {expList.filter(exp => exp.date === date.date).map(exp => (
+                                {expList
+                                .filter(exp => exp.date === date.date)
+                                .map(exp => (
                                     <StyledDayListItem key={exp.id}>
                                         <StyledWrapper >
                                             <StyledItemDesc>
@@ -35,18 +35,14 @@ const Expenses = ({ expList, deleteExpense, editExpense }) => {
                                                     {exp.name}{" "}
                                                 </StyledCommentsItem>
                                             </StyledItemDesc>
-
-
                                             {/* {exp.date}{" "} */}
                                             <StyledValueItem>
                                                 {exp.value} zł
                                             </StyledValueItem>
-
                                         </StyledWrapper>
-
-
                                         <div>
-                                            <IconContext.Provider value={{ style: { color: "#fff" } }}>
+                                            <IconContext.Provider 
+                                                value={{ style: { color: "#fff" } }}>
                                                 <StyledEditButton 
                                                     onClick={() => editExpense(exp.id)}>
                                                     <FaRegEdit />

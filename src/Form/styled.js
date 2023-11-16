@@ -5,10 +5,15 @@ export const StyledForm = styled.form`
     margin-inline: auto;
     margin-block-start: 15px;
     margin-block-end: 35px;
-    padding-block-end: 15px;
-    border-bottom: 1px solid #000;
+    padding: 15px 10px;
+    /* border-bottom: 1px solid #000; */
     display: grid;
     grid-template-columns: 1fr 100px;
+    background: ${({theme}) => theme.colors.formBackround};
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
 `
 export const StyledFieldset = styled.fieldset`
     display: flex;
@@ -22,21 +27,41 @@ export const StyledFormItem = styled.div`
     flex-direction: column;
     align-items: flex-start;
     flex: 0 1 250px;
+
+    label{
+        margin-block-end: 3px;
+        font-size: 14px;
+    }
+
+    input{
+        padding: 2px;
+        background: ${({theme}) => theme.colors.formBackround};
+        border: none;
+        border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+    }
+
+    select{
+        padding: 2px;
+        background: ${({theme}) => theme.colors.formBackround};
+        border: none;
+        border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+    }
 `
 
 export const StyledButton = styled.button`
-    padding: 8px 20px;
-    border-radius: 8px;
-    border: none;
-    background: #24f34a;
+background: ${({theme}) => theme.colors.mainDarkColor};
+    border: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+    border-radius: 5px;
+    padding: 5px 15px;
+    color: #fff;
+    transition: all 0.4s ease-in;
     align-self: center;
     justify-self: center;
-    /* position: relative;
-    left: 50%;
-    transform: translateX(-50%); */
     cursor: pointer;
 
     &:hover{
-        opacity: 0.8;
+        background: #f7f7f7;
+        color: #4A3A7A;
     }
+
 `
