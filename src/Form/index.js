@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { StyledForm, StyledFieldset, StyledFormItem, StyledButton } from "./styled";
+import { StyledForm, StyledFieldset, StyledFormItem, StyledValueWrapper, StyledValueLabel, StyledButton } from "./styled";
 import { categories } from "../utilities/categories";
 
 const Form = ({ addNewExpense }) => {
@@ -40,15 +40,16 @@ const Form = ({ addNewExpense }) => {
             onSubmit={FormSubmit}
         >
             <StyledFieldset>
-                <StyledFormItem>
-                    <label htmlFor="value">Kwota</label>
+                <StyledValueWrapper>
+                    {/* <label htmlFor="value">Kwota</label> */}
                     <input
                         type="number"
                         id="value"
                         value={value}
                         onChange={({ target }) => setValue(target.value)}
                     />
-                </StyledFormItem>
+                    <StyledValueLabel>PLN</StyledValueLabel>
+                </StyledValueWrapper>
                 <StyledFormItem>
                     <label htmlFor="date">Data</label>
                     <input

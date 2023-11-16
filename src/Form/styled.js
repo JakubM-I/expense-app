@@ -18,7 +18,7 @@ export const StyledForm = styled.form`
 export const StyledFieldset = styled.fieldset`
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-end;
     border: none;
 `
 
@@ -26,7 +26,9 @@ export const StyledFormItem = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    flex: 0 1 250px;
+    /* flex: 0 1 250px; */
+    /* width: 100%; */
+    max-width: 200px;
 
     label{
         margin-block-end: 3px;
@@ -46,6 +48,36 @@ export const StyledFormItem = styled.div`
         border: none;
         border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
     }
+`
+
+export const StyledValueWrapper = styled(StyledFormItem)`
+    /* display: flex; */
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+    border-bottom: 2px solid ${({theme}) => theme.colors.mainDarkColor};
+    /* width: fit-content; */
+    /* margin-block-end: 15px; */
+
+    input{
+        /* font-size: 23px; */
+        border: none;
+        text-align: center;
+        width: 100px;
+    }
+`
+// export const StyledValueInput = styled.input`
+    /* text-align: center; */
+    /* border: none; */
+    /* background: ${({theme}) => theme.colors.formBackround}; */
+    /* font-size: 23px; */
+    /* margin-block-end: 10px; */
+    /* width: 130px; */
+    /* max-width: 180px; */
+// `
+export const StyledValueLabel = styled.span`
+     font-size: 16px;
 `
 
 export const StyledButton = styled.button`
