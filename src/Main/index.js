@@ -29,7 +29,6 @@ const Main = () => {
                         saveEditExpense={saveEditExpense}
                         isEdit={isEdit}
                         setIsEdit={setIsEdit}
-                    // expList={expList}
                     />
                 </Modal>
             </StyledListWrapper>

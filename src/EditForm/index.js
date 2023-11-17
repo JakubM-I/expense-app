@@ -1,24 +1,25 @@
 import { useState, useEffect } from "react";
 import { categories } from "../utilities/categories";
-import { 
-    StyledEditModal, 
+import {
+    StyledEditModal,
     StyledInputsWrapper,
-    StyledValueWrapper, 
-    StyledValueInput, 
+    StyledValueWrapper,
+    StyledValueInput,
     StyledValueLabel,
     StyledDetailsWrapper,
     StyledWrapper,
     StyledNotesWrapper,
     StyledButtonWrapper,
     StyledButton,
-    StyledCancelButton 
-    } from "./styled";
+    StyledCancelButton
+} from "./styled";
 
 const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
-    const [category, setCategory] = useState("")
+    const [category, setCategory] = useState("");
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         setName(editItem ? editItem.name : "");
@@ -28,6 +29,12 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
     }, [editItem])
 
     const selectId = editItem.id;
+
+    useEffect(() => {
+        const openTimeoutId = setTimeout(() => {
+            setIsOpen(isOpen => isOpen = !isOpen)
+        }, 100);
+    }, [isEdit])
 
     const submit = (e) => {
         e.preventDefault();
@@ -40,8 +47,8 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
     };
 
     return (
-        // isEdit && (
-            <StyledEditModal isEdit={isEdit}>
+        isEdit && (
+            <StyledEditModal isOpen={isOpen}>
                 <form onSubmit={submit} >
                     <StyledInputsWrapper>
                         <StyledValueWrapper>
@@ -83,12 +90,12 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
                         </StyledNotesWrapper>
                     </StyledInputsWrapper>
                     <StyledButtonWrapper>
-                    <StyledButton>Zapisz</StyledButton>
-                    <StyledCancelButton onClick={() => cancelEdit()}>Anuluj</StyledCancelButton>
+                        <StyledButton>Zapisz</StyledButton>
+                        <StyledCancelButton onClick={() => cancelEdit()}>Anuluj</StyledCancelButton>
                     </StyledButtonWrapper>
                 </form>
             </StyledEditModal>
-        // )
+        )
     )
 };
 

@@ -5,7 +5,7 @@ export const StyledEditModal = styled.div`
     /* top: 25%; */
     /* left: 50%; */
     /* transform: translateX(-50%); */
-    transition: all  0.5s linear;
+    transition: all  0.3s linear;
     background: ${({theme}) => theme.colors.formBackround};
     padding: 20px;
     border-radius: 8px;
@@ -15,7 +15,7 @@ export const StyledEditModal = styled.div`
     opacity: 0;
     scale: 125%;
 
-    ${({isEdit}) => isEdit && css`
+    ${({isOpen}) => isOpen && css`
         opacity: 1;
         scale: 100%;
     `}
@@ -116,7 +116,8 @@ export const StyledButton = styled.button`
     cursor: pointer;
 
     &:hover{
-        background: #f7f7f7;
+        background:  #eff9e9;  
+        /* #f7f7f7 */
         color: #4A3A7A;
     }
     `
@@ -124,4 +125,8 @@ export const StyledButton = styled.button`
 export const StyledCancelButton = styled(StyledButton)`
     background: #fff;
     color: ${({theme}) => theme.colors.mainDarkColor};
+
+    &:hover{
+        background: #f9e9e9;
+    }
 `

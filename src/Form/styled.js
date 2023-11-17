@@ -92,7 +92,8 @@ background: ${({theme}) => theme.colors.mainDarkColor};
     cursor: pointer;
 
     &:hover{
-        background: #f7f7f7;
+        background: #eff9e9;
+        /* background: #f7f7f7; */
         color: #4A3A7A;
     }
 
