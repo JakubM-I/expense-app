@@ -7,7 +7,7 @@ export const StyledExpenses = styled.div`
 
 export const StyledDateList = styled.ul`
     list-style: none;
-    padding-inline: 10px;    
+    padding-inline: 10px; 
 `
 
 export const StyledDayList = styled.ul`

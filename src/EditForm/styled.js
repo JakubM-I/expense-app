@@ -19,8 +19,6 @@ export const StyledEditModal = styled.div`
         opacity: 1;
         scale: 100%;
     `}
-
-
 `
 
 export const StyledInputsWrapper = styled.div`

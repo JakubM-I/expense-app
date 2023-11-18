@@ -14,12 +14,12 @@ import {
     StyledCancelButton
 } from "./styled";
 
-const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
+const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsOpen }) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
     const [category, setCategory] = useState("");
-    const [isOpen, setIsOpen] = useState(false);
+    // const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         setName(editItem ? editItem.name : "");
@@ -30,20 +30,36 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
 
     const selectId = editItem.id;
 
-    useEffect(() => {
-        const openTimeoutId = setTimeout(() => {
-            setIsOpen(isOpen => isOpen = !isOpen)
-        }, 100);
-    }, [isEdit])
+    // useEffect(() => {
+    //     const openTimeoutId = setTimeout(() => {
+    //         setIsOpen(true)
+    //     }, 100);
+    // }, [isEdit])
 
     const submit = (e) => {
         e.preventDefault();
-        saveEditExpense(selectId, name.trim(), date, value, category)
-        setIsEdit(false);
+        saveEditExpense(selectId, name.trim(), date, value, category);
+        // setIsEdit(false);
+        setIsOpen(false);
+        const tiemoutId = setTimeout(() => { 
+            setIsEdit(false);
+        }, 350)
+
+        return () => {
+            clearTimeout(tiemoutId)
+        }
     }
 
     const cancelEdit = () => {
-        setIsEdit(false);
+        // setIsEdit(false)
+        setIsOpen(false);
+        const tiemoutId = setTimeout(() => { 
+            setIsEdit(false);
+        }, 350)
+
+        return () => {
+            clearTimeout(tiemoutId)
+        }
     };
 
     return (
