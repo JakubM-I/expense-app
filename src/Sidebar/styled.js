@@ -7,4 +7,16 @@ export const StyledBar = styled.div`
         color: ${({theme}) => theme.colors.lightFont};
         text-align: center;
     }
+    
+    ul{
+        padding: 0;
+        list-style: none;
+        margin-inline-start: 10px;
+    }
+
+    ul li a{
+        color: #fff;
+
+    }
+
 `

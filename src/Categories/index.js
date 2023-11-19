@@ -1,5 +1,10 @@
+import SectionPage from "../SectionPage";
+import SectionHeader from "../SectionHeader";
+
 const Categories = () => (
-    <h1>Kategorie</h1>
+    <SectionPage>
+        <SectionHeader title="Kategorie" />
+    </SectionPage>
 );
 
 export default Categories;

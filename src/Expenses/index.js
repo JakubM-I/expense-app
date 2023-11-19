@@ -1,81 +1,61 @@
-import { nanoid } from "nanoid";
-import { IconContext } from "react-icons";
-import { FaRegTrashCan } from "react-icons/fa6"
-import { FaRegEdit } from "react-icons/fa"
-import {
-    StyledExpenses,
-    StyledDateList,
-    StyledDayList,
-    StyledDayListItem,
-    StyledWrapper,
-    StyledCategoryItem,
-    StyledItemDesc,
-    StyledValueItem,
-    StyledDeleteButton,
-    StyledEditButton,
-    StyledCommentsItem
-} from "./styled";
+import { useState, useEffect } from "react";
+import { useExpenses } from "../hooks/useExpenses";
+import { useEditItem } from "../hooks/useEditItem";
+import SectionPage from "../SectionPage";
+import SectionHeader from "../SectionHeader";
+import Form from "../AddForm";
+import ExpensesList from "../ExpensesList";
+import EditForm from "../EditForm";
+import Modal from "../Modal";
+import { StyledMain, StyledListWrapper } from "./styled";
 
 
-const Expenses = ({ expList, deleteExpense, editExpense }) => {
+const Expenses = () => {
 
-    const allDatesList = expList.map(exp => ({ id: nanoid(), date: exp.date }))
+    const [expList, addNewExpense, deleteExpense, saveEditExpense] = useExpenses();
+    const [editItem, editExpense, isEdit, setIsEdit] = useEditItem();
+    const [isOpen, setIsOpen] = useState(false);
 
-    const datesList = [...new Map(allDatesList.map((m) => [m.date, m])).values()];
+    useEffect(() => {
+        const openTimeoutId = setTimeout(() => {
+            setIsOpen(true)
+        }, 100);
+
+        return () => {
+            clearTimeout(openTimeoutId);
+        }
+    }, [isEdit])
 
     return (
-        <StyledExpenses>
-            <h2>Lista wydatków</h2>
-            <StyledDateList>
-                {[...datesList]
-                    .sort((a, b) => new Date(b.date) - new Date(a.date))
-                    .map(date => (
-                        <li key={date.id}>
-                            <h3 >{date.date}</h3>
-                            <StyledDayList>
-                                {expList
-                                    .filter(exp => exp.date === date.date)
-                                    .map(exp => (
-                                        <StyledDayListItem key={exp.id}>
-                                            <StyledWrapper >
-                                                <StyledItemDesc>
-                                                    <StyledCategoryItem>
-                                                        {exp.category}
-                                                    </StyledCategoryItem>
-                                                    <StyledCommentsItem>
-                                                        Uwagi:{" "}
-                                                        {exp.name}{" "}
-                                                    </StyledCommentsItem>
-                                                </StyledItemDesc>
-                                                {/* {exp.date}{" "} */}
-                                                <StyledValueItem>
-                                                    {exp.value} zł
-                                                </StyledValueItem>
-                                            </StyledWrapper>
-                                            <div>
-                                                <IconContext.Provider
-                                                    value={{ style: { color: "#fff" } }}>
-                                                    <StyledEditButton
-                                                        onClick={() => editExpense(exp.id)}>
-                                                        <FaRegEdit />
-                                                    </StyledEditButton>
-                                                    <StyledDeleteButton
-                                                        onClick={() => deleteExpense(exp.id)}>
-                                                        <FaRegTrashCan />
-                                                    </StyledDeleteButton>
-                                                </IconContext.Provider>
-                                            </div>
-                                        </StyledDayListItem>
-                                    ))}
-                            </StyledDayList>
-                        </li>
-                    ))
-                }
-            </StyledDateList>
-        </StyledExpenses>
+        <SectionPage>
+            <SectionHeader 
+                title="Dodaj nową pozycję"
+            />
+            <Form
+                addNewExpense={addNewExpense}
+            />
+            <SectionHeader 
+                title="Lista wydatków"
+            />
+            {/* <StyledListWrapper> */}
+                <ExpensesList
+                    expList={expList}
+                    deleteExpense={deleteExpense}
+                    editExpense={editExpense}
+                />
+                    <Modal isEdit={isEdit} onCLose={() => setIsEdit(false)}>
+                        <EditForm
+                            editItem={editItem}
+                            saveEditExpense={saveEditExpense}
+                            isEdit={isEdit}
+                            setIsEdit={setIsEdit}
+                            isOpen={isOpen}
+                            setIsOpen={setIsOpen}
+                        />
+                    </Modal>
+            {/* </StyledListWrapper> */}
+        </SectionPage>
     );
 };
 
 export default Expenses;
-
-
