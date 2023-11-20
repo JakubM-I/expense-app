@@ -22,5 +22,9 @@ export const categories = [
     {
         id: 5,
         name: "Zdrowie",
+    },
+    {
+        id: 6,
+        name: "Regularne oszczędzanie",
     }
 ]

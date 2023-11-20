@@ -58,6 +58,9 @@ const ExpensesList = ({ expList, deleteExpense, editExpense }) => {
                                                         onClick={() => editExpense(exp.id)}>
                                                         <FaRegEdit />
                                                     </StyledEditButton>
+                                                    {/* </IconContext.Provider> */}
+                                                    {/* <IconContext.Provider
+                                                    value={{ style: { color: "#000" } }}> */}
                                                     <StyledDeleteButton
                                                         onClick={() => deleteExpense(exp.id)}>
                                                         <FaRegTrashCan />

@@ -28,7 +28,7 @@ export const StyledFirstListItem = styled(StyledListItem)`
 `
 
 export const StyledAddButton = styled.button`
-background: ${({theme}) => theme.colors.mainDarkColor};
+    background: ${({theme}) => theme.colors.mainDarkColor};
     border: 1px solid ${({theme}) => theme.colors.mainDarkColor};
     border-radius: 5px;
     padding: 5px 15px;
@@ -48,9 +48,39 @@ background: ${({theme}) => theme.colors.mainDarkColor};
 
 export const StyledCategoryName = styled.span`
     flex-grow: 1;
+    text-overflow: ellipsis;
 `
 
 export const StyledButtonWrapper = styled.div`
     display: flex;
-    gap: 5px;
+    gap: 6px;
+`
+
+export const StyledActionButton = styled.button`
+    border: none;
+    border-radius: 5px;
+    padding: 5px 6px 1px 7px;
+    cursor: pointer;
+`
+
+export const StyledEditButton = styled(StyledActionButton)`
+    background: ${({theme}) => theme.colors.mainDarkColor};
+    border: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+    color: #fff;
+    transition: all 0.4s ease-in;
+
+    &:hover{
+        background: #eff9e9;
+        color: #4A3A7A;
+    }
+`
+
+export const StyledDeleteButton = styled(StyledActionButton)`
+    background: #fff;
+    border: 1px solid #fff;
+    color: ${({theme}) => theme.colors.mainDarkColor};
+
+    &:hover{
+        background: #f9e9e9;
+    }
 `

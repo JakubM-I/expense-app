@@ -11,7 +11,9 @@ import {
     StyledFirstListItem,
     StyledAddButton,
     StyledCategoryName,
-    StyledButtonWrapper, 
+    StyledButtonWrapper,
+    StyledEditButton,
+    StyledDeleteButton, 
 } from "./styled";
 
 const Categories = () => (
@@ -30,8 +32,8 @@ const Categories = () => (
                         <StyledCategoryName>{category.name}</StyledCategoryName>
                         <StyledButtonWrapper>
                             {/* <IconContext.Provider> */}
-                                <button><FaRegEdit /></button>
-                                <button><FaRegTrashCan /></button>
+                                <StyledEditButton><FaRegEdit /></StyledEditButton>
+                                <StyledDeleteButton><FaRegTrashCan /></StyledDeleteButton>
                             {/* </IconContext.Provider> */}
                         </StyledButtonWrapper>
                     </StyledListItem>
