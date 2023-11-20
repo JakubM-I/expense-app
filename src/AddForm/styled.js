@@ -9,7 +9,7 @@ export const StyledForm = styled.form`
     /* border-bottom: 1px solid #000; */
     display: grid;
     grid-template-columns: 1fr 100px;
-    background: ${({theme}) => theme.colors.formBackround};
+    background: ${({theme}) => theme.colors.formBackground};
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
     -moz-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
@@ -37,14 +37,14 @@ export const StyledFormItem = styled.div`
 
     input{
         padding: 2px;
-        background: ${({theme}) => theme.colors.formBackround};
+        background: ${({theme}) => theme.colors.formBackground};
         border: none;
         border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
     }
 
     select{
         padding: 2px;
-        background: ${({theme}) => theme.colors.formBackround};
+        background: ${({theme}) => theme.colors.formBackground};
         border: none;
         border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
     }

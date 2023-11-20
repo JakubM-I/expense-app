@@ -14,5 +14,13 @@ export const categories = [
     {
         id: 3,
         name: "Rachunki",
+    },
+    {
+        id: 4,
+        name: "Osobiste",
+    },
+    {
+        id: 5,
+        name: "Zdrowie",
     }
-];
+]

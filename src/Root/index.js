@@ -6,7 +6,7 @@ const Root = () => (
     <StyledExpesneList>
         <Sidebar />
         {/* <main> */}
-            <Outlet />
+        <Outlet />
         {/* </main> */}
     </StyledExpesneList>
 );

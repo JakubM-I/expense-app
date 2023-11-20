@@ -6,7 +6,7 @@ export const StyledEditModal = styled.div`
     /* left: 50%; */
     /* transform: translateX(-50%); */
     transition: all  0.3s linear;
-    background: ${({theme}) => theme.colors.formBackround};
+    background: ${({theme}) => theme.colors.formBackground};
     padding: 20px;
     border-radius: 8px;
     -webkit-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
@@ -41,7 +41,7 @@ export const StyledValueWrapper = styled.div`
 export const StyledValueInput = styled.input`
     text-align: center;
     border: none;
-    background: ${({theme}) => theme.colors.formBackround};
+    background: ${({theme}) => theme.colors.formBackground};
     font-size: 23px;
     /* margin-block-end: 10px; */
     width: 130px;
@@ -73,14 +73,14 @@ export const StyledWrapper = styled.div`
 
     input{
         padding: 2px;
-        background: ${({theme}) => theme.colors.formBackround};
+        background: ${({theme}) => theme.colors.formBackground};
         border: none;
         border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
     }
 
     select{
         padding: 2px;
-        background: ${({theme}) => theme.colors.formBackround};
+        background: ${({theme}) => theme.colors.formBackground};
         border: none;
         border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
     }

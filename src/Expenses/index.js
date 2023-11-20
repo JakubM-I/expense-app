@@ -28,31 +28,31 @@ const Expenses = () => {
 
     return (
         <SectionPage>
-            <SectionHeader 
+            <SectionHeader
                 title="Dodaj nową pozycję"
             />
             <Form
                 addNewExpense={addNewExpense}
             />
-            <SectionHeader 
+            <SectionHeader
                 title="Lista wydatków"
             />
             {/* <StyledListWrapper> */}
-                <ExpensesList
-                    expList={expList}
-                    deleteExpense={deleteExpense}
-                    editExpense={editExpense}
+            <ExpensesList
+                expList={expList}
+                deleteExpense={deleteExpense}
+                editExpense={editExpense}
+            />
+            <Modal isEdit={isEdit} onCLose={() => setIsEdit(false)}>
+                <EditForm
+                    editItem={editItem}
+                    saveEditExpense={saveEditExpense}
+                    isEdit={isEdit}
+                    setIsEdit={setIsEdit}
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
                 />
-                    <Modal isEdit={isEdit} onCLose={() => setIsEdit(false)}>
-                        <EditForm
-                            editItem={editItem}
-                            saveEditExpense={saveEditExpense}
-                            isEdit={isEdit}
-                            setIsEdit={setIsEdit}
-                            isOpen={isOpen}
-                            setIsOpen={setIsOpen}
-                        />
-                    </Modal>
+            </Modal>
             {/* </StyledListWrapper> */}
         </SectionPage>
     );
