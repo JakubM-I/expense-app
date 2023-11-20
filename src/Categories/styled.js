@@ -79,6 +79,7 @@ export const StyledDeleteButton = styled(StyledActionButton)`
     background: #fff;
     border: 1px solid #fff;
     color: ${({theme}) => theme.colors.mainDarkColor};
+    transition: all 0.4s ease-in;
 
     &:hover{
         background: #f9e9e9;

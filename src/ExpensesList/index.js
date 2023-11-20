@@ -52,8 +52,8 @@ const ExpensesList = ({ expList, deleteExpense, editExpense }) => {
                                                 </StyledValueItem>
                                             </StyledWrapper>
                                             <div>
-                                                <IconContext.Provider
-                                                    value={{ style: { color: "#fff" } }}>
+                                                {/* <IconContext.Provider
+                                                    value={{ style: { color: "#fff" } }}> */}
                                                     <StyledEditButton
                                                         onClick={() => editExpense(exp.id)}>
                                                         <FaRegEdit />
@@ -65,7 +65,7 @@ const ExpensesList = ({ expList, deleteExpense, editExpense }) => {
                                                         onClick={() => deleteExpense(exp.id)}>
                                                         <FaRegTrashCan />
                                                     </StyledDeleteButton>
-                                                </IconContext.Provider>
+                                                {/* </IconContext.Provider> */}
                                             </div>
                                         </StyledDayListItem>
                                     ))}
