@@ -22,6 +22,30 @@ export const StyledListItem = styled.li`
     gap: 5px;
 `
 
+export const StyledFirstListItem = styled(StyledListItem)`
+    background: ${({theme}) => theme.colors.mainBackground};
+    justify-content: center;
+`
+
+export const StyledAddButton = styled.button`
+background: ${({theme}) => theme.colors.mainDarkColor};
+    border: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+    border-radius: 5px;
+    padding: 5px 15px;
+    color: #fff;
+    transition: all 0.4s ease-in;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+
+    &:hover{
+        background: #eff9e9;
+        /* background: #f7f7f7; */
+        color: #4A3A7A;
+    }
+
+`
+
 export const StyledCategoryName = styled.span`
     flex-grow: 1;
 `

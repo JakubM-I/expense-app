@@ -8,6 +8,8 @@ import {
     StyledCategory, 
     StyledCategoryList, 
     StyledListItem,
+    StyledFirstListItem,
+    StyledAddButton,
     StyledCategoryName,
     StyledButtonWrapper, 
 } from "./styled";
@@ -17,6 +19,9 @@ const Categories = () => (
         <SectionHeader title="Kategorie" />
         <StyledCategory>
         <StyledCategoryList>
+            <StyledFirstListItem>
+                <StyledAddButton>Dodaj kategorię</StyledAddButton>
+            </StyledFirstListItem>
             {[...categories]
                 .filter(category => category.id !== 0)
                 .sort((a, b) => a.name.localeCompare(b.name))
