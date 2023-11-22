@@ -13,6 +13,7 @@ const CategoryForm = ({isEdit, addCategory, setIsEdit}) => {
         }
 
         addCategory(categoryName.trim());
+        setIsEdit(false)
         setCategoryName("");
     }
 
@@ -25,8 +26,8 @@ const CategoryForm = ({isEdit, addCategory, setIsEdit}) => {
                     value={categoryName}
                     onChange={({target}) => setCategoryName(target.value)}
                 />
-                <button onClick={() => setIsEdit(false)}>Zapisz</button>
-                {/* <button type="reset"  onClick={() => setIsEdit(false)}>Anuluj</button> */}
+                <button>Zapisz</button>
+                {/* <button onClick={() => setIsEdit(false)}>Anuluj</button> */}
             </form>
         </div>
         // )
