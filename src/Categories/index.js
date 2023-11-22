@@ -21,7 +21,7 @@ import { useState, useEffect } from "react";
 import Modal from "../Modal";
 
 const Categories = () => {
-    const [catList, addCategory] = useCategory();
+    const [catList, addCategory, deleteCategory] = useCategory();
     const [isEdit, setIsEdit] = useState(false);
 
     // useEffect(() => {
@@ -51,7 +51,7 @@ const Categories = () => {
                             <StyledButtonWrapper>
                                 {/* <IconContext.Provider> */}
                                 <StyledEditButton><FaRegEdit /></StyledEditButton>
-                                <StyledDeleteButton><FaRegTrashCan /></StyledDeleteButton>
+                                <StyledDeleteButton onClick={() => deleteCategory(category.id)}><FaRegTrashCan /></StyledDeleteButton>
                                 {/* </IconContext.Provider> */}
                             </StyledButtonWrapper>
                         </StyledListItem>

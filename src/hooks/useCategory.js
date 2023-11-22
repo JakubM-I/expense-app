@@ -20,6 +20,10 @@ export const useCategory = () => {
             }
         ]);
     };
+
+    const deleteCategory = (id) => {
+        setCatList(catList => catList.filter(cat => cat.id !== id));
+    }
  
-    return [catList, addCategory];
+    return [catList, addCategory, deleteCategory];
 };

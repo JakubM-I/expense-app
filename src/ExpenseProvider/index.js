@@ -9,7 +9,7 @@ export const ExpensesProvider = ({children}) => {
         JSON.parse(localStorage.getItem("expenses")) : [];
 
     const localCatCopy = localStorage.getItem("categories") ?
-        JSON.parse(localStorage.getItem("categories")) : [];
+        JSON.parse(localStorage.getItem("categories")) : [{id:0, categoryName:  "Wybierz kategorie"}];
 
     const [expList, setExpList] = useState(localExpCopy);
     const [catList, setCatList] = useState(localCatCopy);
