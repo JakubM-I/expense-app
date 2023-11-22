@@ -8,8 +8,11 @@ export const ExpensesProvider = ({children}) => {
     const localExpCopy = localStorage.getItem("expenses") ? 
         JSON.parse(localStorage.getItem("expenses")) : [];
 
+    const localCatCopy = localStorage.getItem("categories") ?
+        JSON.parse(localStorage.getItem("categories")) : [];
+
     const [expList, setExpList] = useState(localExpCopy);
-    const [catList, setCatList] = useState();
+    const [catList, setCatList] = useState(localCatCopy);
 
     return (
         <ExpensesContext.Provider value={{expList, setExpList}}>
