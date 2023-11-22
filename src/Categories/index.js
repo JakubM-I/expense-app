@@ -35,39 +35,39 @@ const Categories = () => {
     // }, [isEdit])
 
     return (
-    <SectionPage>
-        <SectionHeader title="Kategorie" />
-        <StyledCategory>
-            <StyledCategoryList>
-                <StyledFirstListItem>
-                    <StyledAddButton onClick={() => setIsEdit(true)}>Dodaj kategorię</StyledAddButton>
-                </StyledFirstListItem>
-                {[...catList]
-                    .filter(category => category.id !== 0)
-                    // .sort((a, b) => a.name.localeCompare(b.name))
-                    .map(category => (
-                        <StyledListItem key={category.id}>
-                            <StyledCategoryName>{category.categoryName}</StyledCategoryName>
-                            <StyledButtonWrapper>
-                                {/* <IconContext.Provider> */}
-                                <StyledEditButton><FaRegEdit /></StyledEditButton>
-                                <StyledDeleteButton onClick={() => deleteCategory(category.id)}><FaRegTrashCan /></StyledDeleteButton>
-                                {/* </IconContext.Provider> */}
-                            </StyledButtonWrapper>
-                        </StyledListItem>
-                    ))
-                }
-            </StyledCategoryList>
-        </StyledCategory>
-        <Modal isEdit={isEdit} >
+        <SectionPage>
+            <SectionHeader title="Kategorie" />
+            <StyledCategory>
+                <StyledCategoryList>
+                    <StyledFirstListItem>
+                        <StyledAddButton onClick={() => setIsEdit(true)}>Dodaj kategorię</StyledAddButton>
+                    </StyledFirstListItem>
+                    {[...catList]
+                        .filter(category => category.id !== 0)
+                        .sort((a, b) => a.categoryName.localeCompare(b.categoryName))
+                        .map(category => (
+                            <StyledListItem key={category.id}>
+                                <StyledCategoryName>{category.categoryName}</StyledCategoryName>
+                                <StyledButtonWrapper>
+                                    {/* <IconContext.Provider> */}
+                                    <StyledEditButton><FaRegEdit /></StyledEditButton>
+                                    <StyledDeleteButton onClick={() => deleteCategory(category.id)}><FaRegTrashCan /></StyledDeleteButton>
+                                    {/* </IconContext.Provider> */}
+                                </StyledButtonWrapper>
+                            </StyledListItem>
+                        ))
+                    }
+                </StyledCategoryList>
+            </StyledCategory>
+            <Modal isEdit={isEdit} >
                 <CategoryForm
                     addCategory={addCategory}
                     isEdit={isEdit}
                     setIsEdit={setIsEdit}
                 />
             </Modal>
-    </SectionPage>
-)
-            };
+        </SectionPage>
+    )
+};
 
 export default Categories;

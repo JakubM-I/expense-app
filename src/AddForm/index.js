@@ -1,12 +1,14 @@
 import { useState, useRef, useEffect } from "react";
 import { StyledForm, StyledFieldset, StyledFormItem, StyledValueWrapper, StyledValueLabel, StyledButton } from "./styled";
 import { categories } from "../utilities/categories";
+import { useCategory } from "../hooks/useCategory";
 
 const Form = ({ addNewExpense }) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
     const [category, setCategory] = useState("")
+    const [catList] = useCategory();
 
     const inputRef = useRef();
 
@@ -45,6 +47,7 @@ const Form = ({ addNewExpense }) => {
                     <input
                         type="number"
                         id="value"
+                        ref={inputRef}
                         value={value}
                         onChange={({ target }) => setValue(target.value)}
                     />
@@ -66,8 +69,8 @@ const Form = ({ addNewExpense }) => {
                         value={category}
                         onChange={({ target }) => setCategory(target.value)}
                     >
-                        {categories.map(cat => (
-                            <option key={cat.id} value={cat.name.toLowerCase()}>{cat.name}</option>
+                        {catList.map(cat => (
+                            <option key={cat.id} value={cat.categoryName.toLowerCase()}>{cat.categoryName}</option>
                         ))}
                     </select>
                 </StyledFormItem>
@@ -76,7 +79,6 @@ const Form = ({ addNewExpense }) => {
                     <input
                         type="text"
                         id="name"
-                        ref={inputRef}
                         value={name}
                         onChange={({ target }) => setName(target.value)}
                     />

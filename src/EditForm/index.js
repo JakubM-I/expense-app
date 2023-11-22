@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useCategory } from "../hooks/useCategory";
 import { categories } from "../utilities/categories";
 import {
     StyledEditModal,
@@ -20,6 +21,7 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsO
     const [value, setValue] = useState("");
     const [category, setCategory] = useState("");
     // const [isOpen, setIsOpen] = useState(false);
+    const [catList] = useCategory();
 
     useEffect(() => {
         setName(editItem ? editItem.name : "");
@@ -91,8 +93,8 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsO
                                     value={category}
                                     onChange={({ target }) => setCategory(target.value)}
                                 >
-                                    {categories.map(cat => (
-                                        <option key={cat.id} value={cat.name.toLowerCase()}>{cat.name}</option>
+                                    {catList.map(cat => (
+                                        <option key={cat.id} value={cat.categoryName.toLowerCase()}>{cat.categoryName}</option>
                                     ))}
                                 </select>
                             </StyledWrapper>
