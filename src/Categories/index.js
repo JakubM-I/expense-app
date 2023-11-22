@@ -21,7 +21,7 @@ import { useState, useEffect } from "react";
 import Modal from "../Modal";
 
 const Categories = () => {
-    const [, addCategory] = useCategory();
+    const [catList, addCategory] = useCategory();
     const [isEdit, setIsEdit] = useState(false);
 
     // useEffect(() => {
@@ -42,12 +42,12 @@ const Categories = () => {
                 <StyledFirstListItem>
                     <StyledAddButton onClick={() => setIsEdit(true)}>Dodaj kategorię</StyledAddButton>
                 </StyledFirstListItem>
-                {[...categories]
+                {[...catList]
                     .filter(category => category.id !== 0)
-                    .sort((a, b) => a.name.localeCompare(b.name))
+                    // .sort((a, b) => a.name.localeCompare(b.name))
                     .map(category => (
                         <StyledListItem key={category.id}>
-                            <StyledCategoryName>{category.name}</StyledCategoryName>
+                            <StyledCategoryName>{category.categoryName}</StyledCategoryName>
                             <StyledButtonWrapper>
                                 {/* <IconContext.Provider> */}
                                 <StyledEditButton><FaRegEdit /></StyledEditButton>
