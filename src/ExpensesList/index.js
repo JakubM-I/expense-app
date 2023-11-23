@@ -17,7 +17,7 @@ import {
 } from "./styled";
 
 
-const ExpensesList = ({ expList, deleteExpense, editExpense }) => {
+const ExpensesList = ({ expList, deleteExpense, editSelectItem }) => {
 
     const allDatesList = expList.map(exp => ({ id: nanoid(), date: exp.date }))
 
@@ -55,7 +55,7 @@ const ExpensesList = ({ expList, deleteExpense, editExpense }) => {
                                                 {/* <IconContext.Provider
                                                     value={{ style: { color: "#fff" } }}> */}
                                                     <StyledEditButton
-                                                        onClick={() => editExpense(exp.id)}>
+                                                        onClick={() => editSelectItem(exp.id)}>
                                                         <FaRegEdit />
                                                     </StyledEditButton>
                                                     {/* </IconContext.Provider> */}

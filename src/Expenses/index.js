@@ -13,7 +13,7 @@ import { StyledMain, StyledListWrapper } from "./styled";
 const Expenses = () => {
 
     const [expList, addNewExpense, deleteExpense, saveEditExpense] = useExpenses();
-    const [editItem, editExpense, isEdit, setIsEdit] = useEditItem();
+    const [editItem, editSelectItem, isEdit, setIsEdit] = useEditItem(expList);
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
@@ -41,7 +41,7 @@ const Expenses = () => {
             <ExpensesList
                 expList={expList}
                 deleteExpense={deleteExpense}
-                editExpense={editExpense}
+                editSelectItem={editSelectItem}
             />
             <Modal isEdit={isEdit} onCLose={() => setIsEdit(false)}>
                 <EditForm

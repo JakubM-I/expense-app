@@ -40,18 +40,26 @@ const Categories = () => {
             <StyledCategory>
                 <StyledCategoryList>
                     <StyledFirstListItem>
-                        <StyledAddButton onClick={() => setIsEdit(true)}>Dodaj kategorię</StyledAddButton>
+                        <StyledAddButton onClick={() => setIsEdit(true)}>
+                            Dodaj kategorię
+                        </StyledAddButton>
                     </StyledFirstListItem>
                     {[...catList]
                         .filter(category => category.id !== 0)
                         .sort((a, b) => a.categoryName.localeCompare(b.categoryName))
                         .map(category => (
                             <StyledListItem key={category.id}>
-                                <StyledCategoryName>{category.categoryName}</StyledCategoryName>
+                                <StyledCategoryName>
+                                    {category.categoryName}
+                                </StyledCategoryName>
                                 <StyledButtonWrapper>
                                     {/* <IconContext.Provider> */}
-                                    <StyledEditButton><FaRegEdit /></StyledEditButton>
-                                    <StyledDeleteButton onClick={() => deleteCategory(category.id)}><FaRegTrashCan /></StyledDeleteButton>
+                                    <StyledEditButton>
+                                        <FaRegEdit />
+                                    </StyledEditButton>
+                                    <StyledDeleteButton onClick={() => deleteCategory(category.id)}>
+                                        <FaRegTrashCan />
+                                    </StyledDeleteButton>
                                     {/* </IconContext.Provider> */}
                                 </StyledButtonWrapper>
                             </StyledListItem>
