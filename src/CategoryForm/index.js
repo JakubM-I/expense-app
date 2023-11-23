@@ -1,6 +1,14 @@
 import { useRef, useState } from "react";
+import { 
+    StyledModal,
+    StyledForm,
+    StyledInput,
+    StyledButtonWrapper,
+    StyledButton,
+    StyledCancelButton
+} from "./styled";
 
-const CategoryForm = ({isEdit, addCategory, setIsEdit}) => {
+const CategoryForm = ({ isEdit, addCategory, setIsEdit }) => {
 
     const [categoryName, setCategoryName] = useState();
     const inputRef = useRef(null)
@@ -17,19 +25,27 @@ const CategoryForm = ({isEdit, addCategory, setIsEdit}) => {
         setCategoryName("");
     }
 
-    return(
+    const closeEdit = () => {
+        setIsEdit(false);
+        setCategoryName("");
+    }
+
+    return (
         // isEdit &&(
-            <div>
-            <form onSubmit={submit}>
-                <input 
+        <StyledModal>
+            <p>Dodaj kategorię</p>
+            <StyledForm onSubmit={submit}>
+                <StyledInput
                     ref={inputRef}
                     value={categoryName}
-                    onChange={({target}) => setCategoryName(target.value)}
+                    onChange={({ target }) => setCategoryName(target.value)}
                 />
-                <button>Zapisz</button>
-                {/* <button onClick={() => setIsEdit(false)}>Anuluj</button> */}
-            </form>
-        </div>
+                <StyledButtonWrapper>
+                    <StyledButton>Zapisz</StyledButton>
+                    <StyledCancelButton onClick={() => closeEdit()}>Anuluj</StyledCancelButton>
+                </StyledButtonWrapper>
+            </StyledForm>
+        </StyledModal>
         // )
 
     )
