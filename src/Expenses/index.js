@@ -17,14 +17,18 @@ const Expenses = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        const openTimeoutId = setTimeout(() => {
-            setIsOpen(true)
-        }, 100);
+            setIsOpen(isEdit);
+    }, [isEdit]);
 
-        return () => {
-            clearTimeout(openTimeoutId);
-        }
-    }, [isEdit])
+    // useEffect(() => {
+    //     const openTimeoutId = setTimeout(() => {
+    //         setIsOpen(true)
+    //     }, 100);
+
+    //     return () => {
+    //         clearTimeout(openTimeoutId);
+    //     }
+    // }, [isEdit])
 
     return (
         <SectionPage>
@@ -43,7 +47,7 @@ const Expenses = () => {
                 deleteExpense={deleteExpense}
                 editSelectItem={editSelectItem}
             />
-            <Modal isEdit={isEdit} onCLose={() => setIsEdit(false)}>
+            <Modal isOpen={isOpen} onCLose={() => setIsEdit(false)}>
                 <EditForm
                     editItem={editItem}
                     saveEditExpense={saveEditExpense}

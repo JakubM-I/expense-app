@@ -14,6 +14,7 @@ import {
     StyledButton,
     StyledCancelButton
 } from "./styled";
+import { isEditable } from "@testing-library/user-event/dist/utils";
 
 const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsOpen }) => {
     const [name, setName] = useState("");
@@ -42,31 +43,31 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsO
         e.preventDefault();
         saveEditExpense(selectId, name.trim(), date, value, category);
         // setIsEdit(false);
-        setIsOpen(false);
-        const tiemoutId = setTimeout(() => { 
+        // setIsOpen(false);
+        // const tiemoutId = setTimeout(() => { 
             setIsEdit(false);
-        }, 350)
+        // }, 350)
 
-        return () => {
-            clearTimeout(tiemoutId)
-        }
+        // return () => {
+        //     clearTimeout(tiemoutId)
+        // }
     }
 
     const cancelEdit = () => {
         // setIsEdit(false)
-        setIsOpen(false);
-        const tiemoutId = setTimeout(() => { 
+        // setIsOpen(false);
+        // const tiemoutId = setTimeout(() => { 
             setIsEdit(false);
-        }, 350)
+        // }, 350)
 
-        return () => {
-            clearTimeout(tiemoutId)
-        }
+        // return () => {
+        //     clearTimeout(tiemoutId)
+        // }
     };
 
     return (
-        isEdit && (
-            <StyledEditModal isOpen={isOpen}>
+        // isEdit && (
+            <StyledEditModal isEdit={isEdit}>
                 <form onSubmit={submit} >
                     <StyledInputsWrapper>
                         <StyledValueWrapper>
@@ -114,7 +115,7 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsO
                 </form>
             </StyledEditModal>
         )
-    )
+    // )
 };
 
 export default EditForm;

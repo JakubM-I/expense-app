@@ -5,7 +5,7 @@ export const StyledEditModal = styled.div`
     /* top: 25%; */
     /* left: 50%; */
     /* transform: translateX(-50%); */
-    transition: all  0.3s linear;
+    transition: all 0.3s linear;
     background: ${({theme}) => theme.colors.formBackground};
     padding: 20px;
     border-radius: 8px;
@@ -15,7 +15,7 @@ export const StyledEditModal = styled.div`
     opacity: 0;
     scale: 125%;
 
-    ${({isOpen}) => isOpen && css`
+    ${({isEdit}) => isEdit && css`
         opacity: 1;
         scale: 100%;
     `}

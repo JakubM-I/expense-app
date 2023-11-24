@@ -19,20 +19,11 @@ import { useCategory } from "../hooks/useCategory";
 import CategoryForm from "../CategoryForm";
 import { useState, useEffect } from "react";
 import Modal from "../Modal";
+import EditCategoryForm from "../EditCategoryForm";
 
 const Categories = () => {
     const [catList, addCategory, deleteCategory] = useCategory();
-    const [isEdit, setIsEdit] = useState(false);
-
-    // useEffect(() => {
-    //     const openTimeoutId = setTimeout(() => {
-    //         setIsEdit(true)
-    //     }, 100);
-
-    //     return () => {
-    //         clearTimeout(openTimeoutId);
-    //     }
-    // }, [isEdit])
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <SectionPage>
@@ -40,7 +31,7 @@ const Categories = () => {
             <StyledCategory>
                 <StyledCategoryList>
                     <StyledFirstListItem>
-                        <StyledAddButton onClick={() => setIsEdit(true)}>
+                        <StyledAddButton onClick={() => setIsOpen(true)}>
                             Dodaj kategorię
                         </StyledAddButton>
                     </StyledFirstListItem>
@@ -67,13 +58,21 @@ const Categories = () => {
                     }
                 </StyledCategoryList>
             </StyledCategory>
-            <Modal isEdit={isEdit} >
+            <Modal isOpen={isOpen} >
                 <CategoryForm
                     addCategory={addCategory}
-                    isEdit={isEdit}
-                    setIsEdit={setIsEdit}
+                    // isEdit={isEdit}
+                    // setIsEdit={setIsEdit}
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
                 />
             </Modal>
+            {/* <Modal isEdit={isEdit} >
+                <EditCategoryForm
+
+                />
+
+            </Modal> */}
         </SectionPage>
     )
 };
