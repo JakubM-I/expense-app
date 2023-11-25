@@ -12,7 +12,7 @@ export const StyledDateList = styled.ul`
     background: ${({theme}) => theme.colors.mainBackground};
     padding-inline: 10px; 
     padding-block-end: 10px;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
 `
 
 export const StyledDayList = styled.ul`
