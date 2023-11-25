@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
-export const StyledMain = styled.div`
+export const PageHeader = styled.div`
     background: ${({theme}) => theme.colors.mainBackground};
-    width: calc(100% - 20px);
-    margin-inline: auto;
-    overflow: hidden;
+    position: sticky;
+    top: 0;
+`
+
+export const ListHeaderWrapper = styled.div`
+    background: ${({theme}) => theme.colors.mainBackground};
+    position: sticky;
+    top: 186px;
 `

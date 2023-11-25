@@ -4,5 +4,9 @@ export const StyledSectionPage = styled.main`
     background: ${({theme}) => theme.colors.mainBackground};
     width: calc(100% - 20px);
     margin-inline: auto;
-    overflow: hidden;
+    margin-block: 15px;
+    overflow-y: auto;
+    height: calc(100svh - 30px);
+    display: flex;
+    flex-direction: column;
 `

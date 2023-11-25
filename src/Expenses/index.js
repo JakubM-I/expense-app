@@ -7,6 +7,7 @@ import Form from "../AddForm";
 import ExpensesList from "../ExpensesList";
 import EditForm from "../EditForm";
 import Modal from "../Modal";
+import { PageHeader, ListHeaderWrapper } from "./styled";
 
 
 const Expenses = () => {
@@ -16,7 +17,7 @@ const Expenses = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-            setIsOpen(isEdit);
+        setIsOpen(isEdit);
     }, [isEdit]);
 
     const closeModal = () => {
@@ -25,15 +26,19 @@ const Expenses = () => {
 
     return (
         <SectionPage>
-            <SectionHeader
-                title="Dodaj nową pozycję"
-            />
-            <Form
-                addNewExpense={addNewExpense}
-            />
-            <SectionHeader
-                title="Lista wydatków"
-            />
+            <PageHeader>
+                <SectionHeader
+                    title="Dodaj nową pozycję"
+                />
+                <Form
+                    addNewExpense={addNewExpense}
+                />
+            </PageHeader>
+            <ListHeaderWrapper>
+                <SectionHeader
+                    title="Lista wydatków"
+                />
+            </ListHeaderWrapper>
             <ExpensesList
                 expList={expList}
                 deleteExpense={deleteExpense}
