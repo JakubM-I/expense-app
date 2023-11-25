@@ -24,6 +24,13 @@ export const useCategory = () => {
     const deleteCategory = (id) => {
         setCatList(catList => catList.filter(cat => cat.id !== id));
     }
+
+    const saveEditedCategory = (selectedId, categoryName) => {
+        setCatList(catList => [
+            ...catList.map((cat, id) => cat.id === selectedId ?
+            {...cat, categoryName} : cat)
+        ]);
+    } ;
  
-    return [catList, addCategory, deleteCategory];
+    return [catList, addCategory, deleteCategory, saveEditedCategory];
 };

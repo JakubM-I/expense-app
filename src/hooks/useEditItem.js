@@ -7,6 +7,7 @@ export const useEditItem = (editedList) => {
     // console.log(expList)
     const [editItem, setEditItem] = useState([]);
     const [isEdit, setIsEdit] = useState(false);
+    console.log("Edit:", isEdit, "item:", editItem)
 
     const editSelectItem = (selectedId) => {
         // const selectItem  = expList.filter(exp => exp.id === id);

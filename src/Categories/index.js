@@ -20,10 +20,24 @@ import CategoryForm from "../CategoryForm";
 import { useState, useEffect } from "react";
 import Modal from "../Modal";
 import EditCategoryForm from "../EditCategoryForm";
+import { useEditItem } from "../hooks/useEditItem";
 
 const Categories = () => {
-    const [catList, addCategory, deleteCategory] = useCategory();
+    const [catList, addCategory, deleteCategory, saveEditedCategory] = useCategory();
+    const [editItem, editSelectItem, isEdit, setIsEdit] = useEditItem(catList);
     const [isOpen, setIsOpen] = useState(false);
+    const [isEditOpen, setIsEditOpen] = useState(false);
+    console.log(isEdit);
+
+
+    useEffect(() => {
+        setIsOpen(isEdit);
+    }, [isEdit]);
+
+    const closeModal = () => {
+        setIsOpen(false);
+        setIsEdit(false);
+    }
 
     return (
         <SectionPage>
@@ -45,7 +59,7 @@ const Categories = () => {
                                 </StyledCategoryName>
                                 <StyledButtonWrapper>
                                     {/* <IconContext.Provider> */}
-                                    <StyledEditButton>
+                                    <StyledEditButton onClick={() => editSelectItem(category.id)}>
                                         <FaRegEdit />
                                     </StyledEditButton>
                                     <StyledDeleteButton onClick={() => deleteCategory(category.id)}>
@@ -58,21 +72,26 @@ const Categories = () => {
                     }
                 </StyledCategoryList>
             </StyledCategory>
-            <Modal isOpen={isOpen} >
-                <CategoryForm
-                    addCategory={addCategory}
-                    // isEdit={isEdit}
-                    // setIsEdit={setIsEdit}
-                    isOpen={isOpen}
-                    setIsOpen={setIsOpen}
-                />
+            <Modal isOpen={isOpen} onClose={() => closeModal()}>
+                {isEdit ? (
+                        <EditCategoryForm
+                            isOpen={isOpen}
+                            setIsOpen={setIsOpen}
+                            setIsEdit={setIsEdit}
+                            editItem={editItem}
+                            saveEditedCategory={saveEditedCategory}
+                        />
+                ) : (
+                        <CategoryForm
+                            addCategory={addCategory}
+                            // isEdit={isEdit}
+                            // setIsEdit={setIsEdit}
+                            $isOpen={isOpen}
+                            setIsOpen={setIsOpen}
+                        />
+                )}
             </Modal>
-            {/* <Modal isEdit={isEdit} >
-                <EditCategoryForm
 
-                />
-
-            </Modal> */}
         </SectionPage>
     )
 };

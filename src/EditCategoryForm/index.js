@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { 
     StyledModal,
     StyledForm,
@@ -8,10 +8,16 @@ import {
     StyledCancelButton
 } from "./styled";
 
-const CategoryForm = ({ isEdit, addCategory, setIsEdit, isOpen, setIsOpen }) => {
+const EditCategoryForm = ({ isEdit, isOpen, setIsOpen, setIsEdit, editItem, saveEditedCategory }) => {
 
-    const [categoryName, setCategoryName] = useState();
-    const inputRef = useRef(null)
+    const [categoryName, setCategoryName] = useState("");
+    // const inputRef = useRef(null)
+    console.log("edit:", isEdit, "open:",isOpen)
+    useEffect(() => {
+        setCategoryName(editItem ? editItem.categoryName : "")
+    }, [editItem]);
+
+    const selectId = editItem.id;
 
     const submit = (e) => {
         e.preventDefault();
@@ -20,35 +26,35 @@ const CategoryForm = ({ isEdit, addCategory, setIsEdit, isOpen, setIsOpen }) => 
             return
         }
 
-        addCategory(categoryName.trim());
-        setIsOpen(false)
+        saveEditedCategory(selectId, categoryName.trim());
+        setIsOpen(false);
+        setIsEdit(false);
         setCategoryName("");
     }
 
-    const closeEdit = () => {
+    const closeEdit = (e) => {
+        e.stopPropagation();
         setIsOpen(false);
+        setIsEdit(false);
         setCategoryName("");
     }
 
     return (
-        // isEdit &&(
         <StyledModal isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
-            <p>Dodaj kategorię</p>
+            <p>Edytuj kategorię</p>
             <StyledForm onSubmit={submit}>
                 <StyledInput
-                    ref={inputRef}
+                    // ref={inputRef}
                     value={categoryName}
                     onChange={({ target }) => setCategoryName(target.value)}
                 />
                 <StyledButtonWrapper>
                     <StyledButton>Zapisz</StyledButton>
-                    <StyledCancelButton onClick={() => closeEdit()}>Anuluj</StyledCancelButton>
+                    <StyledCancelButton onClick={(e) => closeEdit(e)}>Anuluj</StyledCancelButton>
                 </StyledButtonWrapper>
             </StyledForm>
         </StyledModal>
-        // )
-
     )
 };
 
-export default CategoryForm;
+export default EditCategoryForm;
