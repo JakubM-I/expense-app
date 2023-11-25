@@ -5,9 +5,7 @@ import Sidebar from "../Sidebar/index";
 const Root = () => (
     <StyledExpesneList>
         <Sidebar />
-        {/* <main> */}
         <Outlet />
-        {/* </main> */}
     </StyledExpesneList>
 );
 

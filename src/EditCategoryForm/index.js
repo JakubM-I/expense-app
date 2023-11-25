@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { 
     StyledModal,
     StyledForm,
@@ -8,11 +8,10 @@ import {
     StyledCancelButton
 } from "./styled";
 
-const EditCategoryForm = ({ isEdit, isOpen, setIsOpen, setIsEdit, editItem, saveEditedCategory }) => {
+const EditCategoryForm = ({ isOpen, setIsOpen, setIsEdit, editItem, saveEditedCategory }) => {
 
     const [categoryName, setCategoryName] = useState("");
-    // const inputRef = useRef(null)
-    console.log("edit:", isEdit, "open:",isOpen)
+
     useEffect(() => {
         setCategoryName(editItem ? editItem.categoryName : "")
     }, [editItem]);
@@ -44,7 +43,6 @@ const EditCategoryForm = ({ isEdit, isOpen, setIsOpen, setIsEdit, editItem, save
             <p>Edytuj kategorię</p>
             <StyledForm onSubmit={submit}>
                 <StyledInput
-                    // ref={inputRef}
                     value={categoryName}
                     onChange={({ target }) => setCategoryName(target.value)}
                 />

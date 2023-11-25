@@ -6,7 +6,6 @@ export const StyledForm = styled.form`
     margin-block-start: 15px;
     margin-block-end: 35px;
     padding: 15px 10px;
-    /* border-bottom: 1px solid #000; */
     display: grid;
     grid-template-columns: 1fr 100px;
     background: ${({theme}) => theme.colors.formBackground};
@@ -26,8 +25,6 @@ export const StyledFormItem = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* flex: 0 1 250px; */
-    /* width: 100%; */
     max-width: 200px;
 
     label{
@@ -51,31 +48,19 @@ export const StyledFormItem = styled.div`
 `
 
 export const StyledValueWrapper = styled(StyledFormItem)`
-    /* display: flex; */
     flex-direction: row;
     justify-content: center;
     gap: 5px;
     align-items: center;
     border-bottom: 2px solid ${({theme}) => theme.colors.mainDarkColor};
-    /* width: fit-content; */
-    /* margin-block-end: 15px; */
 
     input{
-        /* font-size: 23px; */
         border: none;
         text-align: center;
         width: 100px;
     }
 `
-// export const StyledValueInput = styled.input`
-    /* text-align: center; */
-    /* border: none; */
-    /* background: ${({theme}) => theme.colors.formBackround}; */
-    /* font-size: 23px; */
-    /* margin-block-end: 10px; */
-    /* width: 130px; */
-    /* max-width: 180px; */
-// `
+
 export const StyledValueLabel = styled.span`
      font-size: 16px;
 `
@@ -93,7 +78,6 @@ background: ${({theme}) => theme.colors.mainDarkColor};
 
     &:hover{
         background: #eff9e9;
-        /* background: #f7f7f7; */
         color: #4A3A7A;
     }
 

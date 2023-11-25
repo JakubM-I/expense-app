@@ -6,11 +6,3 @@ export const StyledMain = styled.div`
     margin-inline: auto;
     overflow: hidden;
 `
-
-export const StyledListWrapper = styled.div`
-    /* display: grid; */
-    /* grid-template-columns: repeat(2, 1fr); */
-    position: relative;
-    /* overflow: auto;
-    height: 100%;  */
-`

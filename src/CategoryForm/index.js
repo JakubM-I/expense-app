@@ -8,7 +8,7 @@ import {
     StyledCancelButton
 } from "./styled";
 
-const CategoryForm = ({ isEdit, addCategory, setIsEdit, isOpen, setIsOpen }) => {
+const CategoryForm = ({ addCategory, isOpen, setIsOpen }) => {
 
     const [categoryName, setCategoryName] = useState();
     const inputRef = useRef(null)
@@ -25,13 +25,13 @@ const CategoryForm = ({ isEdit, addCategory, setIsEdit, isOpen, setIsOpen }) => 
         setCategoryName("");
     }
 
-    const closeEdit = () => {
+    const closeEdit = (e) => {
+        e.stopPropagation()
         setIsOpen(false);
         setCategoryName("");
     }
 
     return (
-        // isEdit &&(
         <StyledModal isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
             <p>Dodaj kategorię</p>
             <StyledForm onSubmit={submit}>
@@ -42,12 +42,10 @@ const CategoryForm = ({ isEdit, addCategory, setIsEdit, isOpen, setIsOpen }) => 
                 />
                 <StyledButtonWrapper>
                     <StyledButton>Zapisz</StyledButton>
-                    <StyledCancelButton onClick={() => closeEdit()}>Anuluj</StyledCancelButton>
+                    <StyledCancelButton onClick={(e) => closeEdit(e)}>Anuluj</StyledCancelButton>
                 </StyledButtonWrapper>
             </StyledForm>
         </StyledModal>
-        // )
-
     )
 };
 

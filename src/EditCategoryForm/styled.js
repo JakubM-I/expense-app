@@ -49,7 +49,6 @@ export const StyledButton = styled.button`
 
     &:hover{
         background:  #eff9e9;  
-        /* #f7f7f7 */
         color: #4A3A7A;
     }
     `

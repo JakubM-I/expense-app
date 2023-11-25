@@ -1,5 +1,4 @@
 import { nanoid } from "nanoid";
-import { IconContext } from "react-icons";
 import { FaRegTrashCan } from "react-icons/fa6"
 import { FaRegEdit } from "react-icons/fa"
 import {
@@ -46,26 +45,19 @@ const ExpensesList = ({ expList, deleteExpense, editSelectItem }) => {
                                                         {exp.name}{" "}
                                                     </StyledCommentsItem>
                                                 </StyledItemDesc>
-                                                {/* {exp.date}{" "} */}
                                                 <StyledValueItem>
                                                     {exp.value} zł
                                                 </StyledValueItem>
                                             </StyledWrapper>
                                             <div>
-                                                {/* <IconContext.Provider
-                                                    value={{ style: { color: "#fff" } }}> */}
-                                                    <StyledEditButton
-                                                        onClick={() => editSelectItem(exp.id)}>
-                                                        <FaRegEdit />
-                                                    </StyledEditButton>
-                                                    {/* </IconContext.Provider> */}
-                                                    {/* <IconContext.Provider
-                                                    value={{ style: { color: "#000" } }}> */}
-                                                    <StyledDeleteButton
-                                                        onClick={() => deleteExpense(exp.id)}>
-                                                        <FaRegTrashCan />
-                                                    </StyledDeleteButton>
-                                                {/* </IconContext.Provider> */}
+                                                <StyledEditButton
+                                                    onClick={() => editSelectItem(exp.id)}>
+                                                    <FaRegEdit />
+                                                </StyledEditButton>
+                                                <StyledDeleteButton
+                                                    onClick={() => deleteExpense(exp.id)}>
+                                                    <FaRegTrashCan />
+                                                </StyledDeleteButton>
                                             </div>
                                         </StyledDayListItem>
                                     ))}

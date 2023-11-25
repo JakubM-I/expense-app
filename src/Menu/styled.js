@@ -4,7 +4,6 @@ export const StyledMenu = styled.ul`
         margin-block-start: 20px;
         padding: 0 12px;
         list-style: none;
-        /* margin-inline-start: 10px; */
         font-size: 18px;
 `
 

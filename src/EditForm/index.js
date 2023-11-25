@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useCategory } from "../hooks/useCategory";
-import { categories } from "../utilities/categories";
 import {
     StyledEditModal,
     StyledInputsWrapper,
@@ -14,14 +13,12 @@ import {
     StyledButton,
     StyledCancelButton
 } from "./styled";
-import { isEditable } from "@testing-library/user-event/dist/utils";
 
 const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsOpen }) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
     const [category, setCategory] = useState("");
-    // const [isOpen, setIsOpen] = useState(false);
     const [catList] = useCategory();
 
     useEffect(() => {
@@ -33,89 +30,69 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsO
 
     const selectId = editItem.id;
 
-    // useEffect(() => {
-    //     const openTimeoutId = setTimeout(() => {
-    //         setIsOpen(true)
-    //     }, 100);
-    // }, [isEdit])
-
     const submit = (e) => {
         e.preventDefault();
         saveEditExpense(selectId, name.trim(), date, value, category);
-        // setIsEdit(false);
-        // setIsOpen(false);
-        // const tiemoutId = setTimeout(() => { 
-            setIsEdit(false);
-        // }, 350)
-
-        // return () => {
-        //     clearTimeout(tiemoutId)
-        // }
+        setIsEdit(false);
     }
 
     const cancelEdit = () => {
-        // setIsEdit(false)
-        // setIsOpen(false);
-        // const tiemoutId = setTimeout(() => { 
-            setIsEdit(false);
-        // }, 350)
-
-        // return () => {
-        //     clearTimeout(tiemoutId)
-        // }
+        setIsEdit(false);
     };
 
     return (
-        // isEdit && (
-            <StyledEditModal isEdit={isEdit}>
-                <form onSubmit={submit} >
-                    <StyledInputsWrapper>
-                        <StyledValueWrapper>
-                            {/* <label htmlFor="value">Wartość</label> */}
-                            <StyledValueInput id="value"
-                                value={value}
-                                onChange={({ target }) => setValue(target.value)}
+        <StyledEditModal isEdit={isEdit} onClick={(e) => e.stopPropagation()}>
+            <form onSubmit={submit} >
+                <StyledInputsWrapper>
+                    <StyledValueWrapper>
+                        <StyledValueInput id="value"
+                            value={value}
+                            onChange={({ target }) => setValue(target.value)}
+                        />
+                        <StyledValueLabel>PLN</StyledValueLabel>
+                    </StyledValueWrapper>
+                    <StyledDetailsWrapper>
+                        <StyledWrapper>
+                            <label htmlFor="date">Data</label>
+                            <input id="date"
+                                type="date"
+                                value={date}
+                                onChange={({ target }) => setDate(target.value)}
                             />
-                            <StyledValueLabel>PLN</StyledValueLabel>
-                        </StyledValueWrapper>
-                        <StyledDetailsWrapper>
-                            <StyledWrapper>
-                                <label htmlFor="date">Data</label>
-                                <input id="date"
-                                    type="date"
-                                    value={date}
-                                    onChange={({ target }) => setDate(target.value)}
-                                />
-                            </StyledWrapper>
-                            <StyledWrapper>
-                                <label htmlFor="category">Kategoria</label>
-                                <select
-                                    id="category"
-                                    value={category}
-                                    onChange={({ target }) => setCategory(target.value)}
-                                >
-                                    {catList.map(cat => (
-                                        <option key={cat.id} value={cat.categoryName.toLowerCase()}>{cat.categoryName}</option>
-                                    ))}
-                                </select>
-                            </StyledWrapper>
-                        </StyledDetailsWrapper>
-                        <StyledNotesWrapper>
-                            <label htmlFor="name">Uwagi</label>
-                            <input id="name"
-                                value={name}
-                                onChange={({ target }) => setName(target.value)}
-                            />
-                        </StyledNotesWrapper>
-                    </StyledInputsWrapper>
-                    <StyledButtonWrapper>
-                        <StyledButton>Zapisz</StyledButton>
-                        <StyledCancelButton onClick={() => cancelEdit()}>Anuluj</StyledCancelButton>
-                    </StyledButtonWrapper>
-                </form>
-            </StyledEditModal>
-        )
-    // )
+                        </StyledWrapper>
+                        <StyledWrapper>
+                            <label htmlFor="category">Kategoria</label>
+                            <select
+                                id="category"
+                                value={category}
+                                onChange={({ target }) => setCategory(target.value)}
+                            >
+                                {catList.map(cat => (
+                                    <option
+                                        key={cat.id}
+                                        value={cat.categoryName.toLowerCase()}
+                                    >
+                                        {cat.categoryName}
+                                    </option>
+                                ))}
+                            </select>
+                        </StyledWrapper>
+                    </StyledDetailsWrapper>
+                    <StyledNotesWrapper>
+                        <label htmlFor="name">Uwagi</label>
+                        <input id="name"
+                            value={name}
+                            onChange={({ target }) => setName(target.value)}
+                        />
+                    </StyledNotesWrapper>
+                </StyledInputsWrapper>
+                <StyledButtonWrapper>
+                    <StyledButton>Zapisz</StyledButton>
+                    <StyledCancelButton onClick={() => cancelEdit()}>Anuluj</StyledCancelButton>
+                </StyledButtonWrapper>
+            </form>
+        </StyledEditModal>
+    )
 };
 
 export default EditForm;

@@ -7,7 +7,6 @@ import Form from "../AddForm";
 import ExpensesList from "../ExpensesList";
 import EditForm from "../EditForm";
 import Modal from "../Modal";
-import { StyledMain, StyledListWrapper } from "./styled";
 
 
 const Expenses = () => {
@@ -20,15 +19,9 @@ const Expenses = () => {
             setIsOpen(isEdit);
     }, [isEdit]);
 
-    // useEffect(() => {
-    //     const openTimeoutId = setTimeout(() => {
-    //         setIsOpen(true)
-    //     }, 100);
-
-    //     return () => {
-    //         clearTimeout(openTimeoutId);
-    //     }
-    // }, [isEdit])
+    const closeModal = () => {
+        setIsEdit(false);
+    }
 
     return (
         <SectionPage>
@@ -41,13 +34,12 @@ const Expenses = () => {
             <SectionHeader
                 title="Lista wydatków"
             />
-            {/* <StyledListWrapper> */}
             <ExpensesList
                 expList={expList}
                 deleteExpense={deleteExpense}
                 editSelectItem={editSelectItem}
             />
-            <Modal isOpen={isOpen} onCLose={() => setIsEdit(false)}>
+            <Modal isOpen={isOpen} onCLose={() => closeModal()}>
                 <EditForm
                     editItem={editItem}
                     saveEditExpense={saveEditExpense}
@@ -57,7 +49,6 @@ const Expenses = () => {
                     setIsOpen={setIsOpen}
                 />
             </Modal>
-            {/* </StyledListWrapper> */}
         </SectionPage>
     );
 };

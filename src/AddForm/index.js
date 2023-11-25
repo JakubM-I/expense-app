@@ -1,7 +1,14 @@
 import { useState, useRef, useEffect } from "react";
-import { StyledForm, StyledFieldset, StyledFormItem, StyledValueWrapper, StyledValueLabel, StyledButton } from "./styled";
-import { categories } from "../utilities/categories";
 import { useCategory } from "../hooks/useCategory";
+import { 
+    StyledForm, 
+    StyledFieldset, 
+    StyledFormItem, 
+    StyledValueWrapper, 
+    StyledValueLabel, 
+    StyledButton 
+} from "./styled";
+
 
 const Form = ({ addNewExpense }) => {
     const [name, setName] = useState("");
@@ -43,7 +50,6 @@ const Form = ({ addNewExpense }) => {
         >
             <StyledFieldset>
                 <StyledValueWrapper>
-                    {/* <label htmlFor="value">Kwota</label> */}
                     <input
                         type="number"
                         id="value"
@@ -70,7 +76,12 @@ const Form = ({ addNewExpense }) => {
                         onChange={({ target }) => setCategory(target.value)}
                     >
                         {catList.map(cat => (
-                            <option key={cat.id} value={cat.categoryName.toLowerCase()}>{cat.categoryName}</option>
+                            <option 
+                                key={cat.id} 
+                                value={cat.categoryName.toLowerCase()}
+                            >
+                                    {cat.categoryName}
+                            </option>
                         ))}
                     </select>
                 </StyledFormItem>
@@ -83,11 +94,10 @@ const Form = ({ addNewExpense }) => {
                         onChange={({ target }) => setName(target.value)}
                     />
                 </StyledFormItem>
-
             </StyledFieldset>
             <StyledButton>Zapisz</StyledButton>
         </StyledForm>
     );
 };
 
-export default Form
+export default Form;

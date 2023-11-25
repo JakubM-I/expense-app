@@ -1,9 +1,13 @@
-import { IconContext } from "react-icons";
-import { FaRegTrashCan } from "react-icons/fa6"
-import { FaRegEdit } from "react-icons/fa"
+import { useState, useEffect } from "react";
+import { useEditItem } from "../hooks/useEditItem";
+import { useCategory } from "../hooks/useCategory";
+import { FaRegTrashCan } from "react-icons/fa6";
+import { FaRegEdit } from "react-icons/fa";
 import SectionPage from "../SectionPage";
 import SectionHeader from "../SectionHeader";
-import { categories } from "../utilities/categories";
+import CategoryForm from "../CategoryForm";
+import Modal from "../Modal";
+import EditCategoryForm from "../EditCategoryForm";
 import {
     StyledCategory,
     StyledCategoryList,
@@ -15,20 +19,11 @@ import {
     StyledEditButton,
     StyledDeleteButton,
 } from "./styled";
-import { useCategory } from "../hooks/useCategory";
-import CategoryForm from "../CategoryForm";
-import { useState, useEffect } from "react";
-import Modal from "../Modal";
-import EditCategoryForm from "../EditCategoryForm";
-import { useEditItem } from "../hooks/useEditItem";
 
 const Categories = () => {
     const [catList, addCategory, deleteCategory, saveEditedCategory] = useCategory();
     const [editItem, editSelectItem, isEdit, setIsEdit] = useEditItem(catList);
     const [isOpen, setIsOpen] = useState(false);
-    const [isEditOpen, setIsEditOpen] = useState(false);
-    console.log(isEdit);
-
 
     useEffect(() => {
         setIsOpen(isEdit);
@@ -58,14 +53,12 @@ const Categories = () => {
                                     {category.categoryName}
                                 </StyledCategoryName>
                                 <StyledButtonWrapper>
-                                    {/* <IconContext.Provider> */}
                                     <StyledEditButton onClick={() => editSelectItem(category.id)}>
                                         <FaRegEdit />
                                     </StyledEditButton>
                                     <StyledDeleteButton onClick={() => deleteCategory(category.id)}>
                                         <FaRegTrashCan />
                                     </StyledDeleteButton>
-                                    {/* </IconContext.Provider> */}
                                 </StyledButtonWrapper>
                             </StyledListItem>
                         ))
@@ -74,24 +67,21 @@ const Categories = () => {
             </StyledCategory>
             <Modal isOpen={isOpen} onClose={() => closeModal()}>
                 {isEdit ? (
-                        <EditCategoryForm
-                            isOpen={isOpen}
-                            setIsOpen={setIsOpen}
-                            setIsEdit={setIsEdit}
-                            editItem={editItem}
-                            saveEditedCategory={saveEditedCategory}
-                        />
+                    <EditCategoryForm
+                        isOpen={isOpen}
+                        setIsOpen={setIsOpen}
+                        setIsEdit={setIsEdit}
+                        editItem={editItem}
+                        saveEditedCategory={saveEditedCategory}
+                    />
                 ) : (
-                        <CategoryForm
-                            addCategory={addCategory}
-                            // isEdit={isEdit}
-                            // setIsEdit={setIsEdit}
-                            $isOpen={isOpen}
-                            setIsOpen={setIsOpen}
-                        />
+                    <CategoryForm
+                        addCategory={addCategory}
+                        $isOpen={isOpen}
+                        setIsOpen={setIsOpen}
+                    />
                 )}
             </Modal>
-
         </SectionPage>
     )
 };

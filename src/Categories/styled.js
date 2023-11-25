@@ -40,7 +40,6 @@ export const StyledAddButton = styled.button`
 
     &:hover{
         background: #eff9e9;
-        /* background: #f7f7f7; */
         color: #4A3A7A;
     }
 
