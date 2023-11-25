@@ -32,7 +32,7 @@ const Form = ({ addNewExpense }) => {
     const FormSubmit = (e) => {
         e.preventDefault();
 
-        if (!name.trim()) {
+        if (!value) {
             return
         }
 

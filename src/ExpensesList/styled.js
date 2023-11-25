@@ -9,6 +9,7 @@ export const StyledExpenses = styled.div`
 
 export const StyledDateList = styled.ul`
     list-style: none;
+    background: ${({theme}) => theme.colors.mainBackground};
     padding-inline: 10px; 
     padding-block-end: 10px;
     overflow-x: scroll;
@@ -16,6 +17,7 @@ export const StyledDateList = styled.ul`
 
 export const StyledDayList = styled.ul`
     list-style: none;
+    background: ${({theme}) => theme.colors.mainBackground};
 `
 
 export const StyledDayListItem = styled.li`
