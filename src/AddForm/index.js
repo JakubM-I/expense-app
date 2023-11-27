@@ -19,15 +19,16 @@ const Form = ({ addNewExpense }) => {
 
     const inputRef = useRef();
 
+    const nowDate = new Date()
+    const currentDate = [
+        nowDate.getFullYear(),
+        nowDate.getMonth() + 1,
+        nowDate.getDate(),
+    ].join("-")
+
     useEffect(() => {
-        const date = new Date()
-        const currentDate = [
-            date.getFullYear(),
-            date.getMonth() + 1,
-            date.getDate(),
-        ].join("-")
         setDate(currentDate)
-    }, [])
+    }, [currentDate])
 
     const FormSubmit = (e) => {
         e.preventDefault();
@@ -39,7 +40,7 @@ const Form = ({ addNewExpense }) => {
         addNewExpense(name.trim(), date, value, category);
         inputRef.current.focus();
         setName("");
-        setDate("");
+        setDate(currentDate);
         setValue("");
         setCategory("");
     }
