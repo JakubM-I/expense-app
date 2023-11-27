@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { CategoryContext } from "../ExpenseProvider";
+import { CategoryContext } from "../context/ExpenseProvider";
 import { nanoid } from "nanoid";
 
 export const useCategory = () => {

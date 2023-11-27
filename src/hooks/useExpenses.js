@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react";
 import { nanoid } from "nanoid";
-import { ExpensesContext } from "../ExpenseProvider";
+import { ExpensesContext } from "../context/ExpenseProvider";
 
 export const useExpenses = () => {
 

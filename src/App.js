@@ -1,8 +1,8 @@
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements  } from 'react-router-dom';
-import { ExpensesProvider } from './ExpenseProvider';
-import Root from "./Root";
-import Expenses from "./Expenses";
-import Categories from "./Categories";
+import { ExpensesProvider } from './context/ExpenseProvider';
+import Root from "./features/app/Root";
+import Expenses from "./features/expense-list/Expenses";
+import Categories from "./features/categories/Categories";
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/expense-app" element={<Root />}>

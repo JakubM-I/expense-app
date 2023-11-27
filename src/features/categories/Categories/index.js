@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { useEditItem } from "../hooks/useEditItem";
-import { useCategory } from "../hooks/useCategory";
+import { useEditItem } from "../../../hooks/useEditItem";
+import { useCategory } from "../../../hooks/useCategory";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
-import SectionPage from "../SectionPage";
-import SectionHeader from "../SectionHeader";
+import SectionPage from "../../../common/SectionPage";
+import SectionHeader from "../../../common/SectionHeader";
 import CategoryForm from "../CategoryForm";
-import Modal from "../Modal";
+import Modal from "../../../common/Modal";
 import EditCategoryForm from "../EditCategoryForm";
 import {
     StyledCategory,
