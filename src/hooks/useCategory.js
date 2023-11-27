@@ -9,8 +9,6 @@ export const useCategory = () => {
         localStorage.setItem("categories", JSON.stringify(catList))
     }, [catList]);
 
-    console.log(catList);
-
     const addCategory = (categoryName) => {
         setCatList(catList => [
             ...catList,

@@ -1,18 +1,14 @@
 import { useState } from "react";
-import { useExpenses } from "./useExpenses";
 
 export const useEditItem = (editedList) => {
 
-    // const [expList] = useExpenses();
-    // console.log(expList)
     const [editItem, setEditItem] = useState([]);
     const [isEdit, setIsEdit] = useState(false);
-    console.log("Edit:", isEdit, "item:", editItem)
 
     const editSelectItem = (selectedId) => {
-        // const selectItem  = expList.filter(exp => exp.id === id);
+
         const selectItem = editedList.find(({id}) => id === selectedId);
-        // console.log(selectItem)
+
         setEditItem(selectItem);
         setIsEdit(true);
     };

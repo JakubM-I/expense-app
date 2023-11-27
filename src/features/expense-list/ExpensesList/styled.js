@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const StyledExpenses = styled.div`
     width: calc(100% - 4em);
     margin-inline: auto;
-    /* overflow-x: scroll; */
     height: 100%;
 `
 
@@ -12,7 +11,6 @@ export const StyledDateList = styled.ul`
     background: ${({theme}) => theme.colors.mainBackground};
     padding-inline: 10px; 
     padding-block-end: 10px;
-    /* overflow-x: scroll; */
 `
 
 export const StyledDateListItem = styled.li`

@@ -10,8 +10,6 @@ export const useExpenses = () => {
         localStorage.setItem("expenses", JSON.stringify(expList))
     }, [expList]);
 
-    console.log(expList);
-
     const addNewExpense = (name, date, value, category) => {
         setExpList(expList => [
             ...expList,

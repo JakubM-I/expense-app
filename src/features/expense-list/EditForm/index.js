@@ -14,7 +14,7 @@ import {
     StyledCancelButton
 } from "./styled";
 
-const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsOpen }) => {
+const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit}) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
