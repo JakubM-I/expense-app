@@ -8,13 +8,13 @@ export const StyledModal = styled.div`
     -webkit-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
     -moz-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
     box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
-    /* opacity: 0; */
-    /* scale: 125%; */
+    opacity: 0;
+    scale: 125%;
 
-    /* ${({isOpen}) => isOpen && css`
+    ${({isOpen}) => isOpen && css`
         opacity: 1;
         scale: 100%;
-    `} */
+    `}
 `
 
 export const StyledFormHeader = styled.p`

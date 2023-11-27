@@ -28,14 +28,19 @@ const EditCategoryForm = ({ isOpen, setIsOpen, setIsEdit, editItem, saveEditedCa
 
         saveEditedCategory(selectId, categoryName.trim());
         setIsOpen(false);
-        setIsEdit(false);
+        setTimeout(() => {
+            setIsEdit(false);
+        }, 310)
         setCategoryName("");
     }
 
     const closeEdit = (e) => {
         e.stopPropagation();
         setIsOpen(false);
-        setIsEdit(false);
+        setTimeout(() => {
+            setIsEdit(false);
+        }, 310)
+        
         setCategoryName("");
     }
 

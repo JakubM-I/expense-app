@@ -77,7 +77,7 @@ const Categories = () => {
                 ) : (
                     <CategoryForm
                         addCategory={addCategory}
-                        $isOpen={isOpen}
+                        isOpen={isOpen}
                         setIsOpen={setIsOpen}
                     />
                 )}
