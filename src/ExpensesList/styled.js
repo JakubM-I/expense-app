@@ -15,14 +15,19 @@ export const StyledDateList = styled.ul`
     /* overflow-x: scroll; */
 `
 
+export const StyledDateListItem = styled.li`
+    border-bottom: 1px solid #000;
+`
+
 export const StyledDayList = styled.ul`
     list-style: none;
     background: ${({theme}) => theme.colors.mainBackground};
 `
 
 export const StyledDayListItem = styled.li`
-    padding-block: 6px;
-    border-bottom: 1px solid #000;
+    background: ${({theme}) => theme.colors.formBackground};
+    padding: 6px 8px;
+    border-radius: 5px;
     margin-block-end: 8px;
     display: flex;
     align-items: center;
