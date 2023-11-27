@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/expense-app/static/js/main.a2bc466a.js",
+    "static/js/787.2e8e4b4a.chunk.js": "/expense-app/static/js/787.2e8e4b4a.chunk.js",
+    "index.html": "/expense-app/index.html",
+    "main.a2bc466a.js.map": "/expense-app/static/js/main.a2bc466a.js.map",
+    "787.2e8e4b4a.chunk.js.map": "/expense-app/static/js/787.2e8e4b4a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.a2bc466a.js"
+  ]
+}
