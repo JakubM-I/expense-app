@@ -4,6 +4,7 @@ import { FaRegEdit } from "react-icons/fa"
 import {
     StyledExpenses,
     StyledDateList,
+    StyledDateListItem,
     StyledDayList,
     StyledDayListItem,
     StyledWrapper,
@@ -28,7 +29,7 @@ const ExpensesList = ({ expList, deleteExpense, editSelectItem }) => {
                 {[...datesList]
                     .sort((a, b) => new Date(b.date) - new Date(a.date))
                     .map(date => (
-                        <li key={date.id}>
+                        <StyledDateListItem key={date.id}>
                             <h3 >{date.date}</h3>
                             <StyledDayList>
                                 {expList
@@ -62,7 +63,7 @@ const ExpensesList = ({ expList, deleteExpense, editSelectItem }) => {
                                         </StyledDayListItem>
                                     ))}
                             </StyledDayList>
-                        </li>
+                        </StyledDateListItem>
                     ))
                 }
             </StyledDateList>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { 
     StyledModal,
+    StyledFormHeader,
     StyledForm,
     StyledInput,
     StyledButtonWrapper,
@@ -40,7 +41,7 @@ const EditCategoryForm = ({ isOpen, setIsOpen, setIsEdit, editItem, saveEditedCa
 
     return (
         <StyledModal isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
-            <p>Edytuj kategorię</p>
+            <StyledFormHeader>Edytuj kategorię</StyledFormHeader>
             <StyledForm onSubmit={submit}>
                 <StyledInput
                     value={categoryName}

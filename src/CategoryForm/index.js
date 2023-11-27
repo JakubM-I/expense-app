@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { 
     StyledModal,
+    StyledFormHeader,
     StyledForm,
     StyledInput,
     StyledButtonWrapper,
@@ -33,7 +34,7 @@ const CategoryForm = ({ addCategory, isOpen, setIsOpen }) => {
 
     return (
         <StyledModal isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
-            <p>Dodaj kategorię</p>
+            <StyledFormHeader>Dodaj kategorię</StyledFormHeader>
             <StyledForm onSubmit={submit}>
                 <StyledInput
                     ref={inputRef}

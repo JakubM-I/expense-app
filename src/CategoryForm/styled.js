@@ -17,6 +17,12 @@ export const StyledModal = styled.div`
     `} */
 `
 
+export const StyledFormHeader = styled.p`
+    margin-block-start: 0.3em;
+    margin-block-end: 1.2em;
+    font-weight: 500;
+`
+
 export const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
@@ -25,7 +31,8 @@ export const StyledForm = styled.form`
 `
 
 export const StyledInput = styled.input`
-        padding: 2px;
+        padding: 5px;
+        width: 14em;
         background: ${({theme}) => theme.colors.formBackground};
         border: none;
         border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};

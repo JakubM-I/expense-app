@@ -9,7 +9,6 @@ import EditForm from "../EditForm";
 import Modal from "../Modal";
 import { PageHeader, ListHeaderWrapper } from "./styled";
 
-
 const Expenses = () => {
 
     const [expList, addNewExpense, deleteExpense, saveEditExpense] = useExpenses();
