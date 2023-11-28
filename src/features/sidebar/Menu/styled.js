@@ -13,11 +13,11 @@ export const StyledMenuItem = styled.li`
     transition: all 0.4s ease-in;
 
     &:has(a:hover){
-        background: #6a53ad;
+        background: ${({theme}) => theme.colors.activeMenuItemBg};
     }
 
     a{
-        color: #fff;
+        color: ${({theme}) => theme.colors.lightFont};
         text-decoration: none;
         display: flex;
         justify-content: flex-start;

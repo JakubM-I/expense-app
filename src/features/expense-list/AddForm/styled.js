@@ -77,15 +77,15 @@ background: ${({theme}) => theme.colors.mainDarkColor};
     border: 1px solid ${({theme}) => theme.colors.mainDarkColor};
     border-radius: 5px;
     padding: 5px 15px;
-    color: #fff;
+    color: ${({theme}) => theme.colors.lightFont};
     transition: all 0.4s ease-in;
     align-self: center;
     justify-self: center;
     cursor: pointer;
 
     &:hover{
-        background: #eff9e9;
-        color: #4A3A7A;
+        background: ${({theme}) => theme.colors.buttonApproveBg};
+        color: ${({theme}) => theme.colors.mainDarkColor};
     }
 
 `

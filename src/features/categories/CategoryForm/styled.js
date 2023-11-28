@@ -50,22 +50,21 @@ export const StyledButton = styled.button`
     border: 1px solid ${({theme}) => theme.colors.mainDarkColor};
     border-radius: 5px;
     padding: 5px 15px;
-    color: #fff;
+    color: ${({theme}) => theme.colors.lightFont};
     transition: all 0.4s ease-in;
     cursor: pointer;
 
     &:hover{
-        background:  #eff9e9;  
-        /* #f7f7f7 */
-        color: #4A3A7A;
+        background: ${({theme}) => theme.colors.buttonApproveBg}; 
+        color: ${({theme}) => theme.colors.mainDarkColor};
     }
     `
 
 export const StyledCancelButton = styled(StyledButton)`
-    background: #fff;
+    background: ${({theme}) => theme.colors.lightFont};
     color: ${({theme}) => theme.colors.mainDarkColor};
 
     &:hover{
-        background: #f9e9e9;
+        background: ${({theme}) => theme.colors.buttonCancelBg};
     }
 `

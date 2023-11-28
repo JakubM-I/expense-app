@@ -14,7 +14,7 @@ export const StyledDateList = styled.ul`
 `
 
 export const StyledDateListItem = styled.li`
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid ${({theme}) => theme.colors.mainBlackColor};
 `
 
 export const StyledDayList = styled.ul`
@@ -47,7 +47,7 @@ export const StyledItemDesc = styled.span`
 
 export const StyledItem = styled.span`
     font-size: 18px;
-    color: #0c0c0c;
+    color: ${({theme}) => theme.colors.mainBlackColor};
 `
 
 export const StyledCategoryItem = styled(StyledItem)`
@@ -57,7 +57,7 @@ export const StyledCategoryItem = styled(StyledItem)`
 
 export const StyledCommentsItem = styled(StyledItem)`
     font-size: 16px;
-    color: #7e7f7f;
+    color: ${({theme}) => theme.colors.commentsFont};
 `
 
 export const StyledValueItem = styled(StyledItem)`
@@ -78,22 +78,22 @@ export const StyledEditButton = styled(StyledButton)`
     margin-inline-end: 6px;
     background: ${({theme}) => theme.colors.mainDarkColor};
     border: 1px solid ${({theme}) => theme.colors.mainDarkColor};
-    color: #fff;
+    color: ${({theme}) => theme.colors.lightFont};
     transition: all 0.4s ease-in;
 
     &:hover{
-        background: #eff9e9;
-        color: #4A3A7A;
+        background: ${({theme}) => theme.colors.buttonApproveBg};
+        color: ${({theme}) => theme.colors.mainDarkColor};
     }
 `
 
 export const StyledDeleteButton = styled(StyledButton)`
-    background: #fff;
-    border: 1px solid #fff;
+    background: ${({theme}) => theme.colors.lightFont};
+    border: 1px solid ${({theme}) => theme.colors.lightFont};
     color: ${({theme}) => theme.colors.mainDarkColor};
     transition: all 0.4s ease-in;
 
     &:hover{
-        background: #f9e9e9;
+        background: ${({theme}) => theme.colors.buttonCancelBg};
     }
 `

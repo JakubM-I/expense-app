@@ -32,15 +32,15 @@ export const StyledAddButton = styled.button`
     border: 1px solid ${({theme}) => theme.colors.mainDarkColor};
     border-radius: 5px;
     padding: 5px 15px;
-    color: #fff;
+    color: ${({theme}) => theme.colors.lightFont};
     transition: all 0.4s ease-in;
     align-self: center;
     justify-self: center;
     cursor: pointer;
 
     &:hover{
-        background: #eff9e9;
-        color: #4A3A7A;
+        background: ${({theme}) => theme.colors.buttonApproveBg};
+        color: ${({theme}) => theme.colors.mainDarkColor};
     }
 
 `
@@ -65,22 +65,22 @@ export const StyledActionButton = styled.button`
 export const StyledEditButton = styled(StyledActionButton)`
     background: ${({theme}) => theme.colors.mainDarkColor};
     border: 1px solid ${({theme}) => theme.colors.mainDarkColor};
-    color: #fff;
+    color: ${({theme}) => theme.colors.lightFont};
     transition: all 0.4s ease-in;
 
     &:hover{
-        background: #eff9e9;
-        color: #4A3A7A;
+        background: ${({theme}) => theme.colors.buttonApproveBg};
+        color: ${({theme}) => theme.colors.mainDarkColor};
     }
 `
 
 export const StyledDeleteButton = styled(StyledActionButton)`
-    background: #fff;
-    border: 1px solid #fff;
+    background: ${({theme}) => theme.colors.lightFont};
+    border: 1px solid ${({theme}) => theme.colors.lightFont};
     color: ${({theme}) => theme.colors.mainDarkColor};
     transition: all 0.4s ease-in;
 
     &:hover{
-        background: #f9e9e9;
+        background: ${({theme}) => theme.colors.buttonCancelBg};
     }
 `
