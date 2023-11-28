@@ -5,6 +5,7 @@ const GlobalStyled = createGlobalStyle`
     html{
         box-sizing: border-box;
         font-family: 'Roboto', sans-serif;
+        scroll-behavior: smooth;
      }
   
     *, ::after, ::before{
