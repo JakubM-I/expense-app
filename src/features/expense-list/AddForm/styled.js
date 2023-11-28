@@ -59,6 +59,13 @@ export const StyledValueWrapper = styled(StyledFormItem)`
         text-align: center;
         width: 100px;
     }
+
+    input::-webkit-inner-spin-button,
+    input::-webkit-outer-spin-button{
+        -webkit-appearance: none;
+        appearance: none;
+        -moz-appearance: textfield;
+    }
 `
 
 export const StyledValueLabel = styled.span`
