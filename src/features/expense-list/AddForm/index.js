@@ -21,7 +21,7 @@ const Form = ({ addNewExpense }) => {
     const [letterCount, setLetterCount] = useState(0)
     const [catList] = useCategory();
 
-    const inputRef = useRef();
+    const valueRef = useRef();
     const nameRef = useRef();
 
     const nowDate = new Date()
@@ -48,7 +48,7 @@ const Form = ({ addNewExpense }) => {
         }
 
         addNewExpense(name.trim(), date, value, category);
-        inputRef.current.focus();
+        valueRef.current.focus();
         setName("");
         setDate(currentDate);
         setValue("");
@@ -64,7 +64,7 @@ const Form = ({ addNewExpense }) => {
                     <input
                         type="number"
                         id="value"
-                        ref={inputRef}
+                        ref={valueRef}
                         value={value}
                         onChange={({ target }) => setValue(target.value)}
                     />
