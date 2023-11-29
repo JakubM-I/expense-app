@@ -15,7 +15,7 @@ At this moment, this is only the desktop version. The response version is on the
 - Flex, Grid
 - React JS
 - Styled components
-- Rect Router
+- React Router
 - Context Provider
 - React Icon library
 - ES6+ feature
