@@ -1,12 +1,15 @@
 import { useState, useRef, useEffect } from "react";
 import { useCategory } from "../../../hooks/useCategory";
-import { 
-    StyledForm, 
-    StyledFieldset, 
-    StyledFormItem, 
-    StyledValueWrapper, 
-    StyledValueLabel, 
-    StyledButton 
+import {
+    StyledForm,
+    StyledFieldset,
+    StyledFormItem,
+    StyledValueWrapper,
+    StyledValueLabel,
+    StyledNotesItem,
+    StyledNotesWrapper,
+    StyledLetterCounter,
+    StyledButton
 } from "./styled";
 
 
@@ -15,9 +18,11 @@ const Form = ({ addNewExpense }) => {
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
     const [category, setCategory] = useState("")
+    const [letterCount, setLetterCount] = useState(0)
     const [catList] = useCategory();
 
     const inputRef = useRef();
+    const nameRef = useRef();
 
     const nowDate = new Date()
     const currentDate = [
@@ -29,6 +34,11 @@ const Form = ({ addNewExpense }) => {
     useEffect(() => {
         setDate(currentDate)
     }, [currentDate])
+
+    useEffect(() => {
+        const letterCounter = nameRef.current.value.length;
+        setLetterCount(letterCounter);
+    }, [name])
 
     const FormSubmit = (e) => {
         e.preventDefault();
@@ -77,24 +87,31 @@ const Form = ({ addNewExpense }) => {
                         onChange={({ target }) => setCategory(target.value)}
                     >
                         {catList.map(cat => (
-                            <option 
-                                key={cat.id} 
+                            <option
+                                key={cat.id}
                                 value={cat.categoryName.toLowerCase()}
                             >
-                                    {cat.categoryName}
+                                {cat.categoryName}
                             </option>
                         ))}
                     </select>
                 </StyledFormItem>
-                <StyledFormItem>
-                    <label htmlFor="name" >Uwagi</label>
-                    <input
-                        type="text"
-                        id="name"
-                        value={name}
-                        onChange={({ target }) => setName(target.value)}
-                    />
-                </StyledFormItem>
+                <StyledNotesItem>
+                    <label htmlFor="notes" >Uwagi</label>
+                    <StyledNotesWrapper>
+                        <input
+                            type="text"
+                            id="notes"
+                            maxLength={25}
+                            ref={nameRef}
+                            value={name}
+                            onChange={({ target }) => setName(target.value)}
+                        />
+                        <StyledLetterCounter>
+                            ({letterCount}/25)
+                        </StyledLetterCounter>
+                    </StyledNotesWrapper>
+                </StyledNotesItem>
             </StyledFieldset>
             <StyledButton>Zapisz</StyledButton>
         </StyledForm>

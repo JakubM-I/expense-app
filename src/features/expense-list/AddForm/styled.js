@@ -56,6 +56,7 @@ export const StyledValueWrapper = styled(StyledFormItem)`
 
     input{
         border: none;
+        background: ${({theme}) => theme.colors.formBackground};
         text-align: center;
         width: 100px;
     }
@@ -70,6 +71,32 @@ export const StyledValueWrapper = styled(StyledFormItem)`
 
 export const StyledValueLabel = styled.span`
      font-size: 16px;
+`
+
+export const StyledNotesItem = styled(StyledFormItem)`
+    max-width: 220px;
+    width: 100%;
+`
+
+export const StyledNotesWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+
+    input{
+        border: none;    
+    }
+
+`
+
+export const StyledLetterCounter = styled.span`
+    font-size: 12px;
+    color: ${({theme}) => theme.colors.commentsFont};
+    align-self: flex-end;
+    padding-block-end: 2px;
 `
 
 export const StyledButton = styled.button`
