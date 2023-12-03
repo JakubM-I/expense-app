@@ -28,7 +28,7 @@ const Form = ({ addNewExpense }) => {
     const currentDate = [
         nowDate.getFullYear(),
         nowDate.getMonth() + 1,
-        nowDate.getDate(),
+        nowDate.getDate() <= 9 ? `0${nowDate.getDate()}` : nowDate.getDate() ,
     ].join("-");
 
     useEffect(() => {
