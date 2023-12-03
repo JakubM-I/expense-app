@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useCategory } from "../../../hooks/useCategory";
 import {
     StyledEditModal,
@@ -9,17 +9,21 @@ import {
     StyledDetailsWrapper,
     StyledWrapper,
     StyledNotesWrapper,
+    StyledNotesInputWrapper,
+    StyledLetterCounter,
     StyledButtonWrapper,
     StyledButton,
     StyledCancelButton
 } from "./styled";
 
-const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit}) => {
+const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
     const [category, setCategory] = useState("");
+    const [letterCount, setLetterCount] = useState(0);
     const [catList] = useCategory();
+    const nameRef = useRef();
 
     useEffect(() => {
         setName(editItem ? editItem.name : "");
@@ -29,6 +33,11 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit}) => {
     }, [editItem])
 
     const selectId = editItem.id;
+
+    useEffect(() => {
+        const letterCounter = nameRef.current.value.length;
+        setLetterCount(letterCounter);
+    }, [name]);
 
     const submit = (e) => {
         e.preventDefault();
@@ -80,10 +89,17 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit}) => {
                     </StyledDetailsWrapper>
                     <StyledNotesWrapper>
                         <label htmlFor="name">Uwagi</label>
-                        <input id="name"
-                            value={name}
-                            onChange={({ target }) => setName(target.value)}
-                        />
+                        <StyledNotesInputWrapper>
+                            <input id="name"
+                                value={name}
+                                maxLength={25}
+                                ref={nameRef}
+                                onChange={({ target }) => setName(target.value)}
+                            />
+                            <StyledLetterCounter>
+                                ({letterCount}/25)
+                            </StyledLetterCounter>
+                        </StyledNotesInputWrapper>
                     </StyledNotesWrapper>
                 </StyledInputsWrapper>
                 <StyledButtonWrapper>

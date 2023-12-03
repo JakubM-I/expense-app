@@ -82,13 +82,30 @@ export const StyledWrapper = styled.div`
 
 export const StyledNotesWrapper = styled(StyledWrapper)`
     width: 100%;
+`
+
+export const StyledNotesInputWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
 
     input{
-        width: 100%;
-        padding: 3px;
         border: none;
-        border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+        padding: 3px;
+        flex-grow: 1;
     }
+`
+
+
+export const StyledLetterCounter = styled.span`
+    font-size: 12px;
+    color: ${({theme}) => theme.colors.commentsFont};
+    align-self: flex-end;
+    padding-block-end: 2px;
 `
 
 export const StyledButtonWrapper = styled.div`

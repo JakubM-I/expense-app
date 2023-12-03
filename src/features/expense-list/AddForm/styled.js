@@ -87,7 +87,8 @@ export const StyledNotesWrapper = styled.div`
     border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
 
     input{
-        border: none;    
+        border: none;
+        flex-grow: 1;
     }
 
 `

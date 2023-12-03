@@ -17,28 +17,28 @@ const Form = ({ addNewExpense }) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
-    const [category, setCategory] = useState("")
-    const [letterCount, setLetterCount] = useState(0)
+    const [category, setCategory] = useState("");
+    const [letterCount, setLetterCount] = useState(0);
     const [catList] = useCategory();
 
     const valueRef = useRef();
     const nameRef = useRef();
 
-    const nowDate = new Date()
+    const nowDate = new Date();
     const currentDate = [
         nowDate.getFullYear(),
         nowDate.getMonth() + 1,
         nowDate.getDate(),
-    ].join("-")
+    ].join("-");
 
     useEffect(() => {
         setDate(currentDate)
-    }, [currentDate])
+    }, [currentDate]);
 
     useEffect(() => {
         const letterCounter = nameRef.current.value.length;
         setLetterCount(letterCounter);
-    }, [name])
+    }, [name]);
 
     const FormSubmit = (e) => {
         e.preventDefault();
@@ -53,7 +53,7 @@ const Form = ({ addNewExpense }) => {
         setDate(currentDate);
         setValue("");
         setCategory("");
-    }
+    };
 
     return (
         <StyledForm
