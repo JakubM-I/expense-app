@@ -7,4 +7,8 @@ export const StyledExpesneList = styled.div`
     display: grid;
     grid-template-columns: 250px 1fr;
     overflow: hidden;
+
+    @media(max-width: 792px){
+        grid-template-columns: 50px 1fr;
+    }
 `

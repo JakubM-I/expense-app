@@ -22,6 +22,25 @@ export const StyledMenuItem = styled.li`
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        gap: 6px;
+        gap: 8px;
+    }
+
+    svg{
+        height: 1.3em;
+        width: 1.3em;
+    }
+
+    @media(max-width: 792px){
+        padding: 2px;
+
+        a{
+            justify-content: center;
+        }
+    }
+`
+
+export const StyledMenuItemName = styled.span`
+    @media(max-width: 792px){
+        display: none;
     }
 `
