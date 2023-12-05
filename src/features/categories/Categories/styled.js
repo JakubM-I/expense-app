@@ -8,15 +8,15 @@ export const StyledCategory = styled.div`
 export const StyledCategoryList = styled.ul`
     list-style: none;
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
 `
 
 export const StyledListItem = styled.li`
     background: ${({theme}) => theme.colors.formBackground};
     padding: 5px 8px;
-    flex: 0 1 230px;
+    /* flex: 0 1 230px; */
     display: flex;
     align-items: center;
     gap: 5px;
