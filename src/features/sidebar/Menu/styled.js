@@ -30,7 +30,7 @@ export const StyledMenuItem = styled.li`
         width: 1.3em;
     }
 
-    @media(max-width: 792px){
+    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
         padding: 2px;
 
         a{
@@ -40,7 +40,7 @@ export const StyledMenuItem = styled.li`
 `
 
 export const StyledMenuItemName = styled.span`
-    @media(max-width: 792px){
+    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
         display: none;
     }
 `
