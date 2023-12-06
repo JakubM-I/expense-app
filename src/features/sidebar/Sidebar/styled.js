@@ -5,12 +5,29 @@ export const StyledBar = styled.div`
     height: auto;
     position: relative;
     margin-block: 15px;
-    
-    h1{
+`
+
+export const StyledHeader = styled.div`
+    width: 100%;
+    padding-block-start: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+`
+
+export const StyledLogo = styled.img`
+    width: 100%;
+    max-width: 60px;
+    padding: 8px;
+`
+
+export const StyledHeaderTitle = styled.h1`
         color: ${({theme}) => theme.colors.lightFont};
         text-align: center;
-    }
+        margin-block-start: 5px;
 
-
-
+        @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+            display: none;
+        }
 `

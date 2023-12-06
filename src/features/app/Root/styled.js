@@ -8,7 +8,7 @@ export const StyledExpesneList = styled.div`
     grid-template-columns: 250px 1fr;
     overflow: hidden;
 
-    @media(max-width: 792px){
+    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
         grid-template-columns: 50px 1fr;
     }
 `

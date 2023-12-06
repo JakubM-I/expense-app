@@ -10,4 +10,8 @@ export const theme = {
        commentsFont: "#7e7f7f",
        activeMenuItemBg: "#6a53ad",
     },
+
+    breakpoints: {
+        tablet: "792px"
+    },
 };

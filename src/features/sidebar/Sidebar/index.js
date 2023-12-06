@@ -1,12 +1,16 @@
 import Menu from "../Menu";
-import { StyledBar } from "./styled"
+import logo from "../../../assets/logo.png"
+import { StyledBar, StyledHeader, StyledLogo, StyledHeaderTitle } from "./styled"
 
 
 const Sidebar = () => {
 
     return (
         <StyledBar>
-            <h1>Expenses App</h1>
+            <StyledHeader>
+                <StyledLogo src={logo} />
+                <StyledHeaderTitle>Expenses App</StyledHeaderTitle>
+            </StyledHeader>
             <Menu />
         </StyledBar>
     )
