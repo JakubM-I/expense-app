@@ -1,11 +1,11 @@
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { StyledExpesneList } from "./styled";
 import Sidebar from "../../sidebar/Sidebar/index";
 import MobileHeader from "../../mobile-menu/MobileHeader";
-import { useEffect, useState } from "react";
 
 const Root = () => {
-    const [mobileMenu, setMobileMenu] = useState(false);
+    const [mobileMenu, setMobileMenu] = useState("");
 
     const pageDimensions = () => {
         const windowWidth = window.innerWidth;
@@ -27,7 +27,6 @@ const Root = () => {
 
     return (
         <StyledExpesneList>
-            {/* <MobileHeader />  */}
             {mobileMenu ? 
                 (<MobileHeader /> ) :
                 (<Sidebar />)
