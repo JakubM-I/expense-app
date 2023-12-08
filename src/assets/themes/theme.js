@@ -15,4 +15,8 @@ export const theme = {
         tablet: "792px",
         mobile: "496px",
     },
+
+    dimensions: {
+        mobileMenuHeight: "70px",
+    }
 };

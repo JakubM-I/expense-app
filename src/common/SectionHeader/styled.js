@@ -6,5 +6,5 @@ export const StyledHeader = styled.h2`
     font-size: 22px;
     margin-block-start: 20px;
     margin-block-end: 15px;
-
+    z-index: 1;
 `

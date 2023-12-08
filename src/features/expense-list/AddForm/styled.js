@@ -6,6 +6,7 @@ export const StyledForm = styled.form`
     margin-block-start: 15px;
     margin-block-end: 35px;
     padding: 15px 10px;
+    z-index: 1;
     display: grid;
     grid-template-columns: 1fr 100px;
     background: ${({theme}) => theme.colors.formBackground};

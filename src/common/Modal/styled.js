@@ -2,6 +2,7 @@ import styled, {css} from 'styled-components';
 
 export const StyledBackdrop = styled.div`
     position: fixed;
+    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;

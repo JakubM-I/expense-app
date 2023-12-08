@@ -2,14 +2,14 @@ import styled from 'styled-components';
 
 export const StyledMobileHeader = styled.div`
     background: ${({theme}) => theme.colors.mainDarkColor};
-    /* height: 80px; */
+    height: ${({theme}) => theme.dimensions.mobileMenuHeight};
     position: relative;
     margin-block: 15px;
     padding: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #fff;
+    color: ${({theme}) => theme.colors.lightFont};
 `
 
 export const StyledLogo = styled.img`
