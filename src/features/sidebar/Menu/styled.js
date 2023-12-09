@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 export const StyledMenu = styled.ul`
         margin-block-start: 20px;
@@ -30,6 +30,14 @@ export const StyledMenuItem = styled.li`
         width: 1.3em;
     }
 
+    ${({collapseMenu}) => collapseMenu && css`
+        padding: 2px;
+
+        a{
+            justify-content: center;
+        }
+    `}
+
     @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
         padding: 2px;
 
@@ -40,6 +48,10 @@ export const StyledMenuItem = styled.li`
 `
 
 export const StyledMenuItemName = styled.span`
+    ${({collapseMenu}) => collapseMenu && css`
+        display: none;
+    `}
+
     @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
         display: none;
     }

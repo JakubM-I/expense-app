@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 export const StyledBar = styled.div`
     background: ${({theme}) => theme.colors.mainDarkColor};
@@ -26,6 +26,11 @@ export const StyledHeaderTitle = styled.h1`
         color: ${({theme}) => theme.colors.lightFont};
         text-align: center;
         margin-block-start: 5px;
+        transition: all 0.8s ease-in;
+
+        ${({collapseMenu}) => collapseMenu && css`
+            display: none;
+        `}
 
         @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
             display: none;
