@@ -6,6 +6,10 @@ import MobileHeader from "../../mobile-menu/MobileHeader";
 
 const Root = () => {
     const [mobileMenu, setMobileMenu] = useState("");
+    const [appStatus, setAppStatus] = useState({
+        status: "loading",
+    });
+    const [collapseMenu, setCollapseMenu] = useState(false);
 
     const pageDimensions = () => {
         const windowWidth = window.innerWidth;
@@ -18,6 +22,8 @@ const Root = () => {
     }
 
     useEffect(() => {
+        pageDimensions();
+
         window.addEventListener("resize", pageDimensions);
 
         return () => {
@@ -26,10 +32,12 @@ const Root = () => {
     }, [])
 
     return (
-        <StyledExpesneList>
+        <StyledExpesneList collapseMenu={collapseMenu}>
             {mobileMenu ? 
                 (<MobileHeader /> ) :
-                (<Sidebar />)
+                (<Sidebar 
+                    collapseMenu={collapseMenu}
+                    setCollapseMenu={setCollapseMenu} />)
             }
             <Outlet />
         </StyledExpesneList>

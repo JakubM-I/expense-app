@@ -3,7 +3,9 @@ import logo from "../../../assets/logo.png"
 import { StyledBar, StyledHeader, StyledLogo, StyledHeaderTitle } from "./styled"
 
 
-const Sidebar = () => {
+const Sidebar = ({setCollapseMenu, collapseMenu}) => {
+
+
 
     return (
         <StyledBar>
@@ -12,6 +14,7 @@ const Sidebar = () => {
                 <StyledHeaderTitle>Expenses App</StyledHeaderTitle>
             </StyledHeader>
             <Menu />
+            <button onClick={() => setCollapseMenu(!collapseMenu)}>Zwiń</button>
         </StyledBar>
     )
 };
