@@ -1,9 +1,9 @@
 import Menu from "../Menu";
 import logo from "../../../assets/logo.png"
-import { StyledBar, StyledHeader, StyledLogo, StyledHeaderTitle } from "./styled"
+import { StyledBar, StyledHeader, StyledLogo, StyledHeaderTitle, StyledButtonWrapper, StyledCollapseButton } from "./styled"
 
 
-const Sidebar = ({setCollapseMenu, collapseMenu}) => {
+const Sidebar = ({ setCollapseMenu, collapseMenu }) => {
 
 
 
@@ -13,10 +13,15 @@ const Sidebar = ({setCollapseMenu, collapseMenu}) => {
                 <StyledLogo src={logo} />
                 <StyledHeaderTitle collapseMenu={collapseMenu}>Expenses App</StyledHeaderTitle>
             </StyledHeader>
-            <Menu 
+            <Menu
                 collapseMenu={collapseMenu}
             />
-            <button onClick={() => setCollapseMenu(!collapseMenu)}>Zwiń</button>
+            <StyledButtonWrapper>
+                <StyledCollapseButton
+                    onClick={() => setCollapseMenu(!collapseMenu)}>
+                    {collapseMenu ? ">>" : "<<"}
+                </StyledCollapseButton>
+            </StyledButtonWrapper>
         </StyledBar>
     )
 };
