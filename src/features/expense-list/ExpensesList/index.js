@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { nanoid } from "nanoid";
 import { FaRegTrashCan } from "react-icons/fa6"
 import { FaRegEdit } from "react-icons/fa"
@@ -18,6 +19,10 @@ import {
 
 
 const ExpensesList = ({ expList, deleteExpense, editSelectItem }) => {
+
+    useEffect(() => {
+        console.log("Zmiana")
+    }, [expList])
 
     const allDatesList = expList.map(exp => ({ id: nanoid(), date: exp.date }))
 

@@ -10,7 +10,7 @@ export const useExpenses = () => {
         localStorage.setItem("expenses", JSON.stringify(expList))
     }, [expList]);
 
-    const addNewExpense = (name, date, value, category) => {
+    const addNewExpense = (name, date, value, category, categoryId) => {
         setExpList(expList => [
             ...expList,
             {
@@ -19,6 +19,7 @@ export const useExpenses = () => {
                 date,
                 value,
                 category,
+                categoryId,
             }
         ]);
     };
