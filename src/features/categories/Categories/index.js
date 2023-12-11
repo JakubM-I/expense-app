@@ -19,10 +19,12 @@ import {
     StyledEditButton,
     StyledDeleteButton,
 } from "./styled";
+import { useExpenses } from "../../../hooks/useExpenses";
 
 const Categories = () => {
     const [catList, addCategory, deleteCategory, saveEditedCategory] = useCategory();
     const [editItem, editSelectItem, isEdit, setIsEdit] = useEditItem(catList);
+    const [,,,, updateCategory] = useExpenses();
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
@@ -73,6 +75,7 @@ const Categories = () => {
                         setIsEdit={setIsEdit}
                         editItem={editItem}
                         saveEditedCategory={saveEditedCategory}
+                        updateCategory={updateCategory}
                     />
                 ) : (
                     <CategoryForm

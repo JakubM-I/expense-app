@@ -35,5 +35,12 @@ export const useExpenses = () => {
         ]);
     };
 
-    return [expList, addNewExpense, deleteExpense, saveEditExpense];
+    const updateCategory = (selectId, category) => {
+        setExpList(expList => [
+            ...expList.map(exp => exp.categoryId === selectId 
+                ? {...exp, category} : exp )
+        ]);
+    };
+
+    return [expList, addNewExpense, deleteExpense, saveEditExpense, updateCategory];
 };

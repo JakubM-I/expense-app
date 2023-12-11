@@ -9,7 +9,7 @@ import {
     StyledCancelButton
 } from "./styled";
 
-const EditCategoryForm = ({ isOpen, setIsOpen, setIsEdit, editItem, saveEditedCategory }) => {
+const EditCategoryForm = ({ isOpen, setIsOpen, setIsEdit, editItem, saveEditedCategory, updateCategory }) => {
 
     const [categoryName, setCategoryName] = useState("");
 
@@ -27,6 +27,7 @@ const EditCategoryForm = ({ isOpen, setIsOpen, setIsEdit, editItem, saveEditedCa
         }
 
         saveEditedCategory(selectId, categoryName.trim());
+        updateCategory(selectId, categoryName.trim());
         setIsOpen(false);
         setTimeout(() => {
             setIsEdit(false);
