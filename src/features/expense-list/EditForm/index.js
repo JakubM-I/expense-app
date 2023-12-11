@@ -24,6 +24,7 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
     const [letterCount, setLetterCount] = useState(0);
     const [catList] = useCategory();
     const nameRef = useRef();
+    const [categoryId, setCategoryId] = useState("");
 
     useEffect(() => {
         setName(editItem ? editItem.name : "");
@@ -39,9 +40,15 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
         setLetterCount(letterCounter);
     }, [name]);
 
+    useEffect(() => {
+        const selectCategory = catList.filter(cat => cat.categoryName.toLowerCase() === category)
+        console.log(selectCategory);
+        setCategoryId(selectCategory.length > 0 ? selectCategory[0].id : "")
+    }, [category])
+
     const submit = (e) => {
         e.preventDefault();
-        saveEditExpense(selectId, name.trim(), date, value, category);
+        saveEditExpense(selectId, name.trim(), date, value, category, categoryId);
         setIsEdit(false);
     }
 

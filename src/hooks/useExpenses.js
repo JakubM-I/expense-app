@@ -28,10 +28,10 @@ export const useExpenses = () => {
         setExpList(expList => expList.filter(exp => exp.id !== id));
     };
 
-    const saveEditExpense = (selectId, name, date, value, category) => {
+    const saveEditExpense = (selectId, name, date, value, category, categoryId) => {
         setExpList(expList => [
             ...expList.map((exp, id) => exp.id === selectId 
-            ? {...exp, name, date, value, category} : exp)
+            ? {...exp, name, date, value, category, categoryId} : exp)
         ]);
     };
 
