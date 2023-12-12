@@ -27,11 +27,21 @@ export const StyledLogo = styled.img`
 export const StyledHeaderTitle = styled.h1`
         color: ${({theme}) => theme.colors.lightFont};
         text-align: center;
+        white-space: nowrap;
         margin-block-start: 5px;
-        transition: all 0.8s ease-in;
+        /* visibility: visible; */
+        opacity: 1;
+        /* width: 100%; */
+        /* max-height: auto; */
+        transition: all 0.8s ease-in-out;
 
         ${({collapseMenu}) => collapseMenu && css`
-            display: none;
+            /* display: none; */
+            /* visibility: hidden; */
+            opacity: 0;
+            /* width: 0; */
+            /* max-height: 0; */
+            /* margin-block-start: 0; */
         `}
 
         @media(max-width: ${({theme}) => theme.breakpoints.tablet}){

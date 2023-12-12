@@ -32,6 +32,7 @@ export const StyledMenuItem = styled.li`
 
     ${({collapseMenu}) => collapseMenu && css`
         padding: 2px;
+        transition: 0.8s ease-in;
 
         a{
             justify-content: center;
