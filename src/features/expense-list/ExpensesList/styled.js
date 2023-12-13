@@ -65,6 +65,14 @@ export const StyledValueItem = styled(StyledItem)`
 `
 
 export const StyledButtonWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+
+    @media(max-width: 549px){
+        flex-direction: column;
+        align-items: center;
+    }
 `
 
 export const StyledButton = styled.button`
@@ -75,7 +83,7 @@ export const StyledButton = styled.button`
 `
 
 export const StyledEditButton = styled(StyledButton)`
-    margin-inline-end: 6px;
+    /* margin-inline-end: 6px; */
     background: ${({theme}) => theme.colors.mainDarkColor};
     border: 1px solid ${({theme}) => theme.colors.mainDarkColor};
     color: ${({theme}) => theme.colors.lightFont};

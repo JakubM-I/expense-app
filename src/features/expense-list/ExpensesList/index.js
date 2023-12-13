@@ -11,6 +11,7 @@ import {
     StyledCategoryItem,
     StyledItemDesc,
     StyledValueItem,
+    StyledButtonWrapper,
     StyledDeleteButton,
     StyledEditButton,
     StyledCommentsItem
@@ -50,7 +51,7 @@ const ExpensesList = ({ expList, deleteExpense, editSelectItem }) => {
                                                     {exp.value} zł
                                                 </StyledValueItem>
                                             </StyledWrapper>
-                                            <div>
+                                            <StyledButtonWrapper>
                                                 <StyledEditButton
                                                     onClick={() => editSelectItem(exp.id)}>
                                                     <FaRegEdit />
@@ -59,7 +60,7 @@ const ExpensesList = ({ expList, deleteExpense, editSelectItem }) => {
                                                     onClick={() => deleteExpense(exp.id)}>
                                                     <FaRegTrashCan />
                                                 </StyledDeleteButton>
-                                            </div>
+                                            </StyledButtonWrapper>
                                         </StyledDayListItem>
                                     ))}
                             </StyledDayList>

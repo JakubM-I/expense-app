@@ -20,6 +20,16 @@ export const StyledFieldset = styled.fieldset`
     justify-content: space-evenly;
     align-items: flex-end;
     border: none;
+
+    @media(max-width: 1249px){
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 15px;
+    }
+    
+    @media(max-width: 749px){
+        grid-template-columns: 1fr;
+    }
 `
 
 export const StyledFormItem = styled.div`
