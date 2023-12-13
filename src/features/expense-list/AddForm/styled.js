@@ -14,6 +14,14 @@ export const StyledForm = styled.form`
     -webkit-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
     -moz-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
     box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
+
+    @media (max-width: 1249px){
+        width: fit-content;
+    }
+
+    @media (max-width: ${({theme}) => theme.breakpoints.mobile}){
+        grid-template-columns: 1fr;
+    }
 `
 export const StyledFieldset = styled.fieldset`
     display: flex;
@@ -21,13 +29,13 @@ export const StyledFieldset = styled.fieldset`
     align-items: flex-end;
     border: none;
 
-    @media(max-width: 1249px){
+    @media (max-width: 1249px){
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         row-gap: 15px;
     }
     
-    @media(max-width: 749px){
+    @media (max-width: 919px){
         grid-template-columns: 1fr;
     }
 `

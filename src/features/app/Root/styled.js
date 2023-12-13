@@ -15,6 +15,7 @@ export const StyledExpesneList = styled.div`
 
     @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
         grid-template-columns: 50px 1fr;
+        width: calc(100%  - 1em);
     }
 
     @media(max-width: ${({theme}) => theme.breakpoints.mobile}){
