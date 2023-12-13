@@ -32,7 +32,7 @@ export const StyledFieldset = styled.fieldset`
     @media (max-width: 1249px){
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        row-gap: 15px;
+        row-gap: 20px;
     }
     
     @media (max-width: 919px){
@@ -56,6 +56,10 @@ export const StyledFormItem = styled.div`
         background: ${({theme}) => theme.colors.formBackground};
         border: none;
         border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+
+        @media (max-width: 1249px){
+            width: 100%;
+        }
     }
 
     select{
@@ -63,6 +67,10 @@ export const StyledFormItem = styled.div`
         background: ${({theme}) => theme.colors.formBackground};
         border: none;
         border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+
+        @media (max-width: 1249px){
+            width: 100%;
+        }
     }
 `
 
@@ -78,6 +86,10 @@ export const StyledValueWrapper = styled(StyledFormItem)`
         background: ${({theme}) => theme.colors.formBackground};
         text-align: center;
         width: 100px;
+
+        @media (max-width: 1249px){
+            width: 100%;
+        }
     }
 
     input::-webkit-inner-spin-button,
