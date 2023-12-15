@@ -43,7 +43,7 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
 
     useEffect(() => {
         const selectCategory = catList.filter(cat => cat.categoryName.toLowerCase() === category)
-        console.log(selectCategory);
+        
         setCategoryId(selectCategory.length > 0 ? selectCategory[0].id : "")
     }, [category])
 

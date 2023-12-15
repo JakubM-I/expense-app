@@ -18,11 +18,9 @@ const Form = ({ addNewExpense }) => {
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
     const [category, setCategory] = useState("");
-    // console.log(category);
     const [letterCount, setLetterCount] = useState(0);
     const [catList] = useCategory();
     const [categoryId, setCategoryId] = useState("");
-    // console.log(categoryId);
 
     const valueRef = useRef();
     const nameRef = useRef();
@@ -45,7 +43,7 @@ const Form = ({ addNewExpense }) => {
 
     useEffect(() => {
         const selectCategory = catList.filter(cat => cat.categoryName.toLowerCase() === category)
-        // console.log(selectCategory);
+        
         setCategoryId(selectCategory.length > 0 ? selectCategory[0].id : "")
     }, [category])
 
