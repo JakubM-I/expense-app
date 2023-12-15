@@ -17,6 +17,12 @@ export const StyledEditModal = styled.div`
     `}
 `
 
+export const StyledFormHeader = styled.p`
+    margin-block-start: 0.3em;
+    margin-block-end: 1.2em;
+    font-weight: 500;
+`
+
 export const StyledInputsWrapper = styled.div`
         display: flex;
         flex-direction: column;

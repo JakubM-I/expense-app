@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useCategory } from "../../../hooks/useCategory";
 import {
     StyledEditModal,
+    StyledFormHeader,
     StyledInputsWrapper,
     StyledValueWrapper,
     StyledValueInput,
@@ -58,6 +59,7 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
 
     return (
         <StyledEditModal isEdit={isEdit} onClick={(e) => e.stopPropagation()}>
+            <StyledFormHeader>Edytuj pozycję</StyledFormHeader>
             <form onSubmit={submit} >
                 <StyledInputsWrapper>
                     <StyledValueWrapper>
@@ -110,6 +112,9 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
                     </StyledNotesWrapper>
                 </StyledInputsWrapper>
                 <StyledButtonWrapper>
+                    {window.innerWidth < 792 ? 
+                    (<button>Usuń</button> ): ""
+                    }
                     <StyledButton>Zapisz</StyledButton>
                     <StyledCancelButton onClick={() => cancelEdit()}>Anuluj</StyledCancelButton>
                 </StyledButtonWrapper>
