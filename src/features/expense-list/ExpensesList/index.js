@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
-import { FaRegTrashCan } from "react-icons/fa6"
-import { FaRegEdit } from "react-icons/fa"
+import { FaRegTrashCan } from "react-icons/fa6";
+import { FaRegEdit } from "react-icons/fa";
 import {
     StyledExpenses,
     StyledDateList,

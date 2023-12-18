@@ -49,8 +49,9 @@ const Expenses = () => {
                     saveEditExpense={saveEditExpense}
                     isEdit={isEdit}
                     setIsEdit={setIsEdit}
-                    isOpen={isOpen}
-                    setIsOpen={setIsOpen}
+                    // isOpen={isOpen}
+                    // setIsOpen={setIsOpen}
+                    deleteExpense={deleteExpense}
                 />
             </Modal>
         </SectionPage>

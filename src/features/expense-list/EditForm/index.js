@@ -1,8 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { useCategory } from "../../../hooks/useCategory";
+import { FaArrowLeft } from "react-icons/fa6";
+import { FaRegTrashCan } from "react-icons/fa6";
 import {
     StyledEditModal,
     StyledFormHeader,
+    StyledBackButton,
+    StyledFormTitle,
+    StyledDeleteButton,
     StyledInputsWrapper,
     StyledValueWrapper,
     StyledValueInput,
@@ -17,7 +22,7 @@ import {
     StyledCancelButton
 } from "./styled";
 
-const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
+const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, deleteExpense }) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
@@ -53,13 +58,27 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
         setIsEdit(false);
     }
 
+    const deleteItem = () => {
+        console.log(selectId)
+        deleteExpense(selectId);
+        setIsEdit(false);
+    }
+
     const cancelEdit = () => {
         setIsEdit(false);
     };
 
     return (
         <StyledEditModal isEdit={isEdit} onClick={(e) => e.stopPropagation()}>
-            <StyledFormHeader>Edytuj pozycję</StyledFormHeader>
+            <StyledFormHeader>
+                {window.innerWidth < 792 ? 
+                    (<StyledBackButton onClick={() => cancelEdit()}><FaArrowLeft /></StyledBackButton>) : ""
+                }
+                <StyledFormTitle>Edytuj pozycję</StyledFormTitle>
+                {window.innerWidth < 792 ? 
+                    (<StyledDeleteButton onClick={() => deleteItem()}><FaRegTrashCan /></StyledDeleteButton> ): ""
+                    }
+            </StyledFormHeader>
             <form onSubmit={submit} >
                 <StyledInputsWrapper>
                     <StyledValueWrapper>
@@ -112,9 +131,6 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit }) => {
                     </StyledNotesWrapper>
                 </StyledInputsWrapper>
                 <StyledButtonWrapper>
-                    {window.innerWidth < 792 ? 
-                    (<button>Usuń</button> ): ""
-                    }
                     <StyledButton>Zapisz</StyledButton>
                     <StyledCancelButton onClick={() => cancelEdit()}>Anuluj</StyledCancelButton>
                 </StyledButtonWrapper>

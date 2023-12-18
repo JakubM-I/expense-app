@@ -17,10 +17,53 @@ export const StyledEditModal = styled.div`
     `}
 `
 
-export const StyledFormHeader = styled.p`
+export const StyledFormHeader = styled.div`
     margin-block-start: 0.3em;
     margin-block-end: 1.2em;
+    width: 100%;
+    position: relative;
+    text-align: left;
+
+    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+        text-align: center;
+        }
+`
+
+export const StyledBackButton = styled.button`
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: none;
+    width: 35px;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    /* padding: 3px; */
+`
+
+export const StyledFormTitle = styled.p`
+    margin: 0;
     font-weight: 500;
+`
+
+export const StyledDeleteButton = styled.button`
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    border-radius: 5px;
+    padding: 5px 6px 1px 7px;
+    background: ${({theme}) => theme.colors.lightFont};
+    border: 1px solid ${({theme}) => theme.colors.lightFont};
+    color: ${({theme}) => theme.colors.mainDarkColor};
+    transition: all 0.4s ease-in;
+
+    /* &:hover{
+        background: ${({theme}) => theme.colors.buttonCancelBg};
+    } */
 `
 
 export const StyledInputsWrapper = styled.div`
@@ -119,6 +162,10 @@ export const StyledButtonWrapper = styled.div`
     gap: 10px;
     align-items: center;
     justify-content: center;
+
+    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+        gap: 0;
+    }
 `
 
 export const StyledButton = styled.button`
@@ -142,5 +189,9 @@ export const StyledCancelButton = styled(StyledButton)`
 
     &:hover{
         background: ${({theme}) => theme.colors.buttonCancelBg};
+    }
+
+    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+        display: none;
     }
 `
