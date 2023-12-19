@@ -11,6 +11,7 @@ import {
     StyledCategoryItem,
     StyledItemDesc,
     StyledValueItem,
+    StyledMobileEditButton,
     StyledButtonWrapper,
     StyledDeleteButton,
     StyledEditButton,
@@ -51,16 +52,22 @@ const ExpensesList = ({ expList, deleteExpense, editSelectItem }) => {
                                                     {exp.value} zł
                                                 </StyledValueItem>
                                             </StyledWrapper>
-                                            <StyledButtonWrapper>
-                                                <StyledEditButton
+                                            {window.innerWidth < 792 ?
+                                                (<StyledMobileEditButton 
                                                     onClick={() => editSelectItem(exp.id)}>
-                                                    <FaRegEdit />
-                                                </StyledEditButton>
-                                                <StyledDeleteButton
-                                                    onClick={() => deleteExpense(exp.id)}>
-                                                    <FaRegTrashCan />
-                                                </StyledDeleteButton>
-                                            </StyledButtonWrapper>
+                                                </StyledMobileEditButton>) 
+                                                : (<StyledButtonWrapper>
+                                                    <StyledEditButton
+                                                        onClick={() => editSelectItem(exp.id)}>
+                                                        <FaRegEdit />
+                                                    </StyledEditButton>
+                                                    <StyledDeleteButton
+                                                        onClick={() => deleteExpense(exp.id)}>
+                                                        <FaRegTrashCan />
+                                                    </StyledDeleteButton>
+                                                </StyledButtonWrapper>)
+                                            }
+
                                         </StyledDayListItem>
                                     ))}
                             </StyledDayList>

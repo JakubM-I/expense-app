@@ -41,7 +41,7 @@ export const StyledBackButton = styled.button`
     top: 50%;
     transform: translateY(-50%);
     left: 0;
-    /* padding: 3px; */
+    cursor: pointer;
 `
 
 export const StyledFormTitle = styled.p`
@@ -60,6 +60,7 @@ export const StyledDeleteButton = styled.button`
     border: 1px solid ${({theme}) => theme.colors.lightFont};
     color: ${({theme}) => theme.colors.mainDarkColor};
     transition: all 0.4s ease-in;
+    cursor: pointer;
 
     /* &:hover{
         background: ${({theme}) => theme.colors.buttonCancelBg};

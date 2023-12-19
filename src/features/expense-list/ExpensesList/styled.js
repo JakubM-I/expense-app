@@ -31,6 +31,8 @@ export const StyledDayListItem = styled.li`
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+    position: relative;
+    z-index: 1;
 `
 
 export const StyledWrapper = styled.div`
@@ -62,6 +64,20 @@ export const StyledCommentsItem = styled(StyledItem)`
 
 export const StyledValueItem = styled(StyledItem)`
     margin-inline-start: auto;
+`
+
+export const StyledMobileEditButton = styled.button`
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
 `
 
 export const StyledButtonWrapper = styled.div`
