@@ -1,4 +1,5 @@
 import { nanoid } from "nanoid";
+import { useWindowWidth } from "../../../hooks/useWindowWidth";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
 import {
@@ -20,6 +21,7 @@ import {
 
 
 const ExpensesList = ({ expList, deleteExpense, editSelectItem }) => {
+    const windowWidth = useWindowWidth();
 
     const allDatesList = expList.map(exp => ({ id: nanoid(), date: exp.date }))
 
@@ -52,7 +54,7 @@ const ExpensesList = ({ expList, deleteExpense, editSelectItem }) => {
                                                     {exp.value} zł
                                                 </StyledValueItem>
                                             </StyledWrapper>
-                                            {window.innerWidth < 792 ?
+                                            {windowWidth.width < 792 ?
                                                 (<StyledMobileEditButton 
                                                     onClick={() => editSelectItem(exp.id)}>
                                                 </StyledMobileEditButton>) 
