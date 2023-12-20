@@ -9,7 +9,7 @@ const Sidebar = ({ setCollapseMenu, collapseMenu }) => {
 
     return (
         <StyledBar>
-            <StyledHeader>
+            <StyledHeader collapseMenu={collapseMenu}>
                 <StyledLogo src={logo} />
                 <StyledHeaderTitle collapseMenu={collapseMenu}>Expenses App</StyledHeaderTitle>
             </StyledHeader>

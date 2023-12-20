@@ -10,36 +10,61 @@ export const StyledBar = styled.div`
 `
 
 export const StyledHeader = styled.div`
+    position: relative;
     width: 100%;
-    padding-block-start: 20px;
+    margin-block-start: 20px;
+    height: 52px;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+    /* gap: 5px; */
+
+    &::after{
+        content: "";
+        display: block;
+        position: absolute;
+        height: 1px;
+        background: #fff;
+        bottom: -10px;
+        left: 0;
+        right: 0;
+        width: 90%;
+        margin-inline: auto;
+    }
+
+    /* ${({collapseMenu}) => collapseMenu && css`
+        gap: 0;
+    `} */
 `
 
 export const StyledLogo = styled.img`
     width: 100%;
-    max-width: 60px;
-    padding: 8px;
+    max-width: 50px;
+    padding-inline: 5px;
+    padding-block-end: 10px;
 `
 
 export const StyledHeaderTitle = styled.h1`
         color: ${({theme}) => theme.colors.lightFont};
+        font-size: 28px;
         text-align: center;
+        margin: 0;
         white-space: nowrap;
-        margin-block-start: 5px;
+        padding-inline: 5px;
         /* visibility: visible; */
-        opacity: 1;
-        /* width: 100%; */
+        /* opacity: 1; */
+        width: 100%;
+        max-width: 186px;
         /* max-height: auto; */
-        transition: all 0.8s ease-in-out;
+        transition: all 0.8s ease-in;
 
         ${({collapseMenu}) => collapseMenu && css`
             /* display: none; */
             /* visibility: hidden; */
-            opacity: 0;
-            /* width: 0; */
+            /* opacity: 0; */
+            max-width: 0;
+            padding-inline: 0;
             /* max-height: 0; */
             /* margin-block-start: 0; */
         `}
