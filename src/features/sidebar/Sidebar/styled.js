@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled, {css, keyframes} from 'styled-components';
 
 export const StyledBar = styled.div`
     background: ${({theme}) => theme.colors.mainDarkColor};
@@ -45,8 +45,18 @@ export const StyledLogo = styled.img`
     padding-block-end: 10px;
 `
 
+const hideTitle = keyframes`
+    0% {max-width: 186px; padding-inline: 5px;}
+    100% {max-width: 0px; padding-inline: 0;}
+`
+const showTitle = keyframes`
+    0% {max-width: 0px; padding-inline: 0;}
+    100% {max-width: 186px; padding-inline: 5px;}
+`
+
 export const StyledHeaderTitle = styled.h1`
         color: ${({theme}) => theme.colors.lightFont};
+        display: block;
         font-size: 28px;
         text-align: center;
         margin: 0;
@@ -63,11 +73,28 @@ export const StyledHeaderTitle = styled.h1`
             /* display: none; */
             /* visibility: hidden; */
             /* opacity: 0; */
-            max-width: 0;
-            padding-inline: 0;
+            /* max-width: 0; */
+            /* padding-inline: 0; */
             /* max-height: 0; */
             /* margin-block-start: 0; */
+            animation: ${hideTitle} 0.8s linear forwards;
         `}
+
+        ${({closeMenu}) => closeMenu && css`
+            display: none;
+        `}
+
+        /* ${({openMenu}) => openMenu && css`
+            animation: ${showTitle} 0.8s linear forwards;
+        `} */
+
+        /* ${({collapseMenu}) => collapseMenu === false && css`
+            animation: ${showTitle} 0.8s linear forwards;
+        `} */
+
+        /* ${({closeMenu}) => closeMenu === false && css`
+            display: block;
+        `} */
 
         @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
             display: none;
