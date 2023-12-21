@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledMobileMenu = styled.div`
     position: absolute;
-    top: ${({ theme }) => theme.dimensions.mobileMenuHeight};
+    top: calc(${({ theme }) => theme.dimensions.mobileHeaderHeight} + ${({ theme }) => theme.dimensions.mobileHeaderMarginBlock});
     right: 1.5em;
     background: ${({ theme }) => theme.colors.mainDarkColor};
     color: ${({ theme }) => theme.colors.lightFont};
@@ -16,7 +16,7 @@ export const StyledMobileMenuList = styled.ul`
 
 export const StyledMobileMenuListItem = styled.li`
     margin-block-end: 8px;
-    padding: 5px;
+    padding: 10px;
     cursor: pointer;
     transition: all 0.4s ease-in;
 
@@ -26,6 +26,7 @@ export const StyledMobileMenuListItem = styled.li`
 
     a{
         color: ${({ theme }) => theme.colors.lightFont};
+        font-size: 18px;
         text-decoration: none;
         display: flex;
         justify-content: flex-start;

@@ -18,6 +18,7 @@ export const StyledHeader = styled.div`
     /* flex-direction: column; */
     align-items: center;
     justify-content: center;
+    margin-block-end: 20px;
     /* gap: 5px; */
 
     &::after{
@@ -107,6 +108,10 @@ export const StyledButtonWrapper = styled.div`
     display: grid;
     justify-items: right;
     padding-inline-end: 10px;
+
+    @media (max-width: ${({theme}) => theme.breakpoints.tablet}){
+        display: none;
+    }
 `
 
 export const StyledCollapseButton = styled.button`

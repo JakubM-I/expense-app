@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const StyledMobileHeader = styled.div`
     background: ${({theme}) => theme.colors.mainDarkColor};
-    height: ${({theme}) => theme.dimensions.mobileMenuHeight};
+    height: ${({theme}) => theme.dimensions.mobileHeaderHeight};
     position: relative;
-    margin-block: 15px;
+    margin-block: ${({theme}) => theme.dimensions.mobileHeaderMarginBlock};
     padding: 5px;
     display: flex;
     justify-content: space-between;

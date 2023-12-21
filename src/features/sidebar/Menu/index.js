@@ -15,7 +15,7 @@ const Menu = ({collapseMenu}) => {
     return (
         <StyledMenu>
         <StyledMenuItem collapseMenu={collapseMenu}>
-            <Link to="/expense-app">
+            <Link to="/expense-app" title="Wydatki">
                 <BiListUl />
                 <StyledMenuItemName collapseMenu={collapseMenu} onAnimationEnd={() => setCloseItem(!closeItem)} closeItem={closeItem}>
                     Wydatki
@@ -23,7 +23,7 @@ const Menu = ({collapseMenu}) => {
             </Link>
         </StyledMenuItem>
         <StyledMenuItem collapseMenu={collapseMenu}>
-            <Link to="/expense-app/categories">
+            <Link to="/expense-app/categories" title="Kategorie">
                 <BiCategory />
                 <StyledMenuItemName collapseMenu={collapseMenu} onAnimationEnd={() => setCloseItem(!closeItem)} closeItem={closeItem}>
                     Kategorie

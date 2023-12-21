@@ -19,6 +19,7 @@ export const theme = {
     },
 
     dimensions: {
-        mobileMenuHeight: "70px",
+        mobileHeaderHeight: "70px",
+        mobileHeaderMarginBlock: "15px",
     }
 };
