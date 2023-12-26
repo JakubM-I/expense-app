@@ -5,6 +5,13 @@ export const PageHeader = styled.div`
     position: sticky;
     top: 0;
     z-index: 2;
+
+    @media (max-width: ${({theme}) => theme.breakpoints.tablet}){
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+    }
 `
 
 export const ListHeaderWrapper = styled.div`
@@ -21,7 +28,7 @@ export const ListHeaderWrapper = styled.div`
         top: 357px;
     }
 
-    @media(max-width: ${({theme}) => theme.breakpoints.mobile}){
-        top: 388px;
+    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+        top: 60px;
     }
 `

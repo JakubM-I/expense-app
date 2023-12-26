@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useExpenses } from "../../../hooks/useExpenses";
 import { useEditItem } from "../../../hooks/useEditItem";
+import { useWindowWidth } from "../../../hooks/useWindowWidth";
 import SectionPage from "../../../common/SectionPage";
 import SectionHeader from "../../../common/SectionHeader";
 import Form from "../../expense-list/AddForm";
@@ -14,6 +15,7 @@ const Expenses = () => {
     const [expList, addNewExpense, deleteExpense, saveEditExpense] = useExpenses();
     const [editItem, editSelectItem, isEdit, setIsEdit] = useEditItem(expList);
     const [isOpen, setIsOpen] = useState(false);
+    const windowWidth = useWindowWidth();
 
     useEffect(() => {
         setIsOpen(isEdit);
@@ -25,6 +27,7 @@ const Expenses = () => {
 
     return (
         <SectionPage>
+            {windowWidth.width > 792 ? (
             <PageHeader>
                 <SectionHeader
                     title="Dodaj nową pozycję"
@@ -33,6 +36,14 @@ const Expenses = () => {
                     addNewExpense={addNewExpense}
                 />
             </PageHeader>
+            ) : ("")}
+
+            {windowWidth.width <= 792 ? (
+                    <button>+</button>
+                ) : (
+                    ""
+                )}
+            
             <ListHeaderWrapper>
                 <SectionHeader
                     title="Lista wydatków"
