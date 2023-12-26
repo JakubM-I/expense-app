@@ -8,7 +8,7 @@ import Form from "../../expense-list/AddForm";
 import ExpensesList from "../ExpensesList";
 import EditForm from "../EditForm"
 import Modal from "../../../common/Modal";
-import { PageHeader, ListHeaderWrapper } from "./styled";
+import { PageHeader, MobileAddButton, ListHeaderWrapper } from "./styled";
 
 const Expenses = () => {
 
@@ -39,7 +39,7 @@ const Expenses = () => {
             ) : ("")}
 
             {windowWidth.width <= 792 ? (
-                    <button>+</button>
+                    <MobileAddButton>+</MobileAddButton>
                 ) : (
                     ""
                 )}

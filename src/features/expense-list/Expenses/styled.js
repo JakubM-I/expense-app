@@ -14,6 +14,16 @@ export const PageHeader = styled.div`
     }
 `
 
+export const MobileAddButton = styled.button`
+    width: fit-content;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+`
+
 export const ListHeaderWrapper = styled.div`
     background: ${({theme}) => theme.colors.mainBackground};
     position: sticky;
