@@ -16,11 +16,27 @@ export const PageHeader = styled.div`
 
 export const MobileAddButton = styled.button`
     width: fit-content;
-    padding: 10px;
+    padding: 5px 10px;
     border-radius: 50%;
+    z-index: 5;
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 20px;
+    right: calc(50% - 50px);
+    transform: translateX(-50%);
+    background: ${({theme}) => theme.colors.mainDarkColor};
+    border: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+    box-shadow: 0px -1px 6px 2px #afadad;
+    color: ${({theme}) => theme.colors.lightFont};
+    line-height: 1;
+    font-size: 25px;
+    font-weight: 400;
+    transition: all 0.4s ease-in;
+    cursor: pointer;
+
+    &:hover{
+        background: ${({theme}) => theme.colors.buttonApproveBg};
+        color: ${({theme}) => theme.colors.mainDarkColor};
+    }
 
 `
 
@@ -39,6 +55,6 @@ export const ListHeaderWrapper = styled.div`
     }
 
     @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
-        top: 60px;
+        top: 0;
     }
 `
