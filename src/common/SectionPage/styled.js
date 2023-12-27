@@ -6,7 +6,7 @@ export const StyledSectionPage = styled.main`
     margin-inline: auto;
     margin-block: 15px;
     overflow-y: auto;
-    height: calc(100svh - 30px);
+    height: calc(100% - 15px);
     display: flex;
     flex-direction: column;
 `
