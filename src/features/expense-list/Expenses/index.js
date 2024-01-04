@@ -4,7 +4,7 @@ import { useEditItem } from "../../../hooks/useEditItem";
 import { useWindowWidth } from "../../../hooks/useWindowWidth";
 import SectionPage from "../../../common/SectionPage";
 import SectionHeader from "../../../common/SectionHeader";
-import Form from "../../expense-list/AddForm";
+import AddForm from "../../expense-list/AddForm";
 import ExpensesList from "../ExpensesList";
 import EditForm from "../EditForm"
 import Modal from "../../../common/Modal";
@@ -14,36 +14,41 @@ const Expenses = () => {
 
     const [expList, addNewExpense, deleteExpense, saveEditExpense] = useExpenses();
     const [editItem, editSelectItem, isEdit, setIsEdit] = useEditItem(expList);
+    const [addMobile, setAddMobile] = useState(false)
     const [isOpen, setIsOpen] = useState(false);
     const windowWidth = useWindowWidth();
+    const mobileBreakPoint = 792;
 
     useEffect(() => {
         setIsOpen(isEdit);
     }, [isEdit]);
 
     const closeModal = () => {
-        setIsEdit(false);
+        isOpen ?
+            setIsEdit(false)
+            : setAddMobile(false);
     }
 
     return (
         <SectionPage>
-            {windowWidth.width > 792 ? (
-            <PageHeader>
-                <SectionHeader
-                    title="Dodaj nową pozycję"
-                />
-                <Form
-                    addNewExpense={addNewExpense}
-                />
-            </PageHeader>
-            ) : ("")}
+            {windowWidth.width > mobileBreakPoint
+                ? (
+                    <PageHeader>
+                        <SectionHeader
+                            title="Dodaj nową pozycję"
+                        />
+                        <AddForm
+                            addNewExpense={addNewExpense}
+                        />
+                    </PageHeader>
+                )
+                : ("")}
 
-            {windowWidth.width <= 792 ? (
-                    <MobileAddButton>+</MobileAddButton>
-                ) : (
-                    ""
-                )}
-            
+            {windowWidth.width <= mobileBreakPoint
+                ? (
+                    <MobileAddButton onClick={() => setAddMobile(true)}>+</MobileAddButton>
+                )
+                : ("")}
             <ListHeaderWrapper>
                 <SectionHeader
                     title="Lista wydatków"
@@ -55,6 +60,7 @@ const Expenses = () => {
                 editSelectItem={editSelectItem}
             />
             <Modal isOpen={isOpen} onCLose={() => closeModal()}>
+                {/* {isEdit ? ( */}
                 <EditForm
                     editItem={editItem}
                     saveEditExpense={saveEditExpense}
@@ -64,7 +70,17 @@ const Expenses = () => {
                     // setIsOpen={setIsOpen}
                     deleteExpense={deleteExpense}
                 />
+                {/* ) : ""} */}
             </Modal>
+            {windowWidth.width <= mobileBreakPoint
+                ? (
+                    <Modal isOpen={addMobile} onCLose={() => closeModal()}>
+                        <AddForm
+                            addNewExpense={addNewExpense}
+                            setAddMobile={setAddMobile}
+                        />
+                    </Modal>
+                ) : ""}
         </SectionPage>
     );
 };

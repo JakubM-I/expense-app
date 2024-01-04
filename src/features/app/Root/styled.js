@@ -21,5 +21,6 @@ export const StyledExpesneList = styled.div`
 
     @media(max-width: ${({theme}) => theme.breakpoints.mobile}){
         grid-template-columns: 1fr;
+        grid-auto-rows: auto 1fr;
     }
 `

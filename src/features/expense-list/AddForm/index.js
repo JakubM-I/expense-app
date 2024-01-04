@@ -13,7 +13,7 @@ import {
 } from "./styled";
 
 
-const Form = ({ addNewExpense }) => {
+const AddForm = ({ addNewExpense, setAddMobile }) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
@@ -66,6 +66,9 @@ const Form = ({ addNewExpense }) => {
         <StyledForm
             onSubmit={FormSubmit}
         >
+            <div>
+                <button onClick={() => setAddMobile(false)}>X</button>
+            </div>
             <StyledFieldset>
                 <StyledValueWrapper>
                     <input
@@ -125,4 +128,4 @@ const Form = ({ addNewExpense }) => {
     );
 };
 
-export default Form;
+export default AddForm;

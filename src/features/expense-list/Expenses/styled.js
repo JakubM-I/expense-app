@@ -15,10 +15,13 @@ export const PageHeader = styled.div`
 `
 
 export const MobileAddButton = styled.button`
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
     width: fit-content;
     padding: 5px 10px;
     border-radius: 50%;
-    z-index: 5;
+    z-index: 2;
     position: absolute;
     bottom: 20px;
     right: calc(50% - 50px);
