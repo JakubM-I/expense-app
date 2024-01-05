@@ -5,6 +5,7 @@ import {
     StyledForm,
     StyledFormHeader,
     StyledCancelButton,
+    StyledFormTitle,
     StyledFieldset,
     StyledFormItem,
     StyledValueWrapper,
@@ -72,7 +73,7 @@ const AddForm = ({ addNewExpense, setAddMobile }) => {
             {window.innerWidth < 792 ? (            
             <StyledFormHeader>
                 <StyledCancelButton onClick={() => setAddMobile(false)}><FaArrowLeft /></StyledCancelButton>
-                <p>Dodaj pozycję</p>
+                <StyledFormTitle>Dodaj pozycję</StyledFormTitle>
 
             </StyledFormHeader>) : "" }
 

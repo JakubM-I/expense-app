@@ -29,6 +29,7 @@ export const StyledFormHeader = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
+    margin-block-end: 20px;
 `
 
 export const StyledCancelButton = styled.button`
@@ -41,6 +42,11 @@ export const StyledCancelButton = styled.button`
     transform: translateY(-50%);
     background: none;
     border: none;
+`
+
+export const StyledFormTitle = styled.p`
+    margin: 0;
+    font-weight: 500;
 `
 
 export const StyledFieldset = styled.fieldset`
