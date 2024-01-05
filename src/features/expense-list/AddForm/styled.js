@@ -19,10 +19,30 @@ export const StyledForm = styled.form`
         width: fit-content;
     }
 
-    @media (max-width: ${({theme}) => theme.breakpoints.mobile}){
+    @media (max-width: ${({theme}) => theme.breakpoints.tablet}){
         grid-template-columns: 1fr;
     }
 `
+
+export const StyledFormHeader = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+`
+
+export const StyledCancelButton = styled.button`
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+`
+
 export const StyledFieldset = styled.fieldset`
     display: flex;
     justify-content: space-evenly;

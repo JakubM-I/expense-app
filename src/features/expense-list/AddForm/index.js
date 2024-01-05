@@ -1,7 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { useCategory } from "../../../hooks/useCategory";
+import { FaArrowLeft } from "react-icons/fa6";
 import {
     StyledForm,
+    StyledFormHeader,
+    StyledCancelButton,
     StyledFieldset,
     StyledFormItem,
     StyledValueWrapper,
@@ -66,9 +69,13 @@ const AddForm = ({ addNewExpense, setAddMobile }) => {
         <StyledForm
             onSubmit={FormSubmit}
         >
-            <div>
-                <button onClick={() => setAddMobile(false)}>X</button>
-            </div>
+            {window.innerWidth < 792 ? (            
+            <StyledFormHeader>
+                <StyledCancelButton onClick={() => setAddMobile(false)}><FaArrowLeft /></StyledCancelButton>
+                <p>Dodaj pozycję</p>
+
+            </StyledFormHeader>) : "" }
+
             <StyledFieldset>
                 <StyledValueWrapper>
                     <input
