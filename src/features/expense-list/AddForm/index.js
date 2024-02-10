@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useCategory } from "../../../hooks/useCategory";
+import { useCategoryId } from "../../../hooks/useCategoryId";
 import { FaArrowLeft } from "react-icons/fa6";
 import {
     StyledForm,
@@ -24,7 +25,7 @@ const AddForm = ({ addNewExpense, setAddMobile }) => {
     const [category, setCategory] = useState("");
     const [letterCount, setLetterCount] = useState(0);
     const [catList] = useCategory();
-    const [categoryId, setCategoryId] = useState("");
+    const categoryId = useCategoryId(category);
 
     const valueRef = useRef();
     const nameRef = useRef();
@@ -45,11 +46,12 @@ const AddForm = ({ addNewExpense, setAddMobile }) => {
         setLetterCount(letterCounter);
     }, [name]);
 
-    useEffect(() => {
-        const selectCategory = catList.filter(cat => cat.categoryName.toLowerCase() === category)
+    // useEffect(() => {
+    //     const selectCategory = catList.filter(cat => cat.categoryName.toLowerCase() === category)
+    //     console.log("Form effect:", category);
         
-        setCategoryId(selectCategory.length > 0 ? selectCategory[0].id : "")
-    }, [category])
+    //     setCategoryId(selectCategory.length > 0 ? selectCategory[0].id : "")
+    // }, [category])
 
     const FormSubmit = (e) => {
         e.preventDefault();
@@ -59,6 +61,7 @@ const AddForm = ({ addNewExpense, setAddMobile }) => {
         }
 
         addNewExpense(name.trim(), date, value, category, categoryId);
+        console.log("Kategoria ID:", categoryId);
         valueRef.current.focus();
         setName("");
         setDate(currentDate);

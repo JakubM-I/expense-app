@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useCategory } from "../../../hooks/useCategory";
+import { useCategoryId } from "../../../hooks/useCategoryId";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
 import {
@@ -30,7 +31,7 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, deleteExpense 
     const [letterCount, setLetterCount] = useState(0);
     const [catList] = useCategory();
     const nameRef = useRef();
-    const [categoryId, setCategoryId] = useState("");
+    const categoryId = useCategoryId(category);
 
     useEffect(() => {
         setName(editItem ? editItem.name : "");
@@ -46,11 +47,11 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, deleteExpense 
         setLetterCount(letterCounter);
     }, [name]);
 
-    useEffect(() => {
-        const selectCategory = catList.filter(cat => cat.categoryName.toLowerCase() === category)
+    // useEffect(() => {
+    //     const selectCategory = catList.filter(cat => cat.categoryName.toLowerCase() === category)
         
-        setCategoryId(selectCategory.length > 0 ? selectCategory[0].id : "")
-    }, [category])
+    //     setCategoryId(selectCategory.length > 0 ? selectCategory[0].id : "")
+    // }, [category])
 
     const submit = (e) => {
         e.preventDefault();
