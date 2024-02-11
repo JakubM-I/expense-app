@@ -68,7 +68,7 @@ export const StyledHeaderTitle = styled.h1`
         width: 100%;
         max-width: 186px;
         /* max-height: auto; */
-        transition: all 0.8s ease-in;
+        /* transition: all 0.8s ease-in; */
 
         ${({collapseMenu}) => collapseMenu && css`
             /* display: none; */
@@ -78,12 +78,18 @@ export const StyledHeaderTitle = styled.h1`
             /* padding-inline: 0; */
             /* max-height: 0; */
             /* margin-block-start: 0; */
-            animation: ${hideTitle} 0.8s linear forwards;
+            animation: ${hideTitle} 0.7s linear forwards;
         `}
 
-        ${({closeMenu}) => closeMenu && css`
-            display: none;
+        ${({collapseMenu}) => !collapseMenu && css`
+            animation: ${showTitle} 0.7s linear forwards;
         `}
+
+
+
+        /* ${({closeMenu}) => closeMenu && css`
+            display: none;
+        `} */
 
         /* ${({openMenu}) => openMenu && css`
             animation: ${showTitle} 0.8s linear forwards;

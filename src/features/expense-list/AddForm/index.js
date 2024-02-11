@@ -33,8 +33,8 @@ const AddForm = ({ addNewExpense, setAddMobile }) => {
     const nowDate = new Date();
     const currentDate = [
         nowDate.getFullYear(),
-        nowDate.getMonth() + 1,
-        nowDate.getDate() <= 9 ? `0${nowDate.getDate()}` : nowDate.getDate() ,
+        nowDate.getMonth() <= 9 ? `0${nowDate.getMonth() + 1}` :  nowDate.getMonth() + 1,
+        nowDate.getDate() <= 9 ? `0${nowDate.getDate()}` : nowDate.getDate(),
     ].join("-");
 
     useEffect(() => {

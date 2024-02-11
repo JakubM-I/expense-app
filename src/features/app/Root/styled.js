@@ -7,7 +7,7 @@ export const StyledExpesneList = styled.div`
     display: grid;
     grid-template-columns: 250px 1fr;
     overflow: hidden;
-    transition: all 0.8s ease-in;
+    transition: all 0.8s linear;
     position: relative;
 
     ${({collapseMenu}) => collapseMenu && css `

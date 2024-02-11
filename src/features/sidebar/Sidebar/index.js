@@ -11,11 +11,11 @@ const Sidebar = ({ setCollapseMenu, collapseMenu }) => {
     console.log("CloseMenu:", closeMenu);
     console.log("Collapse:", collapseMenu);
 
-    useEffect(() => {
-        if(collapseMenu === false){
-            setCloseMenu(false);
-        } 
-    }, [collapseMenu])
+    // useEffect(() => {
+    //     if(collapseMenu === false){
+    //         setCloseMenu(false);
+    //     } 
+    // }, [collapseMenu])
 
     // const closeAnimation = () => {
     //         console.log("closeAnimation on")
