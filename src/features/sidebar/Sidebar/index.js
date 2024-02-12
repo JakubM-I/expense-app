@@ -8,8 +8,8 @@ const Sidebar = ({ setCollapseMenu, collapseMenu }) => {
 
     const [closeMenu, setCloseMenu] = useState(false);
     const [openMenu, setOpenMenu] = useState(true);
-    console.log("CloseMenu:", closeMenu);
-    console.log("Collapse:", collapseMenu);
+    // console.log("CloseMenu:", closeMenu);
+    // console.log("Collapse:", collapseMenu);
 
     // useEffect(() => {
     //     if(collapseMenu === false){
@@ -43,9 +43,9 @@ const Sidebar = ({ setCollapseMenu, collapseMenu }) => {
                 <StyledHeaderTitle 
                     collapseMenu={collapseMenu} 
                     // onAnimationStart={() => setCloseMenu(false)}
-                    onAnimationEnd={() => setCloseMenu(!closeMenu)} 
+                    onAnimationEnd={() => setCloseMenu(collapseMenu ? true : false)} 
                     closeMenu={closeMenu}
-                    openMenu={openMenu}
+                    // openMenu={openMenu}
                 >
                         Expenses App
                 </StyledHeaderTitle>

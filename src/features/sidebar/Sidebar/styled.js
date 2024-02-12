@@ -81,8 +81,8 @@ export const StyledHeaderTitle = styled.h1`
             animation: ${hideTitle} 0.7s linear forwards;
         `}
 
-        ${({collapseMenu}) => !collapseMenu && css`
-            animation: ${showTitle} 0.7s linear forwards;
+        ${({collapseMenu, closeMenu}) => !collapseMenu && closeMenu && css`
+            animation: ${showTitle} 0.75s linear forwards;
         `}
 
 
