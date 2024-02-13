@@ -10,7 +10,7 @@ export const StyledMenu = styled.ul`
 export const StyledMenuItem = styled.li`
     margin-block-end: 8px;
     padding: 5px;
-    transition: all 0.4s ease-in;
+    transition: all 0.8s linear;
 
     &:has(a:hover){
         background: ${({theme}) => theme.colors.activeMenuItemBg};
@@ -32,7 +32,7 @@ export const StyledMenuItem = styled.li`
 
     ${({collapseMenu}) => collapseMenu && css`
         padding: 2px;
-        transition: 0.8s ease-in;
+        /* transition: 0.8s ease-in; */
 
         /* a{
             justify-content: center;
@@ -52,18 +52,28 @@ const hideItem = keyframes`
     100% {max-width: 0px;}
 `
 
+const showItem = keyframes`
+    0% {max-width: 0px;}
+    100% {max-width: 187px;}
+`
+
 export const StyledMenuItemName = styled.span`
     display: block;
+    white-space: nowrap;
     width: 100%;
     max-width: 187px;
 
     ${({collapseMenu}) => collapseMenu && css`
         /* max-width: 0; */
         /* display: none; */
-        animation: ${hideItem} 0.8s linear forwards;
+        animation: ${hideItem} 0.7s linear forwards;
     `}
 
-    ${({closeItem}) => closeItem && css`
+    ${({collapseMenu, closeItem}) => !collapseMenu && closeItem && css`
+        animation: ${showItem} 0.75s linear forwards;
+    `}
+
+    ${({collapseMenu, closeItem}) =>  collapseMenu && closeItem && css`
             display: none;
         `}
 

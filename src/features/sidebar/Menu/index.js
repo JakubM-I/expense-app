@@ -5,19 +5,25 @@ import { StyledMenu, StyledMenuItem, StyledMenuItemName } from "./styled";
 
 const Menu = ({collapseMenu}) => {
     const [closeItem, setCloseItem] = useState(false);
+    console.log("Menu collaps:", collapseMenu);
+    console.log("Close:", closeItem)
 
-    useEffect(() => {
-        if(collapseMenu === false){
-            setCloseItem(false);
-        } 
-    }, [collapseMenu])
+    // useEffect(() => {
+    //     if(collapseMenu === false){
+    //         setCloseItem(false);
+    //     } 
+    // }, [collapseMenu])
 
     return (
         <StyledMenu>
         <StyledMenuItem collapseMenu={collapseMenu}>
             <Link to="/expense-app" title="Wydatki">
                 <BiListUl />
-                <StyledMenuItemName collapseMenu={collapseMenu} onAnimationEnd={() => setCloseItem(!closeItem)} closeItem={closeItem}>
+                <StyledMenuItemName 
+                    collapseMenu={collapseMenu} 
+                    onAnimationEnd={() => setCloseItem(collapseMenu ? true : false)} 
+                    closeItem={closeItem}
+                >
                     Wydatki
                 </StyledMenuItemName>
             </Link>
@@ -25,7 +31,11 @@ const Menu = ({collapseMenu}) => {
         <StyledMenuItem collapseMenu={collapseMenu}>
             <Link to="/expense-app/categories" title="Kategorie">
                 <BiCategory />
-                <StyledMenuItemName collapseMenu={collapseMenu} onAnimationEnd={() => setCloseItem(!closeItem)} closeItem={closeItem}>
+                <StyledMenuItemName 
+                    collapseMenu={collapseMenu} 
+                    onAnimationEnd={() => setCloseItem(collapseMenu ? true : false)} 
+                    closeItem={closeItem}
+                >
                     Kategorie
                 </StyledMenuItemName>
             </Link>
