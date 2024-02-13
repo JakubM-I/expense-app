@@ -26,8 +26,9 @@ export const StyledMenuItem = styled.li`
     }
 
     svg{
-        height: 1.3em;
-        width: 1.3em;
+        height: 22px;
+        width: 22px;
+        flex-shrink: 0;
     }
 
     ${({collapseMenu}) => collapseMenu && css`
