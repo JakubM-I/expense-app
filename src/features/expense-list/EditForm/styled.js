@@ -11,6 +11,11 @@ export const StyledEditModal = styled.div`
     opacity: 0;
     scale: 125%;
 
+    @media (max-width: ${({theme}) => theme.breakpoints.mobile}){
+        width: calc(100% - 10px);
+        max-width: 380px;
+    }
+
     ${({isEdit}) => isEdit && css`
         opacity: 1;
         scale: 100%;
@@ -102,6 +107,10 @@ export const StyledDetailsWrapper = styled.div`
     justify-content: space-evenly;
     gap: 20px;
     flex-basis: 100%;
+
+    @media (max-width: ${({theme}) => theme.breakpoints.mobile}){
+        flex-wrap: wrap;
+    }
 `
 
 export const StyledWrapper = styled.div`
