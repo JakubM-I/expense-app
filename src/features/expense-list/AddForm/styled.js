@@ -106,12 +106,14 @@ export const StyledValueWrapper = styled(StyledFormItem)`
     gap: 5px;
     align-items: center;
     border-bottom: 2px solid ${({theme}) => theme.colors.mainDarkColor};
+    position: relative;
 
     input{
         border: none;
         background: ${({theme}) => theme.colors.formBackground};
         text-align: center;
-        width: 100px;
+        width: 135px;
+        padding-inline-end: 35px;
 
         @media (max-width: 1249px){
             width: 100%;
@@ -128,6 +130,11 @@ export const StyledValueWrapper = styled(StyledFormItem)`
 
 export const StyledValueLabel = styled.span`
      font-size: 16px;
+     position: absolute;
+     right: 0px;
+     padding-inline-end: 4px;
+     top: 50%;
+     transform: translateY(-50%);
 `
 
 export const StyledNotesItem = styled(StyledFormItem)`
