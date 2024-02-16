@@ -149,6 +149,7 @@ export const StyledNotesWrapper = styled.div`
     align-items: center;
     gap: 5px;
     border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+    position: relative;
 
     input{
         border: none;
@@ -161,7 +162,13 @@ export const StyledLetterCounter = styled.span`
     font-size: 12px;
     color: ${({theme}) => theme.colors.commentsFont};
     align-self: flex-end;
-    padding-block-end: 2px;
+    padding-inline-end: 2px;
+    padding-block-start: 2px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
 `
 
 export const StyledButton = styled.button`
