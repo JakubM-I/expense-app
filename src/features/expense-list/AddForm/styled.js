@@ -59,6 +59,7 @@ export const StyledFieldset = styled.fieldset`
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         row-gap: 20px;
+        column-gap: 10px;
     }
     
     @media (max-width: 919px){
@@ -143,6 +144,7 @@ export const StyledNotesItem = styled(StyledFormItem)`
 `
 
 export const StyledNotesWrapper = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
