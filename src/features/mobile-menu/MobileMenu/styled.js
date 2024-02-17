@@ -1,11 +1,19 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 export const StyledMobileMenu = styled.div`
+    transition: all 0.3s linear;
     position: absolute;
     top: calc(${({ theme }) => theme.dimensions.mobileHeaderHeight} + ${({ theme }) => theme.dimensions.mobileHeaderMarginBlock});
     right: 1.5em;
     background: ${({ theme }) => theme.colors.mainDarkColor};
     color: ${({ theme }) => theme.colors.lightFont};
+    opacity: 0;
+    /* scale: 125%; */
+
+    ${({isOpen}) => isOpen && css`
+        opacity: 1;
+        /* scale: 100%; */
+    `}
 `
 
 export const StyledMobileMenuList = styled.ul`
