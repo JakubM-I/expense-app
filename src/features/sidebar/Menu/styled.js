@@ -10,7 +10,7 @@ export const StyledMenu = styled.ul`
 export const StyledMenuItem = styled.li`
     margin-block-end: 8px;
     padding: 5px;
-    transition: all 0.8s linear;
+    transition: all 0.4s linear;
 
     &:has(a:hover){
         background: ${({theme}) => theme.colors.activeMenuItemBg};
