@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled, {css, keyframes} from 'styled-components';
 
 export const StyledMobileMenu = styled.div`
     transition: all 0.3s linear;
@@ -11,9 +11,27 @@ export const StyledMobileMenu = styled.div`
     /* scale: 125%; */
 
     ${({isOpen}) => isOpen && css`
-        opacity: 1;
+        /* opacity: 1; */
         /* scale: 100%; */
+        animation: ${openMenu} 0.4s linear forwards;
     `}
+
+    ${({isOpen}) => !isOpen && css`
+        /* opacity: 1; */
+        /* scale: 100%; */
+        animation: ${closeMenu} 0.4s linear forwards;
+    `}
+`
+
+const openMenu = keyframes`
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+`
+
+const closeMenu = keyframes`
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+    
 `
 
 export const StyledMobileMenuList = styled.ul`
