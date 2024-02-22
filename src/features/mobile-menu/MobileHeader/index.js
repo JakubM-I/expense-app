@@ -12,9 +12,12 @@ const MobileHeader = () => {
         <StyledMobileHeader>
             <StyledLogo src={logo} />
             <Hamburger toggled={isOpen} toggle={setIsOpen} hideOutline={false}/>
-            <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-                <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen}/>
-            </Modal>
+            {isOpen && (
+                <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+                    <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen}/>
+                </Modal>) 
+            }
+
         </StyledMobileHeader>
         
     )
