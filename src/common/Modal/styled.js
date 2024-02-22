@@ -8,7 +8,7 @@ export const StyledBackdrop = styled.div`
     align-items: center;
     inset: 0;
     visibility: hidden;
-    transition: background 0.3s linear;
+    /* transition: background 0.3s linear; */
 
     ${({isOpen}) => isOpen && css`
         /* visibility: visible; */
