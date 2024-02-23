@@ -3,7 +3,7 @@ import { useCategory } from "../../../hooks/useCategory";
 import { useCategoryId } from "../../../hooks/useCategoryId";
 import { FaArrowLeft } from "react-icons/fa6";
 import {
-    StyledForm,
+    StyledAddForm,
     StyledFormHeader,
     StyledCancelButton,
     StyledFormTitle,
@@ -18,7 +18,7 @@ import {
 } from "./styled";
 
 
-const AddForm = ({ addNewExpense, setAddMobile }) => {
+const AddForm = ({ addNewExpense, isOpen, setIsOpen }) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
@@ -70,15 +70,16 @@ const AddForm = ({ addNewExpense, setAddMobile }) => {
     };
 
     return (
-        <StyledForm
-            onSubmit={FormSubmit}
+        <StyledAddForm isOpen={isOpen}
+            onSubmit={FormSubmit } 
         >
-            {window.innerWidth < 792 ? (            
+            {/* {window.innerWidth < 792 ? (             */}
             <StyledFormHeader>
-                <StyledCancelButton onClick={() => setAddMobile(false)}><FaArrowLeft /></StyledCancelButton>
+                <StyledCancelButton onClick={() => setIsOpen(false)}><FaArrowLeft /></StyledCancelButton>
                 <StyledFormTitle>Dodaj pozycję</StyledFormTitle>
 
-            </StyledFormHeader>) : "" }
+            </StyledFormHeader>
+            {/* ) : "" } */}
 
             <StyledFieldset>
                 <StyledValueWrapper>
@@ -135,7 +136,7 @@ const AddForm = ({ addNewExpense, setAddMobile }) => {
                 </StyledNotesItem>
             </StyledFieldset>
             <StyledButton>Zapisz</StyledButton>
-        </StyledForm>
+        </StyledAddForm>
     );
 };
 
