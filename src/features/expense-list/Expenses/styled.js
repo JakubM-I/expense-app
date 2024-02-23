@@ -47,17 +47,17 @@ export const ListHeaderWrapper = styled.div`
     background: ${({theme}) => theme.colors.mainBackground};
     position: sticky;
     z-index: 2;
-    top: 186px;
+    top: 0;
 
-    @media(max-width: ${({theme}) => theme.breakpoints.desktop}){
+    /* @media(max-width: ${({theme}) => theme.breakpoints.desktop}){
         top: 250px;
-    }
+    } */
 
-    @media(max-width: ${({theme}) => theme.breakpoints.small}){
+    /* @media(max-width: ${({theme}) => theme.breakpoints.small}){
         top: 357px;
-    }
+    } */
 
-    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+    /* @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
         top: 0;
-    }
+    } */
 `
