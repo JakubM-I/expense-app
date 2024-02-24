@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 export const StyledEditModal = styled.div`
     transition: all 0.3s linear;
@@ -16,10 +16,16 @@ export const StyledEditModal = styled.div`
         max-width: 380px;
     }
 
-    ${({isEdit}) => isEdit && css`
+    ${({isOpen}) => isOpen && css`
+        /* animation: ${openModal} 0.3s linear forwards; */
         opacity: 1;
         scale: 100%;
     `}
+`
+
+const openModal = keyframes`
+    0% {opacity: 0; scale: 125%;}
+    100% {opacity: 1; scale: 100%;}
 `
 
 export const StyledFormHeader = styled.div`
@@ -72,12 +78,13 @@ export const StyledDeleteButton = styled.button`
     } */
 `
 
-export const StyledInputsWrapper = styled.div`
+export const StyledFieldset = styled.fieldset`
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
         margin-block-end: 15px;
+        border: none;
 `
 
 export const StyledValueWrapper = styled.div`
@@ -88,6 +95,14 @@ export const StyledValueWrapper = styled.div`
     border-bottom: 2px solid ${({theme}) => theme.colors.mainDarkColor};
     width: fit-content;
     margin-block-end: 15px;
+    position: relative;
+
+    input::-webkit-inner-spin-button,
+    input::-webkit-outer-spin-button{
+        -webkit-appearance: none;
+        appearance: none;
+        -moz-appearance: textfield;
+    }
 `
 export const StyledValueInput = styled.input`
     text-align: center;
@@ -98,6 +113,11 @@ export const StyledValueInput = styled.input`
 `
 export const StyledValueLabel = styled.span`
      font-size: 22px;
+     position: absolute;
+     right: 0px;
+     padding-inline-end: 4px;
+     top: 50%;
+     transform: translateY(-50%);
 `
 
 export const StyledDetailsWrapper = styled.div`
@@ -151,6 +171,7 @@ export const StyledNotesInputWrapper = styled.div`
     align-items: center;
     gap: 5px;
     border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+    position: relative;
 
     input{
         border: none;
@@ -164,7 +185,12 @@ export const StyledLetterCounter = styled.span`
     font-size: 12px;
     color: ${({theme}) => theme.colors.commentsFont};
     align-self: flex-end;
+    padding-inline-end: 2px;
     padding-block-end: 2px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 `
 
 export const StyledButtonWrapper = styled.div`
