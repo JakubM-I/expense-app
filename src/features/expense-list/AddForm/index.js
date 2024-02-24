@@ -5,16 +5,20 @@ import { FaArrowLeft } from "react-icons/fa6";
 import {
     StyledAddForm,
     StyledFormHeader,
-    StyledCancelButton,
+    StyledBackButton,
     StyledFormTitle,
     StyledFieldset,
-    StyledFormItem,
     StyledValueWrapper,
+    StyledValueInput,
     StyledValueLabel,
-    StyledNotesItem,
+    StyledDetailsWrapper,
+    StyledWrapper,
     StyledNotesWrapper,
+    StyledNotesInputWrapper,
     StyledLetterCounter,
-    StyledButton
+    StyledButtonWrapper,
+    StyledButton,
+    StyledCancelButton,
 } from "./styled";
 
 
@@ -69,74 +73,87 @@ const AddForm = ({ addNewExpense, isOpen, setIsOpen }) => {
         setCategory("");
     };
 
+
+    const cancelAdd = () => {
+        setIsOpen(false);
+    };
+
     return (
-        <StyledAddForm isOpen={isOpen}
-            onSubmit={FormSubmit } 
-        >
-            {/* {window.innerWidth < 792 ? (             */}
-            <StyledFormHeader>
-                <StyledCancelButton onClick={() => setIsOpen(false)}><FaArrowLeft /></StyledCancelButton>
-                <StyledFormTitle>Dodaj pozycję</StyledFormTitle>
+        <StyledAddForm isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
+                <StyledFormHeader>
+                    {window.innerWidth < 792 ? 
+                        (<StyledBackButton onClick={() => cancelAdd()}><FaArrowLeft /></StyledBackButton>) : ""
+                    }                    
+                    <StyledFormTitle>Dodaj pozycję</StyledFormTitle>
+                </StyledFormHeader>
+            <form  onSubmit={FormSubmit}>
+                {/* {window.innerWidth < 792 ? (             */}
 
-            </StyledFormHeader>
-            {/* ) : "" } */}
+                {/* ) : "" } */}
 
-            <StyledFieldset>
-                <StyledValueWrapper>
-                    <input
-                        type="number"
-                        id="value"
-                        ref={valueRef}
-                        value={value}
-                        onChange={({ target }) => setValue(target.value)}
-                    />
-                    <StyledValueLabel>PLN</StyledValueLabel>
-                </StyledValueWrapper>
-                <StyledFormItem>
-                    <label htmlFor="date">Data</label>
-                    <input
-                        type="date"
-                        id="date"
-                        value={date}
-                        onChange={({ target }) => setDate(target.value)}
-                    />
-                </StyledFormItem>
-                <StyledFormItem>
-                    <label htmlFor="category">Kategoria</label>
-                    <select
-                        id="category"
-                        value={category}
-                        onChange={({ target }) => setCategory(target.value)}
-                    >
-                        {catList.map(cat => (
-                            <option
-                                key={cat.id}
-                                value={cat.categoryName.toLowerCase()}
-                            >
-                                {cat.categoryName}
-                            </option>
-                        ))}
-                    </select>
-                </StyledFormItem>
-                <StyledNotesItem>
-                    <label htmlFor="notes" >Uwagi</label>
-                    <StyledNotesWrapper>
-                        <input
-                            type="text"
-                            id="notes"
-                            maxLength={25}
-                            ref={nameRef}
-                            value={name}
-                            onChange={({ target }) => setName(target.value)}
+                <StyledFieldset>
+                    <StyledValueWrapper>
+                        <StyledValueInput
+                            type="number"
+                            id="value"
+                            ref={valueRef}
+                            value={value}
+                            onChange={({ target }) => setValue(target.value)}
                         />
-                        <StyledLetterCounter>
-                            ({letterCount}/25)
-                        </StyledLetterCounter>
+                        <StyledValueLabel>PLN</StyledValueLabel>
+                    </StyledValueWrapper>
+                    <StyledDetailsWrapper>
+                        <StyledWrapper>
+                            <label htmlFor="date">Data</label>
+                            <input
+                                type="date"
+                                id="date"
+                                value={date}
+                                onChange={({ target }) => setDate(target.value)}
+                            />
+                        </StyledWrapper>
+                        <StyledWrapper>
+                            <label htmlFor="category">Kategoria</label>
+                            <select
+                                id="category"
+                                value={category}
+                                onChange={({ target }) => setCategory(target.value)}
+                            >
+                                {catList.map(cat => (
+                                    <option
+                                        key={cat.id}
+                                        value={cat.categoryName.toLowerCase()}
+                                    >
+                                        {cat.categoryName}
+                                    </option>
+                                ))}
+                            </select>
+                        </StyledWrapper>
+                    </StyledDetailsWrapper>
+                    <StyledNotesWrapper>
+                        <label htmlFor="notes" >Uwagi</label>
+                        <StyledNotesInputWrapper>
+                            <input
+                                type="text"
+                                id="notes"
+                                maxLength={25}
+                                ref={nameRef}
+                                value={name}
+                                onChange={({ target }) => setName(target.value)}
+                            />
+                            <StyledLetterCounter>
+                                ({letterCount}/25)
+                            </StyledLetterCounter>
+                        </StyledNotesInputWrapper>
                     </StyledNotesWrapper>
-                </StyledNotesItem>
-            </StyledFieldset>
-            <StyledButton>Zapisz</StyledButton>
+                </StyledFieldset>
+                <StyledButtonWrapper>
+                    <StyledButton>Zapisz</StyledButton>
+                    <StyledCancelButton onClick={() => cancelAdd()}>Anuluj</StyledCancelButton>
+                </StyledButtonWrapper>
+            </form>
         </StyledAddForm>
+        
     );
 };
 
