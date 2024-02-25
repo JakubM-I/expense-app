@@ -1,17 +1,21 @@
 import styled, {css} from 'styled-components';
 
 export const StyledAddForm = styled.div`
-    /* width: 100%; */
-    /* max-width: 900px; */
-    padding: 15px 10px;
+    padding: 20px;
     background: ${({theme}) => theme.colors.formBackground};
-    border-radius: 5px;
-    /* z-index: 1; */
+    border-radius: 8px;
     -webkit-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
     -moz-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
     box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
     opacity: 0;
     scale: 125%;
+    transition: all 0.3s linear;
+
+    @media (max-width: ${({theme}) => theme.breakpoints.mobile}){
+        width: calc(100% - 10px);
+        max-width: 380px;
+    }
+
 
     ${({isOpen}) => isOpen && css`
         opacity: 1;
@@ -99,12 +103,12 @@ export const StyledValueWrapper = styled.div`
     margin-block-end: 15px;
     position: relative;
 
-    input::-webkit-inner-spin-button,
+    /* input::-webkit-inner-spin-button,
     input::-webkit-outer-spin-button{
         -webkit-appearance: none;
         appearance: none;
         -moz-appearance: textfield;
-    }
+    } */
 `
 
 export const StyledValueInput = styled.input`
@@ -113,6 +117,14 @@ export const StyledValueInput = styled.input`
     background: ${({theme}) => theme.colors.formBackground};
     font-size: 23px;
     width: 130px;
+    padding-inline-end: 45px;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button{
+        -webkit-appearance: none;
+        appearance: none;
+        -moz-appearance: textfield;
+    }
 `
 
 export const StyledValueLabel = styled.span`

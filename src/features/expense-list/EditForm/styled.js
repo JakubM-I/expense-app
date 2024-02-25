@@ -1,15 +1,15 @@
 import styled, { css, keyframes } from 'styled-components';
 
 export const StyledEditModal = styled.div`
-    transition: all 0.3s linear;
-    background: ${({theme}) => theme.colors.formBackground};
     padding: 20px;
+    background: ${({theme}) => theme.colors.formBackground};
     border-radius: 8px;
     -webkit-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
     -moz-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
     box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
     opacity: 0;
     scale: 125%;
+    transition: all 0.3s linear;
 
     @media (max-width: ${({theme}) => theme.breakpoints.mobile}){
         width: calc(100% - 10px);
@@ -97,12 +97,12 @@ export const StyledValueWrapper = styled.div`
     margin-block-end: 15px;
     position: relative;
 
-    input::-webkit-inner-spin-button,
+    /* input::-webkit-inner-spin-button,
     input::-webkit-outer-spin-button{
         -webkit-appearance: none;
         appearance: none;
         -moz-appearance: textfield;
-    }
+    } */
 `
 export const StyledValueInput = styled.input`
     text-align: center;
@@ -110,6 +110,14 @@ export const StyledValueInput = styled.input`
     background: ${({theme}) => theme.colors.formBackground};
     font-size: 23px;
     width: 130px;
+    padding-inline-end: 45px;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button{
+        -webkit-appearance: none;
+        appearance: none;
+        -moz-appearance: textfield;
+    }
 `
 export const StyledValueLabel = styled.span`
      font-size: 22px;

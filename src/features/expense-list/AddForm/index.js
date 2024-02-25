@@ -81,8 +81,8 @@ const AddForm = ({ addNewExpense, isOpen, setIsOpen }) => {
     return (
         <StyledAddForm isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
                 <StyledFormHeader>
-                    {window.innerWidth < 792 ? 
-                        (<StyledBackButton onClick={() => cancelAdd()}><FaArrowLeft /></StyledBackButton>) : ""
+                    {window.innerWidth < 792 && 
+                        (<StyledBackButton onClick={() => cancelAdd()}><FaArrowLeft /></StyledBackButton>)
                     }                    
                     <StyledFormTitle>Dodaj pozycję</StyledFormTitle>
                 </StyledFormHeader>

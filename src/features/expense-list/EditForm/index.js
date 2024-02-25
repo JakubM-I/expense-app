@@ -9,7 +9,7 @@ import {
     StyledBackButton,
     StyledFormTitle,
     StyledDeleteButton,
-    StyledInputsWrapper,
+    StyledFieldset,
     StyledValueWrapper,
     StyledValueInput,
     StyledValueLabel,
@@ -23,7 +23,7 @@ import {
     StyledCancelButton
 } from "./styled";
 
-const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, deleteExpense }) => {
+const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsOpen, deleteExpense }) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
@@ -56,7 +56,11 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, deleteExpense 
     const submit = (e) => {
         e.preventDefault();
         saveEditExpense(selectId, name.trim(), date, value, category, categoryId);
-        setIsEdit(false);
+        setIsOpen(false);
+        setTimeout(() => {
+            setIsEdit(false);
+        }, 310);
+        // setIsEdit(false);
     }
 
     const deleteItem = () => {
@@ -66,11 +70,15 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, deleteExpense 
     }
 
     const cancelEdit = () => {
-        setIsEdit(false);
+        setIsOpen(false);
+        setTimeout(() => {
+            setIsEdit(false);
+        }, 310);
+        // setIsEdit(false);
     };
 
     return (
-        <StyledEditModal isEdit={isEdit} onClick={(e) => e.stopPropagation()}>
+        <StyledEditModal isEdit={isEdit} isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
             <StyledFormHeader>
                 {window.innerWidth < 792 ? 
                     (<StyledBackButton onClick={() => cancelEdit()}><FaArrowLeft /></StyledBackButton>) : ""
@@ -81,7 +89,7 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, deleteExpense 
                     }
             </StyledFormHeader>
             <form onSubmit={submit} >
-                <StyledInputsWrapper>
+                <StyledFieldset>
                     <StyledValueWrapper>
                         <StyledValueInput id="value"
                             value={value}
@@ -130,7 +138,7 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, deleteExpense 
                             </StyledLetterCounter>
                         </StyledNotesInputWrapper>
                     </StyledNotesWrapper>
-                </StyledInputsWrapper>
+                </StyledFieldset>
                 <StyledButtonWrapper>
                     <StyledButton>Zapisz</StyledButton>
                     <StyledCancelButton onClick={() => cancelEdit()}>Anuluj</StyledCancelButton>
