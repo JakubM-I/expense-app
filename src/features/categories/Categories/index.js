@@ -67,24 +67,27 @@ const Categories = () => {
                     }
                 </StyledCategoryList>
             </StyledCategory>
-            <Modal isOpen={isOpen} onClose={() => closeModal()}>
-                {isEdit ? (
-                    <EditCategoryForm
-                        isOpen={isOpen}
-                        setIsOpen={setIsOpen}
-                        setIsEdit={setIsEdit}
-                        editItem={editItem}
-                        saveEditedCategory={saveEditedCategory}
-                        updateCategory={updateCategory}
-                    />
-                ) : (
-                    <CategoryForm
-                        addCategory={addCategory}
-                        isOpen={isOpen}
-                        setIsOpen={setIsOpen}
-                    />
-                )}
-            </Modal>
+            {isOpen && (
+                <Modal isOpen={isOpen} onClose={() => closeModal()}>
+                    {isEdit ? (
+                        <EditCategoryForm
+                            isOpen={isOpen}
+                            setIsOpen={setIsOpen}
+                            setIsEdit={setIsEdit}
+                            editItem={editItem}
+                            saveEditedCategory={saveEditedCategory}
+                            updateCategory={updateCategory}
+                        />
+                    ) : (
+                        <CategoryForm
+                            addCategory={addCategory}
+                            isOpen={isOpen}
+                            setIsOpen={setIsOpen}
+                        />
+                    )}
+                </Modal>
+            )}
+
         </SectionPage>
     )
 };

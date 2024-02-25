@@ -1,7 +1,7 @@
 import styled, {css} from 'styled-components';
 
 export const StyledModal = styled.div`
-    transition: all  0.3s linear;
+    transition: all 0.3s linear;
     background: ${({theme}) => theme.colors.formBackground};
     padding: 20px;
     border-radius: 8px;

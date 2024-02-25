@@ -13,7 +13,7 @@ export const StyledBackdrop = styled.div`
     ${({isOpen}) => isOpen && css`
         /* visibility: visible; */
         /* background: #0000005c; */
-        animation: ${openModal} 0.3s 0.1s linear forwards;
+        animation: ${openModal} 0.3s linear forwards;
     ` }
 `;
 
