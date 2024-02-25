@@ -1,13 +1,21 @@
 import Menu from "../Menu";
 import logo from "../../../assets/logo.png"
-import { StyledBar, StyledHeader, StyledLogo, StyledHeaderTitle, StyledButtonWrapper, StyledCollapseButton } from "./styled"
-import { useEffect, useState } from "react";
+import { StyledBar, StyledHeader, StyledLogo, StyledHeaderTitle, 
+    StyledAddButtonWrapper, 
+    StyledAddButton, 
+    StyledAddMark,
+    StyledButtonWrapper, StyledCollapseButton } from "./styled"
+import { useContext, useEffect, useState } from "react";
+// import { StyledMenu, StyledMenuItem, StyledMenuItemName } from "./styled";
+import { OpenModalContext } from "../../../context/ExpenseProvider";
 
 
 const Sidebar = ({ setCollapseMenu, collapseMenu }) => {
 
     const [closeMenu, setCloseMenu] = useState(false);
-    const [openMenu, setOpenMenu] = useState(true);
+    const {isOpen, setIsOpen} = useContext(OpenModalContext);
+    console.log("Sidebar:", isOpen)
+    // const [openMenu, setOpenMenu] = useState(true);
     // console.log("CloseMenu:", closeMenu);
     // console.log("Collapse:", collapseMenu);
 
@@ -50,6 +58,12 @@ const Sidebar = ({ setCollapseMenu, collapseMenu }) => {
                         Expenses App
                 </StyledHeaderTitle>
             </StyledHeader>
+            <StyledAddButtonWrapper>
+                <StyledAddButton onClick={() => setIsOpen(true)}>
+                    <StyledAddMark>+</StyledAddMark>
+                    <span>Dodaj pozycję</span>
+                </StyledAddButton>
+            </StyledAddButtonWrapper>
             <Menu
                 collapseMenu={collapseMenu}
             />

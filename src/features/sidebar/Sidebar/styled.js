@@ -7,6 +7,7 @@ export const StyledBar = styled.div`
     margin-block: 15px;
     display: flex;
     flex-direction: column;
+    gap: 16px;
 `
 
 export const StyledHeader = styled.div`
@@ -18,7 +19,7 @@ export const StyledHeader = styled.div`
     /* flex-direction: column; */
     align-items: center;
     justify-content: center;
-    margin-block-end: 20px;
+    margin-block-end: 10px;
     /* gap: 5px; */
 
     &::after{
@@ -106,6 +107,41 @@ export const StyledHeaderTitle = styled.h1`
         @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
             display: none;
         }
+`
+
+export const StyledAddButtonWrapper = styled.div`
+    width: 100%;
+    padding: 0 12px;
+`
+
+export const StyledAddButton = styled.button`
+    background: none;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    font-size: 18px;
+    color: ${({theme}) => theme.colors.lightFont};
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+
+    &:hover{
+        background: #6a53ad;
+    }
+
+`
+
+export const StyledAddMark = styled.span`
+    color: ${({theme}) => theme.colors.mainDarkColor};
+    background: ${({theme}) => theme.colors.lightFont};
+    border-radius: 50%;
+    padding: 2px 6px;
+    line-height: 1;
 `
 
 export const StyledButtonWrapper = styled.div`

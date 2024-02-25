@@ -1,7 +1,7 @@
 import styled, {css, keyframes} from 'styled-components';
 
 export const StyledMenu = styled.ul`
-        margin-block-start: 20px;
+        margin-block-start: 0px;
         padding: 0 12px;
         list-style: none;
         font-size: 18px;

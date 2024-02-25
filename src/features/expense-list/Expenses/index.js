@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useExpenses } from "../../../hooks/useExpenses";
 import { useEditItem } from "../../../hooks/useEditItem";
 import { useWindowWidth } from "../../../hooks/useWindowWidth";
@@ -10,15 +10,17 @@ import EditForm from "../EditForm"
 import Modal from "../../../common/Modal";
 import { PageHeader, MobileAddButton, ListHeaderWrapper } from "./styled";
 import { theme } from "../../../assets/themes/theme";
+import { OpenModalContext } from "../../../context/ExpenseProvider";
 
 const Expenses = () => {
 
     const [expList, addNewExpense, deleteExpense, saveEditExpense] = useExpenses();
     const [editItem, editSelectItem, isEdit, setIsEdit] = useEditItem(expList);
     const [addMobile, setAddMobile] = useState(false)
-    const [isOpen, setIsOpen] = useState(false);
+    const {isOpen, setIsOpen} = useContext(OpenModalContext);
     const windowWidth = useWindowWidth();
     const mobileBreakPoint = 792;
+    console.log("Expense:", isOpen)
 
     useEffect(() => {
         setIsOpen(isEdit);
@@ -47,11 +49,10 @@ const Expenses = () => {
                 )
                 : ("")} */}
 
-            {/* {windowWidth.width <= mobileBreakPoint
-                ? ( */}
+            {windowWidth.width <= mobileBreakPoint
+                && (
                     <MobileAddButton onClick={() => setIsOpen(true)}>+</MobileAddButton>
-                {/* )
-                : ("")} */}
+                )}
             <ListHeaderWrapper>
                 <SectionHeader
                     title="Lista wydatków"
@@ -62,29 +63,31 @@ const Expenses = () => {
                 deleteExpense={deleteExpense}
                 editSelectItem={editSelectItem}
             />
-            
-            <Modal isOpen={isOpen} onCLose={() => closeModal()}>
-                {isEdit ? (
-                    <EditForm
-                        editItem={editItem}
-                        saveEditExpense={saveEditExpense}
-                        isEdit={isEdit}
-                        setIsEdit={setIsEdit}
-                        isOpen={isOpen}
+            {isOpen && (
+                <Modal isOpen={isOpen} onCLose={() => closeModal()}>
+                    {isEdit ? (
+                        <EditForm
+                            editItem={editItem}
+                            saveEditExpense={saveEditExpense}
+                            isEdit={isEdit}
+                            setIsEdit={setIsEdit}
+                            isOpen={isOpen}
                             setIsOpen={setIsOpen}
-                        deleteExpense={deleteExpense}
-                    />
-                ) :
-                    // windowWidth.width <= mobileBreakPoint &&
-                    (
-                    <AddForm
-                        addNewExpense={addNewExpense}
-                        isOpen={isOpen}
-                        setIsOpen={setIsOpen}
-                        //    setAddMobile={setAddMobile}
-                    />
-                )}
-            </Modal>
+                            deleteExpense={deleteExpense}
+                        />
+                    ) :
+                        // windowWidth.width <= mobileBreakPoint &&
+                        (
+                            <AddForm
+                                addNewExpense={addNewExpense}
+                                isOpen={isOpen}
+                                setIsOpen={setIsOpen}
+                            //    setAddMobile={setAddMobile}
+                            />
+                        )}
+                </Modal>
+            )}
+
             
             {/* {windowWidth.width <= mobileBreakPoint
                 ? (
