@@ -18,8 +18,9 @@ export const StyledHeader = styled.div`
     display: flex;
     /* flex-direction: column; */
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     margin-block-end: 10px;
+    padding-inline: 2px;
     /* gap: 5px; */
 
     &::after{
@@ -42,7 +43,7 @@ export const StyledHeader = styled.div`
 
 export const StyledLogo = styled.img`
     width: 100%;
-    max-width: 50px;
+    max-width: 46px;
     padding-inline: 5px;
     padding-block-end: 10px;
 `
@@ -70,6 +71,8 @@ export const StyledHeaderTitle = styled.h1`
         max-width: 186px;
         /* max-height: auto; */
         /* transition: all 0.8s ease-in; */
+        overflow: hidden;
+        white-space: nowrap;
 
         ${({collapseMenu}) => collapseMenu && css`
             /* display: none; */
@@ -114,6 +117,8 @@ export const StyledAddButtonWrapper = styled.div`
     padding: 0 12px;
 `
 
+
+
 export const StyledAddButton = styled.button`
     background: none;
     appearance: none;
@@ -127,21 +132,60 @@ export const StyledAddButton = styled.button`
     justify-content: flex-start;
     align-items: center;
     cursor: pointer;
-    padding: 5px;
+    padding: 5px 2px;
     width: 100%;
+    transition: all 0.4s linear;
 
     &:hover{
         background: #6a53ad;
     }
+/* 
+    ${({collapseMenu}) => collapseMenu && css`
+        padding: 5px 0;
+        justify-content: center;
+    `} */
 
+`
+const hideItem = keyframes`
+    0% {max-width: 187px;}
+    100% {max-width: 0px;}
 `
 
 export const StyledAddMark = styled.span`
-    color: ${({theme}) => theme.colors.mainDarkColor};
-    background: ${({theme}) => theme.colors.lightFont};
-    border-radius: 50%;
-    padding: 2px 6px;
-    line-height: 1;
+    color: ${({theme}) => theme.colors.lightFont};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: ${({theme}) => theme.colors.lightFont}; */
+    /* border-radius: 50%; */
+    /* padding: 1px 5px; */
+    /* line-height: 1; */
+    svg{
+        height: 22px;
+        width: 22px;
+        flex-shrink: 0;
+    }
+`
+
+export const StyledAddName = styled.span`
+    width: 100%;
+    max-width: 187px;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+
+    ${({collapseMenu}) => collapseMenu && css`
+            animation: ${hideItem} 0.7s linear forwards;
+        `}
+
+    ${({collapseMenu, closeMenu}) =>  collapseMenu && closeMenu && css`
+        display: none;
+    `}
+
+
+    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+        display: none;
+    }
 `
 
 export const StyledButtonWrapper = styled.div`
