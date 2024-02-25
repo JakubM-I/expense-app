@@ -9,7 +9,7 @@ export const StyledMenu = styled.ul`
 
 export const StyledMenuItem = styled.li`
     margin-block-end: 8px;
-    padding: 5px;
+    padding: 5px 2px;
     transition: all 0.4s linear;
 
     &:has(a:hover){
@@ -20,34 +20,42 @@ export const StyledMenuItem = styled.li`
         color: ${({theme}) => theme.colors.lightFont};
         text-decoration: none;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         gap: 8px;
     }
+/* 
+    ${({collapseMenu}) => collapseMenu && css`
+        padding: 2px; */
+        /* transition: 0.8s ease-in; */
+
+        /* a{
+            justify-content: center;
+        } */
+    /* `} */
+
+    /* @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+        padding: 2px;
+
+        a{
+            justify-content: center;
+        }
+    } */
+`
+
+export const  StyledIconWrapper = styled.span`
+    color: ${({theme}) => theme.colors.lightFont};
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     svg{
         height: 22px;
         width: 22px;
         flex-shrink: 0;
     }
-
-    ${({collapseMenu}) => collapseMenu && css`
-        padding: 2px;
-        /* transition: 0.8s ease-in; */
-
-        /* a{
-            justify-content: center;
-        } */
-    `}
-
-    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
-        padding: 2px;
-
-        a{
-            justify-content: center;
-        }
-    }
 `
+
 const hideItem = keyframes`
     0% {max-width: 187px;}
     100% {max-width: 0px;}

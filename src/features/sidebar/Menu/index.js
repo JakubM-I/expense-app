@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BiCategory, BiListUl } from "react-icons/bi";
-import { StyledMenu, StyledMenuItem, StyledMenuItemName } from "./styled";
+import { StyledMenu, StyledMenuItem, StyledIconWrapper, StyledMenuItemName } from "./styled";
 
 const Menu = ({ collapseMenu }) => {
     const [closeItem, setCloseItem] = useState(false);
@@ -18,7 +18,9 @@ const Menu = ({ collapseMenu }) => {
         <StyledMenu>
             <StyledMenuItem collapseMenu={collapseMenu}>
                 <Link to="/expense-app" title="Wydatki">
-                    <BiListUl />
+                    <StyledIconWrapper>
+                        <BiListUl />
+                    </StyledIconWrapper>
                     <StyledMenuItemName
                         collapseMenu={collapseMenu}
                         onAnimationEnd={() => setCloseItem(collapseMenu ? true : false)}
@@ -30,7 +32,9 @@ const Menu = ({ collapseMenu }) => {
             </StyledMenuItem>
             <StyledMenuItem collapseMenu={collapseMenu}>
                 <Link to="/expense-app/categories" title="Kategorie">
-                    <BiCategory />
+                    <StyledIconWrapper>
+                        <BiCategory />
+                    </StyledIconWrapper>
                     <StyledMenuItemName
                         collapseMenu={collapseMenu}
                         onAnimationEnd={() => setCloseItem(collapseMenu ? true : false)}

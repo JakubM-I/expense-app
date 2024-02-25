@@ -1,9 +1,11 @@
 import Menu from "../Menu";
-import logo from "../../../assets/logo.png"
+import logo from "../../../assets/logo.png";
+import { BiPlusCircle } from "react-icons/bi";
 import { StyledBar, StyledHeader, StyledLogo, StyledHeaderTitle, 
     StyledAddButtonWrapper, 
     StyledAddButton, 
     StyledAddMark,
+    StyledAddName,
     StyledButtonWrapper, StyledCollapseButton } from "./styled"
 import { useContext, useEffect, useState } from "react";
 // import { StyledMenu, StyledMenuItem, StyledMenuItemName } from "./styled";
@@ -59,9 +61,18 @@ const Sidebar = ({ setCollapseMenu, collapseMenu }) => {
                 </StyledHeaderTitle>
             </StyledHeader>
             <StyledAddButtonWrapper>
-                <StyledAddButton onClick={() => setIsOpen(true)}>
-                    <StyledAddMark>+</StyledAddMark>
-                    <span>Dodaj pozycję</span>
+                <StyledAddButton 
+                    collapseMenu={collapseMenu}
+                    onClick={() => setIsOpen(true)}
+                >
+                    <StyledAddMark>
+                        <BiPlusCircle />
+                    </StyledAddMark>
+                    <StyledAddName 
+                        collapseMenu={collapseMenu} 
+                        closeMenu={closeMenu}>
+                            Dodaj pozycję
+                    </StyledAddName>
                 </StyledAddButton>
             </StyledAddButtonWrapper>
             <Menu
