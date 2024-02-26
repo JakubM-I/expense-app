@@ -73,9 +73,9 @@ export const StyledDeleteButton = styled.button`
     transition: all 0.4s ease-in;
     cursor: pointer;
 
-    /* &:hover{
+    &:hover{
         background: ${({theme}) => theme.colors.buttonCancelBg};
-    } */
+    }
 `
 
 export const StyledFieldset = styled.fieldset`
@@ -96,13 +96,6 @@ export const StyledValueWrapper = styled.div`
     width: fit-content;
     margin-block-end: 15px;
     position: relative;
-
-    /* input::-webkit-inner-spin-button,
-    input::-webkit-outer-spin-button{
-        -webkit-appearance: none;
-        appearance: none;
-        -moz-appearance: textfield;
-    } */
 `
 export const StyledValueInput = styled.input`
     text-align: center;
@@ -188,7 +181,6 @@ export const StyledNotesInputWrapper = styled.div`
     }
 `
 
-
 export const StyledLetterCounter = styled.span`
     font-size: 12px;
     color: ${({theme}) => theme.colors.commentsFont};
@@ -225,7 +217,7 @@ export const StyledButton = styled.button`
         background: ${({theme}) => theme.colors.buttonApproveBg};  
         color: ${({theme}) => theme.colors.mainDarkColor};
     }
-    `
+`
 
 export const StyledCancelButton = styled(StyledButton)`
     background: ${({theme}) => theme.colors.lightFont};
