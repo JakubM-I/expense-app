@@ -1,21 +1,28 @@
+import { useContext, useState } from "react";
+import { useWindowWidth } from "../../../hooks/useWindowWidth";
+import { OpenModalContext } from "../../../context/ExpenseProvider";
 import Menu from "../Menu";
 import logo from "../../../assets/logo.png";
 import { BiPlusCircle } from "react-icons/bi";
-import { StyledBar, StyledHeader, StyledLogo, StyledHeaderTitle, 
+import {
+    StyledBar,
+    StyledHeader,
+    StyledLogo,
+    StyledHeaderTitle, 
     StyledAddButtonWrapper, 
     StyledAddButton, 
     StyledAddMark,
     StyledAddName,
-    StyledButtonWrapper, StyledCollapseButton } from "./styled"
-import { useContext, useEffect, useState } from "react";
-// import { StyledMenu, StyledMenuItem, StyledMenuItemName } from "./styled";
-import { OpenModalContext } from "../../../context/ExpenseProvider";
+    StyledButtonWrapper, 
+    StyledCollapseButton } from "./styled"
 
 
 const Sidebar = ({ setCollapseMenu, collapseMenu }) => {
 
     const [closeMenu, setCloseMenu] = useState(false);
     const {isOpen, setIsOpen} = useContext(OpenModalContext);
+    const windowWidth = useWindowWidth();
+    const mobileBreakPoint = 792;
     console.log("Sidebar:", isOpen)
     // const [openMenu, setOpenMenu] = useState(true);
     // console.log("CloseMenu:", closeMenu);
@@ -52,29 +59,29 @@ const Sidebar = ({ setCollapseMenu, collapseMenu }) => {
                 <StyledLogo src={logo} />
                 <StyledHeaderTitle 
                     collapseMenu={collapseMenu} 
-                    // onAnimationStart={() => setCloseMenu(false)}
                     onAnimationEnd={() => setCloseMenu(collapseMenu ? true : false)} 
                     closeMenu={closeMenu}
-                    // openMenu={openMenu}
                 >
                         Expenses App
                 </StyledHeaderTitle>
             </StyledHeader>
-            <StyledAddButtonWrapper>
-                <StyledAddButton 
-                    collapseMenu={collapseMenu}
-                    onClick={() => setIsOpen(true)}
-                >
-                    <StyledAddMark>
-                        <BiPlusCircle />
-                    </StyledAddMark>
-                    <StyledAddName 
-                        collapseMenu={collapseMenu} 
-                        closeMenu={closeMenu}>
+            {windowWidth.width > mobileBreakPoint &&
+                <StyledAddButtonWrapper>
+                    <StyledAddButton
+                        collapseMenu={collapseMenu}
+                        onClick={() => setIsOpen(true)}
+                    >
+                        <StyledAddMark>
+                            <BiPlusCircle />
+                        </StyledAddMark>
+                        <StyledAddName
+                            collapseMenu={collapseMenu}
+                            closeMenu={closeMenu}>
                             Dodaj pozycję
-                    </StyledAddName>
-                </StyledAddButton>
-            </StyledAddButtonWrapper>
+                        </StyledAddName>
+                    </StyledAddButton>
+                </StyledAddButtonWrapper>
+            }
             <Menu
                 collapseMenu={collapseMenu}
             />
