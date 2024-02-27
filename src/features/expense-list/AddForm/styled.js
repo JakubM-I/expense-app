@@ -16,29 +16,11 @@ export const StyledAddForm = styled.div`
         max-width: 380px;
     }
 
-
-    ${({isOpen}) => isOpen && css`
+    ${({$isOpen}) => $isOpen && css`
         opacity: 1;
         scale: 100%;
     `}
 `
-
-// export const StyledForm = styled.form`
-    
-//     margin-inline: auto;
-//     margin-block-start: 15px;
-//     margin-block-end: 35px; 
-//     display: grid;
-//     grid-template-columns: 1fr;
-
-//     @media (max-width: 1249px){
-//         width: fit-content;
-//     }
-
-//     @media (max-width: ${({theme}) => theme.breakpoints.tablet}){
-//         grid-template-columns: 1fr;
-//     }
-// `
 
 export const StyledFormHeader = styled.div`
     margin-block-start: 0.3em;
@@ -67,18 +49,6 @@ export const StyledBackButton = styled.button`
     cursor: pointer;
 `
 
-// export const StyledCancelButton = styled.button`
-//     appearance: none;
-//     -moz-appearance: none;
-//     -webkit-appearance: none;
-//     position: absolute;
-//     left: 0;
-//     top: 50%;
-//     transform: translateY(-50%);
-//     background: none;
-//     border: none;
-// `
-
 export const StyledFormTitle = styled.p`
     margin: 0;
     font-weight: 500;
@@ -102,13 +72,6 @@ export const StyledValueWrapper = styled.div`
     width: fit-content;
     margin-block-end: 15px;
     position: relative;
-
-    /* input::-webkit-inner-spin-button,
-    input::-webkit-outer-spin-button{
-        -webkit-appearance: none;
-        appearance: none;
-        -moz-appearance: textfield;
-    } */
 `
 
 export const StyledValueInput = styled.input`
@@ -196,7 +159,6 @@ export const StyledNotesInputWrapper = styled.div`
     }
 `
 
-
 export const StyledLetterCounter = styled.span`
     font-size: 12px;
     color: ${({theme}) => theme.colors.commentsFont};
@@ -209,70 +171,6 @@ export const StyledLetterCounter = styled.span`
     transform: translateY(-50%);
 
 `
-
-
-
-
-
-// export const StyledFormItem = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     align-items: flex-start;
-//     max-width: 200px;
-
-//     label{
-//         margin-block-end: 3px;
-//         font-size: 14px;
-//     }
-
-//     input{
-//         padding: 2px;
-//         background: ${({theme}) => theme.colors.formBackground};
-//         border: none;
-//         border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
-
-//         @media (max-width: 1249px){
-//             width: 100%;
-//         }
-//     }
-
-//     select{
-//         padding: 2px;
-//         background: ${({theme}) => theme.colors.formBackground};
-//         border: none;
-//         border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
-
-//         @media (max-width: 1249px){
-//             width: 100%;
-//         }
-//     }
-// `
-
-
-
-// export const StyledNotesItem = styled(StyledFormItem)`
-//     max-width: 220px;
-//     width: 100%;
-// `
-
-// export const StyledNotesWrapper = styled.div`
-//     width: 100%;
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: center;
-//     align-items: center;
-//     gap: 5px;
-//     border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
-//     position: relative;
-
-//     input{
-//         border: none;
-//         flex-grow: 1;
-//     }
-
-// `
-
-
 
 export const StyledButtonWrapper = styled.div`
     display: flex;

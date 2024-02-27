@@ -16,7 +16,7 @@ export const StyledEditModal = styled.div`
         max-width: 380px;
     }
 
-    ${({isOpen}) => isOpen && css`
+    ${({$isOpen}) => $isOpen && css`
         /* animation: ${openModal} 0.3s linear forwards; */
         opacity: 1;
         scale: 100%;

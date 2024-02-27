@@ -16,12 +16,10 @@ export const StyledHeader = styled.div`
     margin-block-start: 20px;
     height: 52px;
     display: flex;
-    /* flex-direction: column; */
     align-items: center;
     justify-content: flex-start;
     margin-block-end: 10px;
     padding-inline: 2px;
-    /* gap: 5px; */
 
     &::after{
         content: "";
@@ -35,10 +33,6 @@ export const StyledHeader = styled.div`
         width: 90%;
         margin-inline: auto;
     }
-
-    /* ${({collapseMenu}) => collapseMenu && css`
-        gap: 0;
-    `} */
 `
 
 export const StyledLogo = styled.img`
@@ -65,47 +59,18 @@ export const StyledHeaderTitle = styled.h1`
         margin: 0;
         white-space: nowrap;
         padding-inline: 5px;
-        /* visibility: visible; */
-        /* opacity: 1; */
         width: 100%;
         max-width: 186px;
-        /* max-height: auto; */
-        /* transition: all 0.8s ease-in; */
         overflow: hidden;
         white-space: nowrap;
 
-        ${({collapseMenu}) => collapseMenu && css`
-            /* display: none; */
-            /* visibility: hidden; */
-            /* opacity: 0; */
-            /* max-width: 0; */
-            /* padding-inline: 0; */
-            /* max-height: 0; */
-            /* margin-block-start: 0; */
+        ${({$collapseMenu}) => $collapseMenu && css`
             animation: ${hideTitle} 0.7s linear forwards;
         `}
 
-        ${({collapseMenu, closeMenu}) => !collapseMenu && closeMenu && css`
+        ${({$collapseMenu, $closeMenu}) => !$collapseMenu && $closeMenu && css`
             animation: ${showTitle} 0.75s linear forwards;
         `}
-
-
-
-        /* ${({closeMenu}) => closeMenu && css`
-            display: none;
-        `} */
-
-        /* ${({openMenu}) => openMenu && css`
-            animation: ${showTitle} 0.8s linear forwards;
-        `} */
-
-        /* ${({collapseMenu}) => collapseMenu === false && css`
-            animation: ${showTitle} 0.8s linear forwards;
-        `} */
-
-        /* ${({closeMenu}) => closeMenu === false && css`
-            display: block;
-        `} */
 
         @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
             display: none;
@@ -116,8 +81,6 @@ export const StyledAddButtonWrapper = styled.div`
     width: 100%;
     padding: 0 12px;
 `
-
-
 
 export const StyledAddButton = styled.button`
     background: none;
@@ -139,12 +102,6 @@ export const StyledAddButton = styled.button`
     &:hover{
         background: #6a53ad;
     }
-/* 
-    ${({collapseMenu}) => collapseMenu && css`
-        padding: 5px 0;
-        justify-content: center;
-    `} */
-
 `
 const hideItem = keyframes`
     0% {max-width: 187px;}
@@ -156,10 +113,7 @@ export const StyledAddMark = styled.span`
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background: ${({theme}) => theme.colors.lightFont}; */
-    /* border-radius: 50%; */
-    /* padding: 1px 5px; */
-    /* line-height: 1; */
+
     svg{
         height: 22px;
         width: 22px;
@@ -174,11 +128,11 @@ export const StyledAddName = styled.span`
     overflow: hidden;
     white-space: nowrap;
 
-    ${({collapseMenu}) => collapseMenu && css`
+    ${({$collapseMenu}) => $collapseMenu && css`
             animation: ${hideItem} 0.7s linear forwards;
         `}
 
-    ${({collapseMenu, closeMenu}) =>  collapseMenu && closeMenu && css`
+    ${({$collapseMenu, $closeMenu}) =>  $collapseMenu && $closeMenu && css`
         display: none;
     `}
 
@@ -208,5 +162,4 @@ export const StyledCollapseButton = styled.button`
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    
 `

@@ -78,7 +78,7 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsO
     };
 
     return (
-        <StyledEditModal isEdit={isEdit} isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
+        <StyledEditModal $isEdit={isEdit} $isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
             <StyledFormHeader>
                 {window.innerWidth < 792 ? 
                     (<StyledBackButton onClick={() => cancelEdit()}><FaArrowLeft /></StyledBackButton>) : ""

@@ -1,44 +1,36 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { BiCategory, BiListUl } from "react-icons/bi";
 import { StyledMenu, StyledMenuItem, StyledIconWrapper, StyledMenuItemName } from "./styled";
 
 const Menu = ({ collapseMenu }) => {
     const [closeItem, setCloseItem] = useState(false);
-    console.log("Menu collaps:", collapseMenu);
-    console.log("Close:", closeItem)
-
-    // useEffect(() => {
-    //     if(collapseMenu === false){
-    //         setCloseItem(false);
-    //     } 
-    // }, [collapseMenu])
 
     return (
         <StyledMenu>
-            <StyledMenuItem collapseMenu={collapseMenu}>
+            <StyledMenuItem $collapseMenu={collapseMenu}>
                 <Link to="/expense-app" title="Wydatki">
                     <StyledIconWrapper>
                         <BiListUl />
                     </StyledIconWrapper>
                     <StyledMenuItemName
-                        collapseMenu={collapseMenu}
+                        $collapseMenu={collapseMenu}
                         onAnimationEnd={() => setCloseItem(collapseMenu ? true : false)}
-                        closeItem={closeItem}
+                        $closeItem={closeItem}
                     >
                         Wydatki
                     </StyledMenuItemName>
                 </Link>
             </StyledMenuItem>
-            <StyledMenuItem collapseMenu={collapseMenu}>
+            <StyledMenuItem $collapseMenu={collapseMenu}>
                 <Link to="/expense-app/categories" title="Kategorie">
                     <StyledIconWrapper>
                         <BiCategory />
                     </StyledIconWrapper>
                     <StyledMenuItemName
-                        collapseMenu={collapseMenu}
+                        $collapseMenu={collapseMenu}
                         onAnimationEnd={() => setCloseItem(collapseMenu ? true : false)}
-                        closeItem={closeItem}
+                        $closeItem={closeItem}
                     >
                         Kategorie
                     </StyledMenuItemName>

@@ -72,17 +72,17 @@ export const StyledMenuItemName = styled.span`
     width: 100%;
     max-width: 187px;
 
-    ${({collapseMenu}) => collapseMenu && css`
+    ${({$collapseMenu}) => $collapseMenu && css`
         /* max-width: 0; */
         /* display: none; */
         animation: ${hideItem} 0.7s linear forwards;
     `}
 
-    ${({collapseMenu, closeItem}) => !collapseMenu && closeItem && css`
+    ${({$collapseMenu, $closeItem}) => !$collapseMenu && $closeItem && css`
         animation: ${showItem} 0.75s linear forwards;
     `}
 
-    ${({collapseMenu, closeItem}) =>  collapseMenu && closeItem && css`
+    ${({$collapseMenu, $closeItem}) =>  $collapseMenu && $closeItem && css`
             display: none;
         `}
 

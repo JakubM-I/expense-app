@@ -44,7 +44,7 @@ const Root = () => {
     // }, [])
 
     return (
-        <StyledExpesneList collapseMenu={collapseMenu}>
+        <StyledExpesneList $collapseMenu={collapseMenu}>
             {mobileMenu ? 
                 (<MobileHeader /> ) :
                 (<Sidebar 

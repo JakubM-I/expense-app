@@ -55,12 +55,12 @@ const Sidebar = ({ setCollapseMenu, collapseMenu }) => {
 
     return (
         <StyledBar>
-            <StyledHeader collapseMenu={collapseMenu}>
+            <StyledHeader $collapseMenu={collapseMenu}>
                 <StyledLogo src={logo} />
                 <StyledHeaderTitle 
-                    collapseMenu={collapseMenu} 
+                    $collapseMenu={collapseMenu} 
                     onAnimationEnd={() => setCloseMenu(collapseMenu ? true : false)} 
-                    closeMenu={closeMenu}
+                    $closeMenu={closeMenu}
                 >
                         Expenses App
                 </StyledHeaderTitle>
@@ -68,15 +68,15 @@ const Sidebar = ({ setCollapseMenu, collapseMenu }) => {
             {windowWidth.width > mobileBreakPoint &&
                 <StyledAddButtonWrapper>
                     <StyledAddButton
-                        collapseMenu={collapseMenu}
+                        $collapseMenu={collapseMenu}
                         onClick={() => setIsOpen(true)}
                     >
                         <StyledAddMark>
                             <BiPlusCircle />
                         </StyledAddMark>
                         <StyledAddName
-                            collapseMenu={collapseMenu}
-                            closeMenu={closeMenu}>
+                            $collapseMenu={collapseMenu}
+                            $closeMenu={closeMenu}>
                             Dodaj pozycję
                         </StyledAddName>
                     </StyledAddButton>
