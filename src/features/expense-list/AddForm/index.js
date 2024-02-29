@@ -21,7 +21,6 @@ import {
     StyledCancelButton,
 } from "./styled";
 
-
 const AddForm = ({ addNewExpense, isOpen, setIsOpen }) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
@@ -49,13 +48,6 @@ const AddForm = ({ addNewExpense, isOpen, setIsOpen }) => {
         const letterCounter = nameRef.current.value.length;
         setLetterCount(letterCounter);
     }, [name]);
-
-    // useEffect(() => {
-    //     const selectCategory = catList.filter(cat => cat.categoryName.toLowerCase() === category)
-    //     console.log("Form effect:", category);
-        
-    //     setCategoryId(selectCategory.length > 0 ? selectCategory[0].id : "")
-    // }, [category])
 
     const FormSubmit = (e) => {
         e.preventDefault();
@@ -87,10 +79,6 @@ const AddForm = ({ addNewExpense, isOpen, setIsOpen }) => {
                     <StyledFormTitle>Dodaj pozycję</StyledFormTitle>
                 </StyledFormHeader>
             <form  onSubmit={FormSubmit}>
-                {/* {window.innerWidth < 792 ? (             */}
-
-                {/* ) : "" } */}
-
                 <StyledFieldset>
                     <StyledValueWrapper>
                         <StyledValueInput
@@ -149,7 +137,9 @@ const AddForm = ({ addNewExpense, isOpen, setIsOpen }) => {
                 </StyledFieldset>
                 <StyledButtonWrapper>
                     <StyledButton>Zapisz</StyledButton>
-                    <StyledCancelButton onClick={() => cancelAdd()}>Anuluj</StyledCancelButton>
+                    <StyledCancelButton onClick={() => cancelAdd()}>
+                        Anuluj
+                    </StyledCancelButton>
                 </StyledButtonWrapper>
             </form>
         </StyledAddForm>

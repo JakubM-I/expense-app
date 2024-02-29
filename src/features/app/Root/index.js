@@ -7,23 +7,8 @@ import MobileHeader from "../../mobile-menu/MobileHeader";
 
 const Root = () => {
     const windowWidth = useWindowWidth();
-    console.log(windowWidth.width);
     const [mobileMenu, setMobileMenu] = useState("");
-    console.log(mobileMenu);
-    // const [appStatus, setAppStatus] = useState({
-    //     status: "loading",
-    // });
     const [collapseMenu, setCollapseMenu] = useState(false);
-
-    // const pageDimensions = () => {
-    //     const windowWidth = window.innerWidth;
-
-    //     if(windowWidth <= 496){
-    //         setMobileMenu(true);
-    //     } else {
-    //         setMobileMenu(false);
-    //     };
-    // }
 
     useEffect(() => {
         if(windowWidth.width <= 496){
@@ -32,16 +17,6 @@ const Root = () => {
             setMobileMenu(false);
         };
     }, [windowWidth.width])
-
-    // useEffect(() => {
-    //     pageDimensions();
-
-    //     window.addEventListener("resize", pageDimensions);
-
-    //     return () => {
-    //         window.removeEventListener("resize", pageDimensions);
-    //     }
-    // }, [])
 
     return (
         <StyledExpesneList $collapseMenu={collapseMenu}>

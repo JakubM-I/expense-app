@@ -23,35 +23,6 @@ const Sidebar = ({ setCollapseMenu, collapseMenu }) => {
     const {isOpen, setIsOpen} = useContext(OpenModalContext);
     const windowWidth = useWindowWidth();
     const mobileBreakPoint = 792;
-    console.log("Sidebar:", isOpen)
-    // const [openMenu, setOpenMenu] = useState(true);
-    // console.log("CloseMenu:", closeMenu);
-    // console.log("Collapse:", collapseMenu);
-
-    // useEffect(() => {
-    //     if(collapseMenu === false){
-    //         setCloseMenu(false);
-    //     } 
-    // }, [collapseMenu])
-
-    // const closeAnimation = () => {
-    //         console.log("closeAnimation on")
-    //         if(collapseMenu === true){
-    //             setCloseMenu(true);
-    //         }
-            // console.log(e)
-            // if(e.animationName === "hideTitle"){
-            //     setCloseMenu(true);
-            // } else if(e.animationName === "showTitle"){
-            //     setCloseMenu(false);
-            // }
-    // };
-
-    // const openAnimation = () => {
-    //         if(collapseMenu === false && openMenu === true){
-    //             setCloseMenu(false);
-    //         };
-    // };
 
     return (
         <StyledBar>

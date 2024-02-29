@@ -47,12 +47,6 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsO
         setLetterCount(letterCounter);
     }, [name]);
 
-    // useEffect(() => {
-    //     const selectCategory = catList.filter(cat => cat.categoryName.toLowerCase() === category)
-        
-    //     setCategoryId(selectCategory.length > 0 ? selectCategory[0].id : "")
-    // }, [category])
-
     const submit = (e) => {
         e.preventDefault();
         saveEditExpense(selectId, name.trim(), date, value, category, categoryId);
@@ -60,7 +54,6 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsO
         setTimeout(() => {
             setIsEdit(false);
         }, 310);
-        // setIsEdit(false);
     }
 
     const deleteItem = () => {
@@ -74,18 +67,27 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsO
         setTimeout(() => {
             setIsEdit(false);
         }, 310);
-        // setIsEdit(false);
     };
 
     return (
-        <StyledEditModal $isEdit={isEdit} $isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
+        <StyledEditModal 
+            $isEdit={isEdit} 
+            $isOpen={isOpen} 
+            onClick={(e) => e.stopPropagation()}
+        >
             <StyledFormHeader>
                 {window.innerWidth < 792 ? 
-                    (<StyledBackButton onClick={() => cancelEdit()}><FaArrowLeft /></StyledBackButton>) : ""
+                    (<StyledBackButton onClick={() => cancelEdit()}>
+                        <FaArrowLeft />
+                    </StyledBackButton>) 
+                    : ""
                 }
                 <StyledFormTitle>Edytuj pozycję</StyledFormTitle>
                 {window.innerWidth < 792 ? 
-                    (<StyledDeleteButton onClick={() => deleteItem()}><FaRegTrashCan /></StyledDeleteButton> ): ""
+                    (<StyledDeleteButton onClick={() => deleteItem()}>
+                        <FaRegTrashCan />
+                    </StyledDeleteButton> )
+                    : ""
                     }
             </StyledFormHeader>
             <form onSubmit={submit} >
@@ -141,7 +143,9 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsO
                 </StyledFieldset>
                 <StyledButtonWrapper>
                     <StyledButton>Zapisz</StyledButton>
-                    <StyledCancelButton onClick={() => cancelEdit()}>Anuluj</StyledCancelButton>
+                    <StyledCancelButton onClick={() => cancelEdit()}>
+                        Anuluj
+                    </StyledCancelButton>
                 </StyledButtonWrapper>
             </form>
         </StyledEditModal>

@@ -8,7 +8,7 @@ import AddForm from "../../expense-list/AddForm";
 import ExpensesList from "../ExpensesList";
 import EditForm from "../EditForm"
 import Modal from "../../../common/Modal";
-import { PageHeader, MobileAddButton, ListHeaderWrapper } from "./styled";
+import { MobileAddButton, ListHeaderWrapper } from "./styled";
 import { theme } from "../../../assets/themes/theme";
 import { OpenModalContext } from "../../../context/ExpenseProvider";
 
@@ -20,7 +20,6 @@ const Expenses = () => {
     const {isOpen, setIsOpen} = useContext(OpenModalContext);
     const windowWidth = useWindowWidth();
     const mobileBreakPoint = 792;
-    console.log("Expense:", isOpen)
 
     useEffect(() => {
         setIsOpen(isEdit);
@@ -29,26 +28,10 @@ const Expenses = () => {
     const closeModal = () => {
         setIsOpen(false);
         setIsEdit(false);
-        // isOpen ?
-        //     setIsEdit(false)
-        //     : setAddMobile(false);
     }
 
     return (
         <SectionPage>
-            {/* {windowWidth.width > mobileBreakPoint
-                ? (
-                    <PageHeader>
-                        <SectionHeader
-                            title="Dodaj nową pozycję"
-                        />
-                        <AddForm
-                            addNewExpense={addNewExpense}
-                        />
-                    </PageHeader>
-                )
-                : ("")} */}
-
             {windowWidth.width <= mobileBreakPoint
                 && (
                     <MobileAddButton onClick={() => setIsOpen(true)}>+</MobileAddButton>
@@ -76,28 +59,15 @@ const Expenses = () => {
                             deleteExpense={deleteExpense}
                         />
                     ) :
-                        // windowWidth.width <= mobileBreakPoint &&
                         (
                             <AddForm
                                 addNewExpense={addNewExpense}
                                 isOpen={isOpen}
                                 setIsOpen={setIsOpen}
-                            //    setAddMobile={setAddMobile}
                             />
                         )}
                 </Modal>
             )}
-
-            
-            {/* {windowWidth.width <= mobileBreakPoint
-                ? (
-                    <Modal isOpen={addMobile} onCLose={() => closeModal()}>
-                        <AddForm
-                            addNewExpense={addNewExpense}
-                            setAddMobile={setAddMobile}
-                        />
-                    </Modal>
-                ) : ""} */}
         </SectionPage>
     );
 };

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useEditItem } from "../../../hooks/useEditItem";
 import { useCategory } from "../../../hooks/useCategory";
+import { useExpenses } from "../../../hooks/useExpenses";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
 import SectionPage from "../../../common/SectionPage";
@@ -19,7 +20,7 @@ import {
     StyledEditButton,
     StyledDeleteButton,
 } from "./styled";
-import { useExpenses } from "../../../hooks/useExpenses";
+
 
 const Categories = () => {
     const [catList, addCategory, deleteCategory, saveEditedCategory] = useCategory();
@@ -55,10 +56,14 @@ const Categories = () => {
                                     {category.categoryName}
                                 </StyledCategoryName>
                                 <StyledButtonWrapper>
-                                    <StyledEditButton onClick={() => editSelectItem(category.id)}>
+                                    <StyledEditButton 
+                                        onClick={() => editSelectItem(category.id)}
+                                    >
                                         <FaRegEdit />
                                     </StyledEditButton>
-                                    <StyledDeleteButton onClick={() => deleteCategory(category.id)}>
+                                    <StyledDeleteButton 
+                                        onClick={() => deleteCategory(category.id)}
+                                    >
                                         <FaRegTrashCan />
                                     </StyledDeleteButton>
                                 </StyledButtonWrapper>

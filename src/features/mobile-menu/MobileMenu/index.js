@@ -13,10 +13,14 @@ const MobileMenu = ({isOpen, setIsOpen}) => {
         <StyledMobileMenu isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
             <StyledMobileMenuList>
                 <StyledMobileMenuListItem>
-                    <Link to="/expense-app" onClick={(e) => onLinkClick(e)}><BiListUl />Wydatki</Link>
+                    <Link to="/expense-app" onClick={(e) => onLinkClick(e)}>
+                        <BiListUl />Wydatki
+                    </Link>
                 </StyledMobileMenuListItem>
                 <StyledMobileMenuListItem>
-                    <Link to="/expense-app/categories" onClick={(e) => onLinkClick(e)}><BiCategory />Kategorie</Link>
+                    <Link to="/expense-app/categories" onClick={(e) => onLinkClick(e)}>
+                        <BiCategory />Kategorie
+                    </Link>
                 </StyledMobileMenuListItem>
             </StyledMobileMenuList>
         </StyledMobileMenu>
