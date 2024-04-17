@@ -2,12 +2,23 @@ import styled, {css, keyframes} from 'styled-components';
 
 export const StyledBar = styled.div`
     background: ${({theme}) => theme.colors.mainDarkColor};
+    box-shadow: 0 0 10px 2px #0006;
     height: auto;
     position: relative;
     margin-block: 15px;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    border-radius: 15px;
+    padding: 5px;
+
+    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+            padding: 0;
+        }
+
+    ${({$collapseMenu}) => $collapseMenu && css`
+            padding: 0;
+        `}
 `
 
 export const StyledHeader = styled.div`

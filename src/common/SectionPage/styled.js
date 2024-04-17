@@ -9,4 +9,5 @@ export const StyledSectionPage = styled.main`
     height: calc(100% - 30px);
     display: flex;
     flex-direction: column;
+    border-radius: 15px;
 `

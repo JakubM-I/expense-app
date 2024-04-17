@@ -25,7 +25,7 @@ const Sidebar = ({ setCollapseMenu, collapseMenu }) => {
     const mobileBreakPoint = 792;
 
     return (
-        <StyledBar>
+        <StyledBar $collapseMenu={collapseMenu}>
             <StyledHeader $collapseMenu={collapseMenu}>
                 <StyledLogo src={logo} />
                 <StyledHeaderTitle 
