@@ -3,7 +3,7 @@ import styled, {css, keyframes} from 'styled-components';
 export const StyledMobileMenu = styled.div`
     transition: all 0.3s linear;
     position: absolute;
-    top: calc(${({ theme }) => theme.dimensions.mobileHeaderHeight} + ${({ theme }) => theme.dimensions.mobileHeaderMarginBlock});
+    top: 0;
     right: 1.5em;
     background: ${({ theme }) => theme.colors.mainDarkColor};
     color: ${({ theme }) => theme.colors.lightFont};
