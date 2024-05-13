@@ -47,7 +47,7 @@ const Expenses = () => {
                 editSelectItem={editSelectItem}
             />
             {isOpen && (
-                <Modal isOpen={isOpen} onCLose={() => closeModal()}>
+                <Modal isOpen={isOpen} onClose={() => closeModal()}>
                     {isEdit ? (
                         <EditForm
                             editItem={editItem}

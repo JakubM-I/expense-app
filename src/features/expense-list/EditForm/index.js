@@ -71,7 +71,7 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsO
 
     return (
         <StyledEditModal 
-            $isEdit={isEdit} 
+            // $isEdit={isEdit} 
             $isOpen={isOpen} 
             onClick={(e) => e.stopPropagation()}
         >
