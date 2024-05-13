@@ -10,13 +10,13 @@ export const StyledMobileMenu = styled.div`
     opacity: 0;
     /* scale: 125%; */
 
-    ${({isOpen}) => isOpen && css`
+    ${({$isOpen}) => $isOpen && css`
         /* opacity: 1; */
         /* scale: 100%; */
         animation: ${openMenu} 0.4s linear forwards;
     `}
 
-    ${({isOpen}) => !isOpen && css`
+    ${({$isOpen}) => !$isOpen && css`
         /* opacity: 1; */
         /* scale: 100%; */
         animation: ${closeMenu} 0.4s linear forwards;

@@ -46,7 +46,7 @@ const EditCategoryForm = ({ isOpen, setIsOpen, setIsEdit, editItem, saveEditedCa
     }
 
     return (
-        <StyledModal isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
+        <StyledModal $isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
             <StyledFormHeader>Edytuj kategorię</StyledFormHeader>
             <StyledForm onSubmit={submit}>
                 <StyledInput

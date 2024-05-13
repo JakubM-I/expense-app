@@ -10,7 +10,7 @@ const MobileMenu = ({isOpen, setIsOpen}) => {
     }
 
     return (
-        <StyledMobileMenu isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
+        <StyledMobileMenu $isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
             <StyledMobileMenuList>
                 <StyledMobileMenuListItem>
                     <Link to="/expense-app" onClick={(e) => onLinkClick(e)}>

@@ -11,7 +11,7 @@ export const StyledModal = styled.div`
     opacity: 0;
     scale: 125%;
 
-    ${({isOpen}) => isOpen && css`
+    ${({$isOpen}) => $isOpen && css`
         opacity: 1;
         scale: 100%;
     `}
