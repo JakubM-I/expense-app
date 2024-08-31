@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { 
     StyledModal,
     StyledFormHeader,
@@ -8,10 +8,12 @@ import {
     StyledButton,
     StyledCancelButton
 } from "./styled";
+import { OpenModalContext } from "../../../context/ExpenseProvider";
 
-const EditCategoryForm = ({ isOpen, setIsOpen, setIsEdit, editItem, saveEditedCategory, updateCategory }) => {
+const EditCategoryForm = ({ setIsEdit, editItem, saveEditedCategory, updateCategory }) => {
 
     const [categoryName, setCategoryName] = useState("");
+    const {isOpen, setIsOpen} = useContext(OpenModalContext);
 
     useEffect(() => {
         setCategoryName(editItem ? editItem.categoryName : "")

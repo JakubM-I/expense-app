@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { 
     StyledModal,
     StyledFormHeader,
@@ -8,10 +8,12 @@ import {
     StyledButton,
     StyledCancelButton
 } from "./styled";
+import { OpenModalContext } from "../../../context/ExpenseProvider";
 
-const CategoryForm = ({ addCategory, isOpen, setIsOpen }) => {
+const CategoryForm = ({ addCategory }) => {
 
     const [categoryName, setCategoryName] = useState();
+    const {isOpen, setIsOpen} = useContext(OpenModalContext);
     const inputRef = useRef(null)
 
     const submit = (e) => {

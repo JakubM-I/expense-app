@@ -47,23 +47,19 @@ const Expenses = () => {
                 editSelectItem={editSelectItem}
             />
             {isOpen && (
-                <Modal isOpen={isOpen} onClose={() => closeModal()}>
+                <Modal onClose={() => closeModal()}>
                     {isEdit ? (
                         <EditForm
                             editItem={editItem}
                             saveEditExpense={saveEditExpense}
                             isEdit={isEdit}
                             setIsEdit={setIsEdit}
-                            isOpen={isOpen}
-                            setIsOpen={setIsOpen}
                             deleteExpense={deleteExpense}
                         />
                     ) :
                         (
                             <AddForm
                                 addNewExpense={addNewExpense}
-                                isOpen={isOpen}
-                                setIsOpen={setIsOpen}
                             />
                         )}
                 </Modal>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useEditItem } from "../../../hooks/useEditItem";
 import { useCategory } from "../../../hooks/useCategory";
 import { useExpenses } from "../../../hooks/useExpenses";
@@ -20,13 +20,15 @@ import {
     StyledEditButton,
     StyledDeleteButton,
 } from "./styled";
+import { OpenModalContext } from "../../../context/ExpenseProvider";
 
 
 const Categories = () => {
     const [catList, addCategory, deleteCategory, saveEditedCategory] = useCategory();
     const [editItem, editSelectItem, isEdit, setIsEdit] = useEditItem(catList);
     const [,,,, updateCategory] = useExpenses();
-    const [isOpen, setIsOpen] = useState(false);
+    // const [isOpen, setIsOpen] = useState(false);
+    const {isOpen, setIsOpen} = useContext(OpenModalContext);
 
     useEffect(() => {
         setIsOpen(isEdit);
@@ -73,11 +75,9 @@ const Categories = () => {
                 </StyledCategoryList>
             </StyledCategory>
             {isOpen && (
-                <Modal isOpen={isOpen} onClose={() => closeModal()}>
+                <Modal onClose={() => closeModal()}>
                     {isEdit ? (
                         <EditCategoryForm
-                            isOpen={isOpen}
-                            setIsOpen={setIsOpen}
                             setIsEdit={setIsEdit}
                             editItem={editItem}
                             saveEditedCategory={saveEditedCategory}
@@ -86,8 +86,6 @@ const Categories = () => {
                     ) : (
                         <CategoryForm
                             addCategory={addCategory}
-                            isOpen={isOpen}
-                            setIsOpen={setIsOpen}
                         />
                     )}
                 </Modal>

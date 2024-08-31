@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { useCategory } from "../../../hooks/useCategory";
 import { useCategoryId } from "../../../hooks/useCategoryId";
 import { FaArrowLeft } from "react-icons/fa6";
@@ -22,13 +22,15 @@ import {
     StyledButton,
     StyledCancelButton
 } from "./styled";
+import { OpenModalContext } from "../../../context/ExpenseProvider";
 
-const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, isOpen, setIsOpen, deleteExpense }) => {
+const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, deleteExpense }) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
     const [category, setCategory] = useState("");
     const [letterCount, setLetterCount] = useState(0);
+    const {isOpen, setIsOpen} = useContext(OpenModalContext);
     const [catList] = useCategory();
     const nameRef = useRef();
     const categoryId = useCategoryId(category);
