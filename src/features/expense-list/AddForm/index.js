@@ -21,13 +21,15 @@ import {
     StyledCancelButton,
 } from "./styled";
 import { OpenModalContext } from "../../../context/ExpenseProvider";
+import { useLetterCounter } from "../../../hooks/useLetterCounter";
 
 const AddForm = ({ addNewExpense }) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
     const [category, setCategory] = useState("");
-    const [letterCount, setLetterCount] = useState(0);
+    // const [letterCount, setLetterCount] = useState(0);
+    const letterCount = useLetterCounter(name, nameRef);
     const {isOpen, setIsOpen} = useContext(OpenModalContext);
     const [catList] = useCategory();
     const categoryId = useCategoryId(category);
@@ -46,10 +48,10 @@ const AddForm = ({ addNewExpense }) => {
         setDate(currentDate)
     }, [currentDate]);
 
-    useEffect(() => {
-        const letterCounter = nameRef.current.value.length;
-        setLetterCount(letterCounter);
-    }, [name]);
+    // useEffect(() => {
+    //     const letterCounter = nameRef.current.value.length;
+    //     setLetterCount(letterCounter);
+    // }, [name]);
 
     const FormSubmit = (e) => {
         e.preventDefault();
