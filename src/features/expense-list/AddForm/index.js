@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect, useContext } from "react";
-import { useCategory } from "../../../hooks/useCategory";
 import { useCategoryId } from "../../../hooks/useCategoryId";
 import { FaArrowLeft } from "react-icons/fa6";
 import {
@@ -20,7 +19,7 @@ import {
     StyledButton,
     StyledCancelButton,
 } from "./styled";
-import { OpenModalContext } from "../../../context/ExpenseProvider";
+import { CategoryContext, OpenModalContext } from "../../../context/ExpenseProvider";
 import { useLetterCounter } from "../../../hooks/useLetterCounter";
 
 const AddForm = ({ addNewExpense }) => {
@@ -32,7 +31,7 @@ const AddForm = ({ addNewExpense }) => {
     const nameRef = useRef();
     const letterCount = useLetterCounter(name, nameRef);
     const {isOpen, setIsOpen} = useContext(OpenModalContext);
-    const [catList] = useCategory();
+    const { catList } = useContext(CategoryContext);
     const categoryId = useCategoryId(category);
 
     const valueRef = useRef();

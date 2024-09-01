@@ -20,16 +20,16 @@ import {
     StyledEditButton,
     StyledDeleteButton,
 } from "./styled";
-import { OpenModalContext } from "../../../context/ExpenseProvider";
-
+import { CategoryContext, OpenModalContext } from "../../../context/ExpenseProvider";
 
 const Categories = () => {
-    const [catList, addCategory, deleteCategory, saveEditedCategory] = useCategory();
+    const {isOpen, setIsOpen} = useContext(OpenModalContext);
+    const {catList} = useContext(CategoryContext);
+    const [, addCategory, deleteCategory, saveEditedCategory] = useCategory();
     const [editItem, editSelectItem, isEdit, setIsEdit] = useEditItem(catList);
     const [,,,, updateCategory] = useExpenses();
     // const [isOpen, setIsOpen] = useState(false);
-    const {isOpen, setIsOpen} = useContext(OpenModalContext);
-
+   
     useEffect(() => {
         setIsOpen(isEdit);
     }, [isEdit]);
