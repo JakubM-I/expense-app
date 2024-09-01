@@ -29,13 +29,14 @@ const AddForm = ({ addNewExpense }) => {
     const [value, setValue] = useState("");
     const [category, setCategory] = useState("");
     // const [letterCount, setLetterCount] = useState(0);
+    const nameRef = useRef();
     const letterCount = useLetterCounter(name, nameRef);
     const {isOpen, setIsOpen} = useContext(OpenModalContext);
     const [catList] = useCategory();
     const categoryId = useCategoryId(category);
 
     const valueRef = useRef();
-    const nameRef = useRef();
+    
 
     const nowDate = new Date();
     const currentDate = [

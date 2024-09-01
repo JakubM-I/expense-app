@@ -6,7 +6,7 @@ export const useLetterCounter = (elementName, elementRef) => {
     useEffect(() => {
         const letterCounter = elementRef.current.value.length;
         setLetterCount(letterCounter);
-    }, [elementName]);
+    }, [elementName, elementRef]);
 
     return letterCount;
 }

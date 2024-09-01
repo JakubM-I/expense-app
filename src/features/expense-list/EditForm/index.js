@@ -23,16 +23,20 @@ import {
     StyledCancelButton
 } from "./styled";
 import { OpenModalContext } from "../../../context/ExpenseProvider";
+import { useLetterCounter } from "../../../hooks/useLetterCounter";
 
 const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, deleteExpense }) => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
     const [category, setCategory] = useState("");
-    const [letterCount, setLetterCount] = useState(0);
-    const {isOpen, setIsOpen} = useContext(OpenModalContext);
-    const [catList] = useCategory();
+    // const [letterCount, setLetterCount] = useState(0);
     const nameRef = useRef();
+    const letterCount = useLetterCounter(name, nameRef);
+    const {isOpen, setIsOpen} = useContext(OpenModalContext);
+
+    const [catList] = useCategory();
+    
     const categoryId = useCategoryId(category);
 
     useEffect(() => {
@@ -44,10 +48,10 @@ const EditForm = ({ editItem, saveEditExpense, isEdit, setIsEdit, deleteExpense 
 
     const selectId = editItem.id;
 
-    useEffect(() => {
-        const letterCounter = nameRef.current.value.length;
-        setLetterCount(letterCounter);
-    }, [name]);
+    // useEffect(() => {
+    //     const letterCounter = nameRef.current.value.length;
+    //     setLetterCount(letterCounter);
+    // }, [name]);
 
     const submit = (e) => {
         e.preventDefault();
