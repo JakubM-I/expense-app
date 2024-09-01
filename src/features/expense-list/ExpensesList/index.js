@@ -18,10 +18,13 @@ import {
     StyledEditButton,
     StyledCommentsItem
 } from "./styled";
+import { useContext } from "react";
+import { ExpensesContext } from "../../../context/ExpenseProvider";
 
 
-const ExpensesList = ({ expList, deleteExpense, editSelectItem }) => {
+const ExpensesList = ({ deleteExpense, editSelectItem }) => {
     const windowWidth = useWindowWidth();
+    const { expList } = useContext(ExpensesContext);
 
     const allDatesList = expList.map(exp => ({ id: nanoid(), date: exp.date }))
 

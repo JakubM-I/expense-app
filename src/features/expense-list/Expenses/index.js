@@ -10,11 +10,11 @@ import EditForm from "../EditForm"
 import Modal from "../../../common/Modal";
 import { MobileAddButton, ListHeaderWrapper } from "./styled";
 import { theme } from "../../../assets/themes/theme";
-import { OpenModalContext } from "../../../context/ExpenseProvider";
+import { ExpensesContext, OpenModalContext } from "../../../context/ExpenseProvider";
 
 const Expenses = () => {
-
-    const [expList, addNewExpense, deleteExpense, saveEditExpense] = useExpenses();
+    const { expList } = useContext(ExpensesContext);
+    const [, addNewExpense, deleteExpense, saveEditExpense] = useExpenses();
     const [editItem, editSelectItem, isEdit, setIsEdit] = useEditItem(expList);
     const [addMobile, setAddMobile] = useState(false)
     const {isOpen, setIsOpen} = useContext(OpenModalContext);
@@ -42,7 +42,7 @@ const Expenses = () => {
                 />
             </ListHeaderWrapper>
             <ExpensesList
-                expList={expList}
+
                 deleteExpense={deleteExpense}
                 editSelectItem={editSelectItem}
             />
