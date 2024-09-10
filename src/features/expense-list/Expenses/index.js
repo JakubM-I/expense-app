@@ -11,13 +11,14 @@ import Modal from "../../../common/Modal";
 import { MobileAddButton, ListHeaderWrapper } from "./styled";
 import { theme } from "../../../assets/themes/theme";
 import { ExpensesContext, OpenModalContext } from "../../../context/ExpenseProvider";
+import { Outlet } from "react-router-dom";
 
 const Expenses = () => {
     const { expList } = useContext(ExpensesContext);
     const [, addNewExpense, deleteExpense, saveEditExpense] = useExpenses();
     const [editItem, editSelectItem, isEdit, setIsEdit] = useEditItem(expList);
-    const [addMobile, setAddMobile] = useState(false)
-    const {isOpen, setIsOpen} = useContext(OpenModalContext);
+    // const [addMobile, setAddMobile] = useState(false)
+    const { isOpen, setIsOpen } = useContext(OpenModalContext);
     const windowWidth = useWindowWidth();
     const mobileBreakPoint = 792;
 
@@ -42,13 +43,15 @@ const Expenses = () => {
                 />
             </ListHeaderWrapper>
             <ExpensesList
-
                 deleteExpense={deleteExpense}
                 editSelectItem={editSelectItem}
             />
             {isOpen && (
                 <Modal onClose={() => closeModal()}>
-                    {isEdit ? (
+                    <AddForm
+                        addNewExpense={addNewExpense}
+                    />
+                    {/* {isEdit ? (
                         <EditForm
                             editItem={editItem}
                             saveEditExpense={saveEditExpense}
@@ -61,9 +64,10 @@ const Expenses = () => {
                             <AddForm
                                 addNewExpense={addNewExpense}
                             />
-                        )}
+                        )} */}
                 </Modal>
             )}
+            <Outlet />
         </SectionPage>
     );
 };

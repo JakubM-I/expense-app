@@ -1,8 +1,9 @@
-import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements  } from 'react-router-dom';
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import { ExpensesProvider } from './context/ExpenseProvider';
 import Root from "./features/app/Root";
 import Expenses from "./features/expense-list/Expenses";
 import Categories from "./features/categories/Categories";
+import EditForm from './features/expense-list/EditForm';
 
 // const router = createBrowserRouter(createRoutesFromElements(
 //   <Route path="/expense-app" element={<Root />}>
@@ -19,6 +20,12 @@ const router = createBrowserRouter([
       {
         element: <Expenses />,
         path: "/expense-app",
+        children: [
+          {
+            element: <EditForm />,
+            path: "expense/:expId"
+          }
+        ]
       },
       {
         element: <Categories />,
@@ -31,7 +38,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <ExpensesProvider>
-        <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </ExpensesProvider>
   );
 }
