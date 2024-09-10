@@ -25,14 +25,18 @@ import { CategoryContext, ExpensesContext, OpenModalContext } from "../../../con
 import { useLetterCounter } from "../../../hooks/useLetterCounter";
 import Modal from "../../../common/Modal";
 import { useEditItem } from "../../../hooks/useEditItem";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useExpenses } from "../../../hooks/useExpenses";
 
-const EditForm = ({ saveEditExpense, deleteExpense }) => {
+const EditForm = () => {
     const { expList } = useContext(ExpensesContext);
-    const [editItem, editSelectItem, isEdit, setIsEdit] = useEditItem(expList);
     const { isOpen, setIsOpen } = useContext(OpenModalContext);
     const { catList } = useContext(CategoryContext);
+    const [editItem, editSelectItem, isEdit, setIsEdit] = useEditItem(expList);
+    const [, , deleteExpense, saveEditExpense] = useExpenses();
+
     const { expId } = useParams();
+    const navigate = useNavigate();
 
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
@@ -57,6 +61,7 @@ const EditForm = ({ saveEditExpense, deleteExpense }) => {
 
     console.log(editItem)
     const selectId = editItem.id;
+    console.log(selectId);
 
     // useEffect(() => {
     //     const letterCounter = nameRef.current.value.length;
@@ -67,9 +72,10 @@ const EditForm = ({ saveEditExpense, deleteExpense }) => {
         e.preventDefault();
         saveEditExpense(selectId, name.trim(), date, value, category, categoryId);
         setIsOpen(false);
-        setTimeout(() => {
-            setIsEdit(false);
-        }, 310);
+        navigate(-1);
+        // setTimeout(() => {
+        //     setIsEdit(false);
+        // }, 310);
     }
 
     const deleteItem = () => {
@@ -80,9 +86,10 @@ const EditForm = ({ saveEditExpense, deleteExpense }) => {
 
     const cancelEdit = () => {
         setIsOpen(false);
-        setTimeout(() => {
-            setIsEdit(false);
-        }, 310);
+        navigate(-1);
+        // setTimeout(() => {
+        //     setIsEdit(false);
+        // }, 310);
     };
 
     return (

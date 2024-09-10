@@ -30,7 +30,7 @@ const ExpensesList = ({ deleteExpense, editSelectItem }) => {
     const { isOpen, setIsOpen } = useContext(OpenModalContext);
 
     const openModal = (expId) => {
-        console.log(expId);
+        // console.log(expId);
         setIsOpen(true)
         // editSelectItem(expId);
         navigate(`/expense-app/expense/${expId}`);
