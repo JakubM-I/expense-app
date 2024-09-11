@@ -1,5 +1,11 @@
 import { useState, useEffect, useRef, useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { CategoryContext, ExpensesContext, OpenModalContext } from "../../../context/ExpenseProvider";
+import { useLetterCounter } from "../../../hooks/useLetterCounter";
+import { useEditItem } from "../../../hooks/useEditItem";
+import { useExpenses } from "../../../hooks/useExpenses";
 import { useCategoryId } from "../../../hooks/useCategoryId";
+import Modal from "../../../common/Modal";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
 import {
@@ -21,12 +27,6 @@ import {
     StyledButton,
     StyledCancelButton
 } from "./styled";
-import { CategoryContext, ExpensesContext, OpenModalContext } from "../../../context/ExpenseProvider";
-import { useLetterCounter } from "../../../hooks/useLetterCounter";
-import Modal from "../../../common/Modal";
-import { useEditItem } from "../../../hooks/useEditItem";
-import { useNavigate, useParams } from "react-router-dom";
-import { useExpenses } from "../../../hooks/useExpenses";
 
 const EditForm = () => {
     const { expList } = useContext(ExpensesContext);
@@ -59,14 +59,7 @@ const EditForm = () => {
         setCategory(editItem ? editItem.category : "");
     }, [editItem])
 
-    console.log(editItem)
     const selectId = editItem.id;
-    console.log(selectId);
-
-    // useEffect(() => {
-    //     const letterCounter = nameRef.current.value.length;
-    //     setLetterCount(letterCounter);
-    // }, [name]);
 
     const submit = (e) => {
         e.preventDefault();
@@ -84,7 +77,9 @@ const EditForm = () => {
         setIsEdit(false);
     }
 
-    const cancelEdit = () => {
+    const cancelEdit = (e) => {
+        e.preventDefault();
+        e.stopPropagation()
         setIsOpen(false);
         navigate(-1);
         // setTimeout(() => {
@@ -101,7 +96,7 @@ const EditForm = () => {
             >
                 <StyledFormHeader>
                     {window.innerWidth < 792 ?
-                        (<StyledBackButton onClick={() => cancelEdit()}>
+                        (<StyledBackButton onClick={(e) => cancelEdit(e)}>
                             <FaArrowLeft />
                         </StyledBackButton>)
                         : ""
@@ -167,7 +162,7 @@ const EditForm = () => {
                     </StyledFieldset>
                     <StyledButtonWrapper>
                         <StyledButton>Zapisz</StyledButton>
-                        <StyledCancelButton onClick={() => cancelEdit()}>
+                        <StyledCancelButton onClick={(e) => cancelEdit(e)}>
                             Anuluj
                         </StyledCancelButton>
                     </StyledButtonWrapper>
