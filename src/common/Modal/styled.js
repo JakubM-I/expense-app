@@ -1,4 +1,4 @@
-import styled, {css, keyframes} from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 export const StyledBackdrop = styled.div`
     position: fixed;
@@ -14,15 +14,21 @@ export const StyledBackdrop = styled.div`
     transform: translateX(-50%);
     /* transition: background 0.3s linear; */
 
-    @media (max-width: ${({theme}) => theme.breakpoints.mobile}){
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}){
         top: calc(${({ theme }) => theme.dimensions.mobileHeaderHeight} + ${({ theme }) => theme.dimensions.mobileHeaderMarginBlock});
 
     }
 
-    ${({$isOpen}) => $isOpen && css`
+    ${({ $isOpen }) => $isOpen && css`
         /* visibility: visible; */
         /* background: #0000005c; */
         animation: ${openModal} 0.3s linear forwards;
+    ` }
+
+    ${({ $isOpen }) => !$isOpen && css`
+        /* visibility: visible; */
+        /* background: #0000005c; */
+        animation: ${closeModal} 0.3s linear forwards;
     ` }
 `;
 
@@ -31,3 +37,7 @@ const openModal = keyframes`
     100%{visibility: visible; background: #0000005c;}
 `
 
+const closeModal = keyframes`
+    0%{visibility: visible; background: #0000005c;}
+    100%{visibility: hidden;}
+`
