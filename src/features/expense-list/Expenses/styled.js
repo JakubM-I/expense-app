@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const PageHeader = styled.div`
-    background: ${({theme}) => theme.colors.mainBackground};
+    background: ${({ theme }) => theme.colors.mainBackground};
     position: sticky;
     top: 0;
     z-index: 2;
 
-    @media (max-width: ${({theme}) => theme.breakpoints.tablet}){
+    @media (max-width: ${({ theme }) => `${theme.breakpoints.tablet}px`}){
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -26,10 +26,10 @@ export const MobileAddButton = styled.button`
     bottom: 20px;
     right: calc(50% - 50px);
     transform: translateX(-50%);
-    background: ${({theme}) => theme.colors.mainDarkColor};
-    border: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+    background: ${({ theme }) => theme.colors.mainDarkColor};
+    border: 1px solid ${({ theme }) => theme.colors.mainDarkColor};
     box-shadow: 0px -1px 6px 2px #afadad;
-    color: ${({theme}) => theme.colors.lightFont};
+    color: ${({ theme }) => theme.colors.lightFont};
     line-height: 1;
     font-size: 25px;
     font-weight: 400;
@@ -37,27 +37,27 @@ export const MobileAddButton = styled.button`
     cursor: pointer;
 
     &:hover{
-        background: ${({theme}) => theme.colors.buttonApproveBg};
-        color: ${({theme}) => theme.colors.mainDarkColor};
+        background: ${({ theme }) => theme.colors.buttonApproveBg};
+        color: ${({ theme }) => theme.colors.mainDarkColor};
     }
 
 `
 
 export const ListHeaderWrapper = styled.div`
-    background: ${({theme}) => theme.colors.mainBackground};
+    background: ${({ theme }) => theme.colors.mainBackground};
     position: sticky;
     z-index: 2;
     top: 0;
 
-    /* @media(max-width: ${({theme}) => theme.breakpoints.desktop}){
+    /* @media(max-width: ${({ theme }) => theme.breakpoints.desktop}){
         top: 250px;
     } */
 
-    /* @media(max-width: ${({theme}) => theme.breakpoints.small}){
+    /* @media(max-width: ${({ theme }) => theme.breakpoints.small}){
         top: 357px;
     } */
 
-    /* @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+    /* @media(max-width: ${({ theme }) => `${theme.breakpoints.tablet}px`}){
         top: 0;
     } */
 `

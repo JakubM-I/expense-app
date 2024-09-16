@@ -1,4 +1,4 @@
-import styled, {css, keyframes} from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 export const StyledMenu = styled.ul`
         margin-block-start: 0px;
@@ -13,11 +13,11 @@ export const StyledMenuItem = styled.li`
     transition: all 0.4s linear;
 
     &:has(a:hover){
-        background: ${({theme}) => theme.colors.activeMenuItemBg};
+        background: ${({ theme }) => theme.colors.activeMenuItemBg};
     }
 
     a{
-        color: ${({theme}) => theme.colors.lightFont};
+        color: ${({ theme }) => theme.colors.lightFont};
         text-decoration: none;
         display: flex;
         justify-content: flex-start;
@@ -25,7 +25,7 @@ export const StyledMenuItem = styled.li`
         gap: 8px;
     }
 /* 
-    ${({collapseMenu}) => collapseMenu && css`
+    ${({ collapseMenu }) => collapseMenu && css`
         padding: 2px; */
         /* transition: 0.8s ease-in; */
 
@@ -34,7 +34,7 @@ export const StyledMenuItem = styled.li`
         } */
     /* `} */
 
-    /* @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+    /* @media(max-width: ${({ theme }) => `${theme.breakpoints.tablet}px`}){
         padding: 2px;
 
         a{
@@ -43,8 +43,8 @@ export const StyledMenuItem = styled.li`
     } */
 `
 
-export const  StyledIconWrapper = styled.span`
-    color: ${({theme}) => theme.colors.lightFont};
+export const StyledIconWrapper = styled.span`
+    color: ${({ theme }) => theme.colors.lightFont};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,21 +72,21 @@ export const StyledMenuItemName = styled.span`
     width: 100%;
     max-width: 187px;
 
-    ${({$collapseMenu}) => $collapseMenu && css`
+    ${({ $collapseMenu }) => $collapseMenu && css`
         /* max-width: 0; */
         /* display: none; */
         animation: ${hideItem} 0.7s linear forwards;
     `}
 
-    ${({$collapseMenu, $closeItem}) => !$collapseMenu && $closeItem && css`
+    ${({ $collapseMenu, $closeItem }) => !$collapseMenu && $closeItem && css`
         animation: ${showItem} 0.75s linear forwards;
     `}
 
-    ${({$collapseMenu, $closeItem}) =>  $collapseMenu && $closeItem && css`
+    ${({ $collapseMenu, $closeItem }) => $collapseMenu && $closeItem && css`
             display: none;
         `}
 
-    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+    @media(max-width: ${({ theme }) => `${theme.breakpoints.tablet}px`}){
         display: none;
     }
 `

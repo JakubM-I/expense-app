@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledExpesneList = styled.div`
     width: min(1300px, calc(100% - 3em));
@@ -11,16 +11,16 @@ export const StyledExpesneList = styled.div`
     position: relative;
     gap: 10px;
 
-    ${({$collapseMenu}) => $collapseMenu && css `
+    ${({ $collapseMenu }) => $collapseMenu && css`
         grid-template-columns: 50px 1fr;
     `}
 
-    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+    @media(max-width: ${({ theme }) => `${theme.breakpoints.tablet}px`}){
         grid-template-columns: 50px 1fr;
         width: calc(100%  - 1em);
     }
 
-    @media(max-width: ${({theme}) => theme.breakpoints.mobile}){
+    @media(max-width: ${({ theme }) => `${theme.breakpoints.mobile}px`}){
         grid-template-columns: 1fr;
         grid-auto-rows: auto 1fr;
     }

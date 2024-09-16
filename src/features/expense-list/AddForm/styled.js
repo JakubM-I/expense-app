@@ -1,8 +1,8 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledAddForm = styled.div`
     padding: 20px;
-    background: ${({theme}) => theme.colors.formBackground};
+    background: ${({ theme }) => theme.colors.formBackground};
     border-radius: 8px;
     -webkit-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
     -moz-box-shadow: 0px 0px 18px -9px rgba(66, 68, 90, 1);
@@ -11,12 +11,12 @@ export const StyledAddForm = styled.div`
     scale: 125%;
     transition: all 0.3s linear;
 
-    @media (max-width: ${({theme}) => theme.breakpoints.mobile}){
+    @media (max-width: ${({ theme }) => `${theme.breakpoints.mobile}px`}){
         width: calc(100% - 10px);
         max-width: 380px;
     }
 
-    ${({$isOpen}) => $isOpen && css`
+    ${({ $isOpen }) => $isOpen && css`
         opacity: 1;
         scale: 100%;
     `}
@@ -29,7 +29,7 @@ export const StyledFormHeader = styled.div`
     position: relative;
     text-align: left;
 
-    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+    @media(max-width: ${({ theme }) => `${theme.breakpoints.tablet}px`}){
         text-align: center;
         }
 `
@@ -68,7 +68,7 @@ export const StyledValueWrapper = styled.div`
     justify-content: center;
     gap: 5px;
     align-items: center;
-    border-bottom: 2px solid ${({theme}) => theme.colors.mainDarkColor};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.mainDarkColor};
     width: fit-content;
     margin-block-end: 15px;
     position: relative;
@@ -77,7 +77,7 @@ export const StyledValueWrapper = styled.div`
 export const StyledValueInput = styled.input`
     text-align: center;
     border: none;
-    background: ${({theme}) => theme.colors.formBackground};
+    background: ${({ theme }) => theme.colors.formBackground};
     font-size: 23px;
     width: 130px;
     padding-inline-end: 45px;
@@ -107,7 +107,7 @@ export const StyledDetailsWrapper = styled.div`
     gap: 20px;
     flex-basis: 100%;
 
-    @media (max-width: ${({theme}) => theme.breakpoints.mobile}){
+    @media (max-width: ${({ theme }) => `${theme.breakpoints.mobile}px`}){
         flex-wrap: wrap;
     }
 `
@@ -125,16 +125,16 @@ export const StyledWrapper = styled.div`
 
     input{
         padding: 2px;
-        background: ${({theme}) => theme.colors.formBackground};
+        background: ${({ theme }) => theme.colors.formBackground};
         border: none;
-        border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+        border-bottom: 1px solid ${({ theme }) => theme.colors.mainDarkColor};
     }
 
     select{
         padding: 2px;
-        background: ${({theme}) => theme.colors.formBackground};
+        background: ${({ theme }) => theme.colors.formBackground};
         border: none;
-        border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+        border-bottom: 1px solid ${({ theme }) => theme.colors.mainDarkColor};
     }
 `
 
@@ -149,7 +149,7 @@ export const StyledNotesInputWrapper = styled.div`
     justify-content: center;
     align-items: center;
     gap: 5px;
-    border-bottom: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.mainDarkColor};
     position: relative;
 
     input{
@@ -161,7 +161,7 @@ export const StyledNotesInputWrapper = styled.div`
 
 export const StyledLetterCounter = styled.span`
     font-size: 12px;
-    color: ${({theme}) => theme.colors.commentsFont};
+    color: ${({ theme }) => theme.colors.commentsFont};
     align-self: flex-end;
     padding-inline-end: 2px;
     padding-block-start: 2px;
@@ -178,35 +178,35 @@ export const StyledButtonWrapper = styled.div`
     align-items: center;
     justify-content: center;
 
-    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+    @media(max-width: ${({ theme }) => `${theme.breakpoints.tablet}px`}){
         gap: 0;
     }
 `
 
 export const StyledButton = styled.button`
-    background: ${({theme}) => theme.colors.mainDarkColor};
-    border: 1px solid ${({theme}) => theme.colors.mainDarkColor};
+    background: ${({ theme }) => theme.colors.mainDarkColor};
+    border: 1px solid ${({ theme }) => theme.colors.mainDarkColor};
     border-radius: 5px;
     padding: 5px 15px;
-    color: ${({theme}) => theme.colors.lightFont};
+    color: ${({ theme }) => theme.colors.lightFont};
     transition: all 0.4s ease-in;
     cursor: pointer;
 
     &:hover{
-        background: ${({theme}) => theme.colors.buttonApproveBg};  
-        color: ${({theme}) => theme.colors.mainDarkColor};
+        background: ${({ theme }) => theme.colors.buttonApproveBg};  
+        color: ${({ theme }) => theme.colors.mainDarkColor};
     }
     `
 
 export const StyledCancelButton = styled(StyledButton)`
-    background: ${({theme}) => theme.colors.lightFont};
-    color: ${({theme}) => theme.colors.mainDarkColor};
+    background: ${({ theme }) => theme.colors.lightFont};
+    color: ${({ theme }) => theme.colors.mainDarkColor};
 
     &:hover{
-        background: ${({theme}) => theme.colors.buttonCancelBg};
+        background: ${({ theme }) => theme.colors.buttonCancelBg};
     }
 
-    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+    @media(max-width: ${({ theme }) => `${theme.breakpoints.tablet}px`}){
         display: none;
     }
 `

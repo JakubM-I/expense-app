@@ -27,31 +27,25 @@ const AddForm = ({ addNewExpense }) => {
     const [date, setDate] = useState("");
     const [value, setValue] = useState("");
     const [category, setCategory] = useState("");
-    // const [letterCount, setLetterCount] = useState(0);
     const nameRef = useRef();
     const letterCount = useLetterCounter(name, nameRef);
-    const {isOpen, setIsOpen} = useContext(OpenModalContext);
+    const { isOpen, setIsOpen } = useContext(OpenModalContext);
     const { catList } = useContext(CategoryContext);
     const categoryId = useCategoryId(category);
 
     const valueRef = useRef();
-    
+
 
     const nowDate = new Date();
     const currentDate = [
         nowDate.getFullYear(),
-        nowDate.getMonth() <= 9 ? `0${nowDate.getMonth() + 1}` :  nowDate.getMonth() + 1,
+        nowDate.getMonth() <= 9 ? `0${nowDate.getMonth() + 1}` : nowDate.getMonth() + 1,
         nowDate.getDate() <= 9 ? `0${nowDate.getDate()}` : nowDate.getDate(),
     ].join("-");
 
     useEffect(() => {
         setDate(currentDate)
     }, [currentDate]);
-
-    // useEffect(() => {
-    //     const letterCounter = nameRef.current.value.length;
-    //     setLetterCount(letterCounter);
-    // }, [name]);
 
     const FormSubmit = (e) => {
         e.preventDefault();
@@ -76,13 +70,13 @@ const AddForm = ({ addNewExpense }) => {
 
     return (
         <StyledAddForm $isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
-                <StyledFormHeader>
-                    {window.innerWidth < 792 && 
-                        (<StyledBackButton onClick={() => cancelAdd()}><FaArrowLeft /></StyledBackButton>)
-                    }                    
-                    <StyledFormTitle>Dodaj pozycję</StyledFormTitle>
-                </StyledFormHeader>
-            <form  onSubmit={FormSubmit}>
+            <StyledFormHeader>
+                {window.innerWidth < 792 &&
+                    (<StyledBackButton onClick={() => cancelAdd()}><FaArrowLeft /></StyledBackButton>)
+                }
+                <StyledFormTitle>Dodaj pozycję</StyledFormTitle>
+            </StyledFormHeader>
+            <form onSubmit={FormSubmit}>
                 <StyledFieldset>
                     <StyledValueWrapper>
                         <StyledValueInput
@@ -147,7 +141,7 @@ const AddForm = ({ addNewExpense }) => {
                 </StyledButtonWrapper>
             </form>
         </StyledAddForm>
-        
+
     );
 };
 

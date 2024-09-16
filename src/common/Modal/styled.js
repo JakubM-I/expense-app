@@ -14,7 +14,7 @@ export const StyledBackdrop = styled.div`
     transform: translateX(-50%);
     /* transition: background 0.3s linear; */
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}){
+    @media (max-width: ${({ theme }) => `${theme.breakpoints.mobile}px`}){
         top: calc(${({ theme }) => theme.dimensions.mobileHeaderHeight} + ${({ theme }) => theme.dimensions.mobileHeaderMarginBlock});
 
     }

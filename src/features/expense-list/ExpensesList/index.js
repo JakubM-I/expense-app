@@ -20,7 +20,7 @@ import {
 } from "./styled";
 import { useContext } from "react";
 import { ExpensesContext, OpenModalContext } from "../../../context/ExpenseProvider";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const ExpensesList = ({ deleteExpense, editSelectItem }) => {
@@ -30,9 +30,7 @@ const ExpensesList = ({ deleteExpense, editSelectItem }) => {
     const { isOpen, setIsOpen } = useContext(OpenModalContext);
 
     const openModal = (expId) => {
-        // console.log(expId);
         setIsOpen(true)
-        // editSelectItem(expId);
         navigate(`/expense-app/expense/${expId}`);
     }
 
@@ -41,58 +39,55 @@ const ExpensesList = ({ deleteExpense, editSelectItem }) => {
     const datesList = [...new Map(allDatesList.map((m) => [m.date, m])).values()];
 
     return (
-        <>
-            <StyledExpenses>
-                <StyledDateList>
-                    {[...datesList]
-                        .sort((a, b) => new Date(b.date) - new Date(a.date))
-                        .map(date => (
-                            <StyledDateListItem key={date.id}>
-                                <h3 >{date.date}</h3>
-                                <StyledDayList>
-                                    {expList
-                                        .filter(exp => exp.date === date.date)
-                                        .map(exp => (
-                                            <StyledDayListItem key={exp.id}>
-                                                <StyledWrapper >
-                                                    <StyledItemDesc>
-                                                        <StyledCategoryItem>
-                                                            {exp.category}
-                                                        </StyledCategoryItem>
-                                                        <StyledCommentsItem>
-                                                            Uwagi:{" "}
-                                                            {exp.name}{" "}
-                                                        </StyledCommentsItem>
-                                                    </StyledItemDesc>
-                                                    <StyledValueItem>
-                                                        {exp.value} zł
-                                                    </StyledValueItem>
-                                                </StyledWrapper>
-                                                {windowWidth.width < 792 ?
-                                                    (<StyledMobileEditButton
-                                                        onClick={() => editSelectItem(exp.id)}>
-                                                    </StyledMobileEditButton>)
-                                                    : (<StyledButtonWrapper>
-                                                        <StyledEditButton
-                                                            onClick={() => openModal(exp.id)}>
-                                                            <FaRegEdit />
-                                                        </StyledEditButton>
-                                                        <StyledDeleteButton
-                                                            onClick={() => deleteExpense(exp.id)}>
-                                                            <FaRegTrashCan />
-                                                        </StyledDeleteButton>
-                                                    </StyledButtonWrapper>)
-                                                }
-
-                                            </StyledDayListItem>
-                                        ))}
-                                </StyledDayList>
-                            </StyledDateListItem>
-                        ))
-                    }
-                </StyledDateList>
-            </StyledExpenses>
-        </>
+        <StyledExpenses>
+            <StyledDateList>
+                {[...datesList]
+                    .sort((a, b) => new Date(b.date) - new Date(a.date))
+                    .map(date => (
+                        <StyledDateListItem key={date.id}>
+                            <h3 >{date.date}</h3>
+                            <StyledDayList>
+                                {expList
+                                    .filter(exp => exp.date === date.date)
+                                    .map(exp => (
+                                        <StyledDayListItem key={exp.id}>
+                                            <StyledWrapper >
+                                                <StyledItemDesc>
+                                                    <StyledCategoryItem>
+                                                        {exp.category}
+                                                    </StyledCategoryItem>
+                                                    <StyledCommentsItem>
+                                                        Uwagi:{" "}
+                                                        {exp.name}{" "}
+                                                    </StyledCommentsItem>
+                                                </StyledItemDesc>
+                                                <StyledValueItem>
+                                                    {exp.value} zł
+                                                </StyledValueItem>
+                                            </StyledWrapper>
+                                            {windowWidth.width < 792 ?
+                                                (<StyledMobileEditButton
+                                                    onClick={() => openModal(exp.id)}>
+                                                </StyledMobileEditButton>)
+                                                : (<StyledButtonWrapper>
+                                                    <StyledEditButton
+                                                        onClick={() => openModal(exp.id)}>
+                                                        <FaRegEdit />
+                                                    </StyledEditButton>
+                                                    <StyledDeleteButton
+                                                        onClick={() => deleteExpense(exp.id)}>
+                                                        <FaRegTrashCan />
+                                                    </StyledDeleteButton>
+                                                </StyledButtonWrapper>)
+                                            }
+                                        </StyledDayListItem>
+                                    ))}
+                            </StyledDayList>
+                        </StyledDateListItem>
+                    ))
+                }
+            </StyledDateList>
+        </StyledExpenses>
     );
 };
 

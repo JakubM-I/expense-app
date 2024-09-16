@@ -1,7 +1,7 @@
-import styled, {css, keyframes} from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 export const StyledBar = styled.div`
-    background: ${({theme}) => theme.colors.mainDarkColor};
+    background: ${({ theme }) => theme.colors.mainDarkColor};
     box-shadow: 0 0 10px 2px #0006;
     height: auto;
     position: relative;
@@ -12,11 +12,11 @@ export const StyledBar = styled.div`
     border-radius: 15px;
     padding: 5px;
 
-    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+    @media(max-width: ${({ theme }) => `${theme.breakpoints.tablet}px`}){
             padding: 0;
         }
 
-    ${({$collapseMenu}) => $collapseMenu && css`
+    ${({ $collapseMenu }) => $collapseMenu && css`
             padding: 0;
         `}
 `
@@ -63,7 +63,7 @@ const showTitle = keyframes`
 `
 
 export const StyledHeaderTitle = styled.h1`
-        color: ${({theme}) => theme.colors.lightFont};
+        color: ${({ theme }) => theme.colors.lightFont};
         display: block;
         font-size: 28px;
         text-align: center;
@@ -75,15 +75,15 @@ export const StyledHeaderTitle = styled.h1`
         overflow: hidden;
         white-space: nowrap;
 
-        ${({$collapseMenu}) => $collapseMenu && css`
+        ${({ $collapseMenu }) => $collapseMenu && css`
             animation: ${hideTitle} 0.7s linear forwards;
         `}
 
-        ${({$collapseMenu, $closeMenu}) => !$collapseMenu && $closeMenu && css`
+        ${({ $collapseMenu, $closeMenu }) => !$collapseMenu && $closeMenu && css`
             animation: ${showTitle} 0.75s linear forwards;
         `}
 
-        @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+        @media(max-width: ${({ theme }) => `${theme.breakpoints.tablet}px`}){
             display: none;
         }
 `
@@ -100,7 +100,7 @@ export const StyledAddButton = styled.button`
     -webkit-appearance: none;
     border: none;
     font-size: 18px;
-    color: ${({theme}) => theme.colors.lightFont};
+    color: ${({ theme }) => theme.colors.lightFont};
     display: flex;
     gap: 8px;
     justify-content: flex-start;
@@ -120,7 +120,7 @@ const hideItem = keyframes`
 `
 
 export const StyledAddMark = styled.span`
-    color: ${({theme}) => theme.colors.lightFont};
+    color: ${({ theme }) => theme.colors.lightFont};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,16 +139,16 @@ export const StyledAddName = styled.span`
     overflow: hidden;
     white-space: nowrap;
 
-    ${({$collapseMenu}) => $collapseMenu && css`
+    ${({ $collapseMenu }) => $collapseMenu && css`
             animation: ${hideItem} 0.7s linear forwards;
         `}
 
-    ${({$collapseMenu, $closeMenu}) =>  $collapseMenu && $closeMenu && css`
+    ${({ $collapseMenu, $closeMenu }) => $collapseMenu && $closeMenu && css`
         display: none;
     `}
 
 
-    @media(max-width: ${({theme}) => theme.breakpoints.tablet}){
+    @media(max-width: ${({ theme }) => `${theme.breakpoints.tablet}px`}){
         display: none;
     }
 `
@@ -160,13 +160,13 @@ export const StyledButtonWrapper = styled.div`
     justify-items: right;
     padding-inline-end: 10px;
 
-    @media (max-width: ${({theme}) => theme.breakpoints.tablet}){
+    @media (max-width: ${({ theme }) => `${theme.breakpoints.tablet}px`}){
         display: none;
     }
 `
 
 export const StyledCollapseButton = styled.button`
-    color: ${({theme}) => theme.colors.lightFont};
+    color: ${({ theme }) => theme.colors.lightFont};
     background: none;
     border: none;
     cursor: pointer;
