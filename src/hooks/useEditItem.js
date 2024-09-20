@@ -7,7 +7,7 @@ export const useEditItem = (editedList) => {
 
     const editSelectItem = (selectedId) => {
 
-        const selectItem = editedList.find(({id}) => id === selectedId);
+        const selectItem = editedList.find(({ id }) => id === selectedId);
 
         setEditItem(selectItem);
         setIsEdit(true);
