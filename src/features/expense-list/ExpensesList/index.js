@@ -20,7 +20,7 @@ import {
 } from "./styled";
 import { useContext } from "react";
 import { ExpensesContext, OpenModalContext } from "../../../context/ExpenseProvider";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 
 const ExpensesList = ({ deleteExpense, editSelectItem }) => {
@@ -30,7 +30,7 @@ const ExpensesList = ({ deleteExpense, editSelectItem }) => {
     const { isOpen, setIsOpen } = useContext(OpenModalContext);
 
     const openModal = (expId) => {
-        setIsOpen(true)
+        // setIsOpen(true)
         navigate(`/expense-app/expense/${expId}`);
     }
 

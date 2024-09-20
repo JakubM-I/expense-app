@@ -1,6 +1,51 @@
 import styled, { css, keyframes } from 'styled-components';
 
 export const StyledEditModal = styled.div`
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset: 0;
+    /* visibility: hidden; */
+    opacity: 0;
+    top: 0;
+    width: calc(100% - 1em);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0000005c;
+    transition: all 0.3s linear;
+
+    @media (max-width: ${({ theme }) => `${theme.breakpoints.mobile}px`}){
+        top: calc(${({ theme }) => theme.dimensions.mobileHeaderHeight} + ${({ theme }) => theme.dimensions.mobileHeaderMarginBlock});
+
+    }
+
+    ${({ $isOpen }) => $isOpen && css`
+        /* animation: ${openModal} 0.3s linear forwards; */
+        opacity: 1;
+    ` }
+
+    ${({ $isOpen }) => !$isOpen && css`
+        /* animation: ${closeModal} 0.3s linear forwards; */
+        opacity: 0;
+    ` }
+`
+const openModal = keyframes`
+    /* 0%{visibility: hidden;} */
+    /* 100%{visibility: visible; background: #0000005c;} */
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+`
+
+const closeModal = keyframes`
+    /* 0%{visibility: visible; background: #0000005c;}
+    100%{visibility: hidden;} */
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+`
+
+export const StyledEditForm = styled.div`
     padding: 20px;
     background: ${({ theme }) => theme.colors.formBackground};
     border-radius: 8px;
@@ -21,12 +66,17 @@ export const StyledEditModal = styled.div`
         opacity: 1;
         scale: 100%;
     `}
+
+    /* ${({ $isOpen }) => !$isOpen && css`
+        opacity: 0;
+        transform: translateX(-100%);
+    `} */
 `
 
-const openModal = keyframes`
-    0% {opacity: 0; scale: 125%;}
-    100% {opacity: 1; scale: 100%;}
-`
+// const openForm = keyframes`
+//     0% {opacity: 0; scale: 125%;}
+//     100% {opacity: 1; scale: 100%;}
+// `
 
 export const StyledFormHeader = styled.div`
     margin-block-start: 0.3em;

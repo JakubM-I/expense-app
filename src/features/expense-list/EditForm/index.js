@@ -9,7 +9,7 @@ import Modal from "../../../common/Modal";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
 import {
-    StyledEditModal,
+    StyledEditForm,
     StyledFormHeader,
     StyledBackButton,
     StyledFormTitle,
@@ -25,7 +25,8 @@ import {
     StyledLetterCounter,
     StyledButtonWrapper,
     StyledButton,
-    StyledCancelButton
+    StyledCancelButton,
+    StyledEditModal
 } from "./styled";
 
 const EditForm = () => {
@@ -52,12 +53,22 @@ const EditForm = () => {
         editSelectItem(expId);
     }, [expId, editSelectItem])
 
+    // useEffect(() => {
+    //     setName(editItem ? editItem.name : "");
+    //     setDate(editItem ? editItem.date : "");
+    //     setValue(editItem ? editItem.value : "");
+    //     setCategory(editItem ? editItem.category : "");
+    // }, [editItem])
+
     useEffect(() => {
-        setName(editItem ? editItem.name : "");
-        setDate(editItem ? editItem.date : "");
-        setValue(editItem ? editItem.value : "");
-        setCategory(editItem ? editItem.category : "");
+        if (editItem) {
+            setName(editItem.name || "");
+            setDate(editItem.date || "");
+            setValue(editItem.value || "");
+            setCategory(editItem.category || "");
+        }
     }, [editItem])
+
 
     const selectId = editItem.id;
 
@@ -88,88 +99,91 @@ const EditForm = () => {
     };
 
     return (
-        <Modal>
-            <StyledEditModal
-                // $isEdit={isEdit} 
-                $isOpen={isOpen}
-                onClick={(e) => e.stopPropagation()}
-            >
-                <StyledFormHeader>
-                    {window.innerWidth < 792 ?
-                        (<StyledBackButton onClick={(e) => cancelEdit(e)}>
-                            <FaArrowLeft />
-                        </StyledBackButton>)
-                        : ""
-                    }
-                    <StyledFormTitle>Edytuj pozycję</StyledFormTitle>
-                    {window.innerWidth < 792 ?
-                        (<StyledDeleteButton onClick={() => deleteItem()}>
-                            <FaRegTrashCan />
-                        </StyledDeleteButton>)
-                        : ""
-                    }
-                </StyledFormHeader>
-                <form onSubmit={submit} >
-                    <StyledFieldset>
-                        <StyledValueWrapper>
-                            <StyledValueInput id="value"
-                                value={value}
-                                onChange={({ target }) => setValue(target.value)}
-                            />
-                            <StyledValueLabel>PLN</StyledValueLabel>
-                        </StyledValueWrapper>
-                        <StyledDetailsWrapper>
-                            <StyledWrapper>
-                                <label htmlFor="date">Data</label>
-                                <input id="date"
-                                    type="date"
-                                    value={date}
-                                    onChange={({ target }) => setDate(target.value)}
+        <>
+            <StyledEditModal $isOpen={isEdit}>
+                {/* <Modal> */}
+                <StyledEditForm
+                    // $isEdit={isEdit} 
+                    $isOpen={isEdit}
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <StyledFormHeader>
+                        {window.innerWidth < 792 ?
+                            (<StyledBackButton onClick={(e) => cancelEdit(e)}>
+                                <FaArrowLeft />
+                            </StyledBackButton>)
+                            : ""
+                        }
+                        <StyledFormTitle>Edytuj pozycję</StyledFormTitle>
+                        {window.innerWidth < 792 ?
+                            (<StyledDeleteButton onClick={() => deleteItem()}>
+                                <FaRegTrashCan />
+                            </StyledDeleteButton>)
+                            : ""
+                        }
+                    </StyledFormHeader>
+                    <form onSubmit={submit} >
+                        <StyledFieldset>
+                            <StyledValueWrapper>
+                                <StyledValueInput id="value"
+                                    value={value}
+                                    onChange={({ target }) => setValue(target.value)}
                                 />
-                            </StyledWrapper>
-                            <StyledWrapper>
-                                <label htmlFor="category">Kategoria</label>
-                                <select
-                                    id="category"
-                                    value={category}
-                                    onChange={({ target }) => setCategory(target.value)}
-                                >
-                                    {catList.map(cat => (
-                                        <option
-                                            key={cat.id}
-                                            value={cat.categoryName.toLowerCase()}
-                                        >
-                                            {cat.categoryName}
-                                        </option>
-                                    ))}
-                                </select>
-                            </StyledWrapper>
-                        </StyledDetailsWrapper>
-                        <StyledNotesWrapper>
-                            <label htmlFor="name">Uwagi</label>
-                            <StyledNotesInputWrapper>
-                                <input id="name"
-                                    value={name}
-                                    maxLength={25}
-                                    ref={nameRef}
-                                    onChange={({ target }) => setName(target.value)}
-                                />
-                                <StyledLetterCounter>
-                                    ({letterCount}/25)
-                                </StyledLetterCounter>
-                            </StyledNotesInputWrapper>
-                        </StyledNotesWrapper>
-                    </StyledFieldset>
-                    <StyledButtonWrapper>
-                        <StyledButton>Zapisz</StyledButton>
-                        <StyledCancelButton onClick={(e) => cancelEdit(e)}>
-                            Anuluj
-                        </StyledCancelButton>
-                    </StyledButtonWrapper>
-                </form>
+                                <StyledValueLabel>PLN</StyledValueLabel>
+                            </StyledValueWrapper>
+                            <StyledDetailsWrapper>
+                                <StyledWrapper>
+                                    <label htmlFor="date">Data</label>
+                                    <input id="date"
+                                        type="date"
+                                        value={date}
+                                        onChange={({ target }) => setDate(target.value)}
+                                    />
+                                </StyledWrapper>
+                                <StyledWrapper>
+                                    <label htmlFor="category">Kategoria</label>
+                                    <select
+                                        id="category"
+                                        value={category}
+                                        onChange={({ target }) => setCategory(target.value)}
+                                    >
+                                        {catList.map(cat => (
+                                            <option
+                                                key={cat.id}
+                                                value={cat.categoryName.toLowerCase()}
+                                            >
+                                                {cat.categoryName}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </StyledWrapper>
+                            </StyledDetailsWrapper>
+                            <StyledNotesWrapper>
+                                <label htmlFor="name">Uwagi</label>
+                                <StyledNotesInputWrapper>
+                                    <input id="name"
+                                        value={name}
+                                        maxLength={25}
+                                        ref={nameRef}
+                                        onChange={({ target }) => setName(target.value)}
+                                    />
+                                    <StyledLetterCounter>
+                                        ({letterCount}/25)
+                                    </StyledLetterCounter>
+                                </StyledNotesInputWrapper>
+                            </StyledNotesWrapper>
+                        </StyledFieldset>
+                        <StyledButtonWrapper>
+                            <StyledButton>Zapisz</StyledButton>
+                            <StyledCancelButton onClick={(e) => cancelEdit(e)}>
+                                Anuluj
+                            </StyledCancelButton>
+                        </StyledButtonWrapper>
+                    </form>
+                </StyledEditForm>
+                {/* </Modal> */}
             </StyledEditModal>
-        </Modal>
-
+        </>
     )
 };
 
