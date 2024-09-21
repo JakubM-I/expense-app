@@ -35,7 +35,6 @@ const AddForm = ({ addNewExpense }) => {
 
     const valueRef = useRef();
 
-
     const nowDate = new Date();
     const currentDate = [
         nowDate.getFullYear(),
@@ -55,14 +54,13 @@ const AddForm = ({ addNewExpense }) => {
         }
 
         addNewExpense(name.trim(), date, value, category, categoryId);
-        console.log("Kategoria ID:", categoryId);
         valueRef.current.focus();
         setName("");
         setDate(currentDate);
         setValue("");
         setCategory("");
+        setIsOpen(false);
     };
-
 
     const cancelAdd = () => {
         setIsOpen(false);
